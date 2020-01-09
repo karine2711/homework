@@ -16,7 +16,8 @@ public class University {
     static {
         University UNIVERSITY1;
         try {
-            UNIVERSITY1 = new University(new Faculty[]{});
+           UNIVERSITY1=new University(new Faculty[]{new Faculty("CS"), new Faculty("EC")});
+
         } catch (NullFacultyListException e) {
             try {
                 UNIVERSITY1 = new University(new Faculty[]{new Faculty("Default")});
