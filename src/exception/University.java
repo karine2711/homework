@@ -12,7 +12,6 @@ import exception.exceptions.*;
 public class University {
 
     private static final University UNIVERSITY;
-
     static {
         University UNIVERSITY1;
         try {
@@ -31,6 +30,7 @@ public class University {
     }
 
     private Faculty[] facultyList;
+    private Student[] studentList;
 
     private University(Faculty[] faculties) throws NullFacultyListException {
         if (faculties.length == 0) {
@@ -49,4 +49,14 @@ public class University {
     public Faculty[] getFacultyList() {
         return facultyList;
     }
+
+    public void setStudentList(Student[] studentList) {
+        this.studentList = studentList;
+    }
+
+    public Student[] getStudentList() {
+        return studentList;
+    }
+
+
 }

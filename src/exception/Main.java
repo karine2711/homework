@@ -9,7 +9,9 @@ public class Main {
         University AUA = University.getUniversity();
         Faculty[] faculties = AUA.getFacultyList();
         UniversityService.initializeGroups(faculties);
-        System.out.println(faculties[0].getGroups()[0].getName());
+        UniversityService.initializeStudents(AUA);
+        System.out.println(AUA.getStudentList()[2].getFullName());
+
 
         System.out.println("Finished successfully!");
 
