@@ -1,4 +1,7 @@
 package exception;
+
+import exception.exceptions.NullGroupListException;
+
 /**
  * The faculty class represents the faculties of the university.
  * Contains lists of groups and students.
@@ -20,12 +23,21 @@ public class Faculty {
         return name;
     }
 
-    public void setGroups(Group[] groups) {
-        this.groups = groups;
+    public void setGroups(Group[] groups) throws NullGroupListException {
+        if(groups.length==0) {
+            throw new NullGroupListException(this);
+
+        } else {
+            this.groups = groups;
+        }
     }
 
     public Group[] getGroups() {
-        return groups;
+        if(groups.length==0){
+            throw new NullGroupListException(this);
+        }else {
+            return groups;
+        }
     }
 
     public char[] getGroupNames() {
