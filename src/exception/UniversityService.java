@@ -3,13 +3,17 @@ package exception;
 import exception.exceptions.NullGroupListException;
 import exception.exceptions.NullStudentListException;
 
+import java.text.DecimalFormat;
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  *Contains all general functions used within the program.
  *
  * @author Karine Gevorgyan
  */
 public class UniversityService {
-
+    final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     public static void initializeGroups(Faculty[] faculties)  {
         try {
             faculties[0].setGroups(new Group[]{
@@ -125,6 +129,43 @@ public class UniversityService {
                 }
             }
         }
+    }
+
+    public static void gradeStudents(Group group, boolean byScanner) {
+        Scanner scanner = new Scanner(System.in);
+
+        if (byScanner) {
+            System.out.println("Group " + group.getName());
+            group.printStudents();
+            System.out.println("------------------");
+        }
+
+        Student[] students = group.studentList;
+        String[] courseNames = group.getCourseNames();
+        double grade;
+        int courseQuantity = courseNames.length;
+        for (Student student : students) {
+            CourseGrade[] courseGrades = new CourseGrade[courseQuantity];
+            for (int i = 0; i < courseQuantity; i++) {
+                if (byScanner) {
+                    System.out.println("Please enter " + student.getFullName() + "'s grade from " + courseNames[i]);
+                    grade = scanner.nextDouble();
+                    while (grade > 10 || grade < 0) {
+                        System.out.println("The grade must be between 0 and 10");
+                        grade = scanner.nextDouble();
+                    }
+                } else {
+                    Random rd = new Random();
+
+                    grade = rd.nextInt(9) + 1 + Double.parseDouble(numberFormat.format(rd.nextDouble()));
+                }
+                courseGrades[i] = new CourseGrade(courseNames[i], grade);
+
+            }
+            student.setCourseGrades(courseGrades);
+
+        }
+
     }
 
     public static int search(char arr[], char x) {

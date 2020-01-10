@@ -19,6 +19,12 @@ public class Main {
                 UniversityService.distributeStudentsToGroups(faculty);
             }
             System.out.println(faculties[0].getGroups()[0].studentList[0].getFullName());
+            for(Faculty faculty:faculties){
+                Group[] groups=faculty.getGroups();
+                for(Group group:groups){
+                    UniversityService.gradeStudents(group,true);
+                }
+            }
         } catch (NullStudentListException e){
             e.printStackTrace();
         }

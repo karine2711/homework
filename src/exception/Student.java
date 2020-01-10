@@ -11,6 +11,7 @@ public class Student {
     private char groupName;
     private int facultyNumber;
     private int groupIndex;
+    private CourseGrade[] courseGrades;
 
     public Student(String fullName, int facultyNumber, char groupName){
         this.fullName=fullName;
@@ -34,5 +35,13 @@ public class Student {
 
     public int getGroupIndex() {
         return groupIndex;
+    }
+
+    public CourseGrade[] getCourseGrades() {
+        return courseGrades;
+    }
+
+    public void setCourseGrades(CourseGrade[] courseGrades) {
+        this.courseGrades = courseGrades;
     }
 }

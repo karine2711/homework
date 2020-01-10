@@ -11,6 +11,7 @@ public class Group {
     private String courseNames[];
     public Student[] studentList;
     private  int studentQuantity=0;
+
     public Group(char name, String[] courseNames){
         this.name=name;
         this.courseNames=courseNames;
@@ -32,5 +33,15 @@ public class Group {
 
     public void setStudentList(Student[] studentList) {
         this.studentList = studentList;
+    }
+
+    public String[] getCourseNames() {
+        return courseNames;
+    }
+
+    public void printStudents(){
+        for (Student student:studentList){
+            System.out.println(student.getFullName());
+        }
     }
 }
