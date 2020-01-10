@@ -1,4 +1,7 @@
 package exception;
+
+import java.text.DecimalFormat;
+
 /**
  * The Student class represents the students of the university.
  * Contains lists of courseGrades and relevant information about
@@ -7,6 +10,7 @@ package exception;
  * @author Karine Gevorgyan
  */
 public class Student {
+    final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String fullName;
     private char groupName;
     private int facultyNumber;
@@ -49,5 +53,14 @@ public class Student {
         for (CourseGrade courseGrade:this.courseGrades){
             System.out.println(courseGrade.getCourseName()+":  "+courseGrade.getGrade());
         }
+    }
+
+    public double countMeanGrade() {
+        int quantity = courseGrades.length;
+        double sum = 0;
+        for (CourseGrade courseGrade : courseGrades) {
+            sum += courseGrade.getGrade();
+        }
+        return Double.parseDouble(numberFormat.format(sum / quantity));
     }
 }

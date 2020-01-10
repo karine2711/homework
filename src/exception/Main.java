@@ -30,6 +30,8 @@ public class Main {
             try {
                 Student student = AUA.getStudentByInfo("CS", 'A', "Karine Gevorgyan");
                 student.printCourseGrades();
+                System.out.println("Mean grade = "+student.countMeanGrade());
+                System.out.println("---------------------------------");
             } catch (NullPointerException e){
                 e.printStackTrace();
             }
