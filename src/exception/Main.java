@@ -20,6 +20,7 @@ public class Main {
             for (Faculty faculty : faculties) {
                 UniversityService.distributeStudentsToGroups(faculty);
             }
+
             //Grade all students
             for (Faculty faculty : faculties) {
                 Group[] groups = faculty.getGroups();
@@ -27,6 +28,8 @@ public class Main {
                     UniversityService.gradeStudents(group, false);
                 }
             }
+
+            //count given student's mean grade
             try {
                 Student student = AUA.getStudentByInfo("CS", 'A', "Karine Gevorgyan");
                 student.printCourseGrades();
@@ -36,6 +39,19 @@ public class Main {
                 e.printStackTrace();
             }
 
+            //count mean grade in a given group, for a given subject
+        try {
+            Group group=AUA.getGroupByInfo("EC",'B');
+
+            System.out.println("Mean grade for given subject in group "
+                    +group.getName()
+                    +" = "+group.countMeanGrade("Work ethics")
+            );
+            System.out.println("---------------------------------");
+
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
 
 //        } catch (NullStudentListException e){
 //            e.printStackTrace();
