@@ -44,4 +44,10 @@ public class Student {
     public void setCourseGrades(CourseGrade[] courseGrades) {
         this.courseGrades = courseGrades;
     }
+    public void printCourseGrades(){
+        System.out.println("--" + this.getFullName() + "--");
+        for (CourseGrade courseGrade:this.courseGrades){
+            System.out.println(courseGrade.getCourseName()+":  "+courseGrade.getGrade());
+        }
+    }
 }

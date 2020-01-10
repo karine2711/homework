@@ -31,6 +31,7 @@ public class University {
 
     private Faculty[] facultyList;
     private Student[] studentList;
+    private String[] facultyNames;
 
     private University(Faculty[] faculties) throws NullFacultyListException {
         if (faculties.length == 0) {
@@ -50,6 +51,14 @@ public class University {
         return facultyList;
     }
 
+    public String[] getFacultyNames(){
+        facultyNames=new String[facultyList.length];
+        for (int i = 0; i <facultyList.length ; i++) {
+            facultyNames[i]=facultyList[i].getName();
+        }
+        return facultyNames;
+    }
+
     public void setStudentList(Student[] studentList) throws NullStudentListException {
         if(studentList.length==0){
             throw new NullStudentListException();
@@ -67,4 +76,50 @@ public class University {
     }
 
 
+    public Student getStudentByInfo(String facultyName, char groupName, String fullName){
+
+        try{
+            Group group=getGroupByInfo(facultyName,groupName);
+            int   index=UniversityService.search(group.getStudentNames(),fullName);
+            if(index==-1){
+                System.out.println("There is no such student in group"+groupName+" of faculty "+facultyName);
+                return null;
+            }
+            return group.getStudentList()[index];
+        }catch (NullPointerException e){
+            System.out.println("Group is NULL");
+            return null;
+        }
+
+    }
+
+    public Group getGroupByInfo(String facultyName, char groupName){
+
+        try{
+            Faculty faculty=getfacultyByName(facultyName);
+            int index=UniversityService.search(faculty.getGroupNames(),groupName);
+            if(index==-1){
+                System.out.println("There is no such group in faculty"+facultyName);
+                return null;
+            }
+            Group group=faculty.getGroups()[index];
+
+            return  group;
+        } catch (NullPointerException e){
+            System.out.println("Faculty is null!");
+            return null;
+        }
+    }
+
+    public Faculty getfacultyByName(String facultyName){
+        int index=UniversityService.search(UNIVERSITY.getFacultyNames(),facultyName);
+        if(index==-1){
+            System.out.println("There is no such faculty!");
+            return null;
+        }
+        Faculty faculty=UNIVERSITY.facultyList[index];
+
+        return faculty;
+
+    }
 }

@@ -1,4 +1,7 @@
 package exception;
+
+import javax.xml.transform.sax.SAXResult;
+
 /**
  * The Group class represents the groups in each faculty of the University.
  * Contains lists of courses and students.
@@ -9,8 +12,9 @@ package exception;
 public class Group {
     private char name;
     private String courseNames[];
-    public Student[] studentList;
+    private Student[] studentList;
     private  int studentQuantity=0;
+    private String[] studentNames;
 
     public Group(char name, String[] courseNames){
         this.name=name;
@@ -43,5 +47,17 @@ public class Group {
         for (Student student:studentList){
             System.out.println(student.getFullName());
         }
+    }
+
+    public String[] getStudentNames() {
+        studentNames=new String[studentList.length];
+        for (int i = 0; i <studentList.length ; i++) {
+            studentNames[i]=studentList[i].getFullName();
+        }
+        return studentNames;
+    }
+
+    public void setStudentNames(String[] studentNames) {
+        this.studentNames = studentNames;
     }
 }

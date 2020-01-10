@@ -112,22 +112,25 @@ public class UniversityService {
             if (index != -1) {
                 int temp=groups[index].getStudentQuantity();
                 groups[index].setStudentQuantity(++temp);
+
             }
         }
         int groupQuantity = faculty.getGroups().length;
 
         for (int i = 0; i < groupQuantity; i++) {
             int index = 0;
-            groups[i].setStudentList(new Student[groups[i].getStudentQuantity()]);
+            Student[] studentList=new Student[groups[i].getStudentQuantity()];
             for (Student student : students) {
 
                 int groupIndex = student.getGroupIndex();
 
                 if (groupIndex == i) {
-                    groups[i].studentList[index] = student;
+                  studentList[index] = student;
+
                     index++;
                 }
             }
+        groups[i].setStudentList(studentList);
         }
     }
 
@@ -140,7 +143,7 @@ public class UniversityService {
             System.out.println("------------------");
         }
 
-        Student[] students = group.studentList;
+        Student[] students = group.getStudentList();
         String[] courseNames = group.getCourseNames();
         double grade;
         int courseQuantity = courseNames.length;
@@ -174,6 +177,15 @@ public class UniversityService {
             if (arr[i] == x) {
                 return i;
             }
+        }
+        return -1;
+    }
+
+    public static int search(String arr[], String x) {
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            if (arr[i].equals(x))
+                return i;
         }
         return -1;
     }
