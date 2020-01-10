@@ -25,7 +25,7 @@ public class Faculty {
 
     public void setGroups(Group[] groups) throws NullGroupListException {
         if(groups.length==0) {
-            throw new NullGroupListException(this);
+            throw new NullGroupListException();
 
         } else {
             this.groups = groups;
@@ -34,7 +34,7 @@ public class Faculty {
 
     public Group[] getGroups() {
         if(groups.length==0){
-            throw new NullGroupListException(this);
+            throw new NullGroupListException();
         }else {
             return groups;
         }

@@ -10,7 +10,7 @@ import exception.Group;
  * @author Karine Gevorgyan
  */
 public class NullGroupListException extends RuntimeException{
-    public NullGroupListException(Faculty faculty) {}
+    public NullGroupListException() {}
 
     @Override
     public String toString() {

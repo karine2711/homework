@@ -1,6 +1,7 @@
 package exception;
 
 import exception.exceptions.NullGroupListException;
+import exception.exceptions.NullStudentListException;
 
 /**
  *Contains all general functions used within the program.
@@ -39,17 +40,22 @@ public class UniversityService {
 
     public static void initializeStudents(University uni) {
         Student[] students = new Student[]{
-                new Student("Karine Gevorgyan", 1, 'A'),
-                new Student("Siranush Mshetsyan", 1, 'A'),
-                new Student("Vahag Mkrtchyan", 1, 'B'),
-                new Student("Anahit Chaxmaxchyan", 1, 'B'),
-                new Student("Milena Xachatryan", 1, 'B'),
-                new Student("Lolita Bryusovna", 2, 'A'),
-                new Student("Torgom Rostovyan", 2,'A'),
-                new Student("Karlen Yesayan", 2, 'B'),
-                new Student("Vazgen Martirosyan", 2, 'B'),
-                new Student("Perch Proshyan", 2, 'B'),
+//                new Student("Karine Gevorgyan", 1, 'A'),
+//                new Student("Siranush Mshetsyan", 1, 'A'),
+//                new Student("Vahag Mkrtchyan", 1, 'B'),
+//                new Student("Anahit Chaxmaxchyan", 1, 'B'),
+//                new Student("Milena Xachatryan", 1, 'B'),
+//                new Student("Lolita Bryusovna", 2, 'A'),
+//                new Student("Torgom Rostovyan", 2,'A'),
+//                new Student("Karlen Yesayan", 2, 'B'),
+//                new Student("Vazgen Martirosyan", 2, 'B'),
+//                new Student("Perch Proshyan", 2, 'B'),
         };
-        uni.setStudentList(students);
+        try {
+            uni.setStudentList(students);
+        } catch (NullStudentListException e) {
+            System.out.println("Please add students to the university!");
+        }
+
     }
 }

@@ -50,12 +50,20 @@ public class University {
         return facultyList;
     }
 
-    public void setStudentList(Student[] studentList) {
-        this.studentList = studentList;
+    public void setStudentList(Student[] studentList) throws NullStudentListException {
+        if(studentList.length==0){
+            throw new NullStudentListException();
+        } else {
+            this.studentList = studentList;
+        }
     }
 
-    public Student[] getStudentList() {
-        return studentList;
+    public Student[] getStudentList() throws NullStudentListException {
+        if(studentList==null){
+            throw new NullStudentListException();
+        } else {
+            return studentList;
+        }
     }
 
 
