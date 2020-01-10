@@ -15,6 +15,10 @@ public class Main {
             System.out.println(AUA.getStudentList()[2].getFullName());
             UniversityService.distributeStudentsToFaculties(AUA);
             System.out.println(faculties[0].getStudentList()[1].getFullName());
+            for(Faculty faculty:faculties) {
+                UniversityService.distributeStudentsToGroups(faculty);
+            }
+            System.out.println(faculties[0].getGroups()[0].studentList[0].getFullName());
         } catch (NullStudentListException e){
             e.printStackTrace();
         }

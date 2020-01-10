@@ -10,6 +10,7 @@ public class Student {
     private String fullName;
     private char groupName;
     private int facultyNumber;
+    private int groupIndex;
 
     public Student(String fullName, int facultyNumber, char groupName){
         this.fullName=fullName;
@@ -23,4 +24,15 @@ public class Student {
         return facultyNumber;
     }
 
+    public char getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupIndex(int index) {
+        this.groupIndex=index;
+    }
+
+    public int getGroupIndex() {
+        return groupIndex;
+    }
 }

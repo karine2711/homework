@@ -96,4 +96,44 @@ public class UniversityService {
         }
     }
 
+    public static void distributeStudentsToGroups(Faculty faculty) {
+        Student[] students = faculty.getStudentList();
+        Group[] groups = faculty.getGroups();
+        for (Student student : students) {
+
+            char groupName = student.getGroupName();
+
+            int index = search(faculty.getGroupNames(), groupName);
+            student.setGroupIndex(index);
+            if (index != -1) {
+                int temp=groups[index].getStudentQuantity();
+                groups[index].setStudentQuantity(++temp);
+            }
+        }
+        int groupQuantity = faculty.getGroups().length;
+
+        for (int i = 0; i < groupQuantity; i++) {
+            int index = 0;
+            groups[i].setStudentList(new Student[groups[i].getStudentQuantity()]);
+            for (Student student : students) {
+
+                int groupIndex = student.getGroupIndex();
+
+                if (groupIndex == i) {
+                    groups[i].studentList[index] = student;
+                    index++;
+                }
+            }
+        }
+    }
+
+    public static int search(char arr[], char x) {
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == x) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
