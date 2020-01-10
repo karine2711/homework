@@ -40,22 +40,60 @@ public class UniversityService {
 
     public static void initializeStudents(University uni) {
         Student[] students = new Student[]{
-//                new Student("Karine Gevorgyan", 1, 'A'),
-//                new Student("Siranush Mshetsyan", 1, 'A'),
-//                new Student("Vahag Mkrtchyan", 1, 'B'),
-//                new Student("Anahit Chaxmaxchyan", 1, 'B'),
-//                new Student("Milena Xachatryan", 1, 'B'),
-//                new Student("Lolita Bryusovna", 2, 'A'),
-//                new Student("Torgom Rostovyan", 2,'A'),
-//                new Student("Karlen Yesayan", 2, 'B'),
-//                new Student("Vazgen Martirosyan", 2, 'B'),
-//                new Student("Perch Proshyan", 2, 'B'),
+                new Student("Karine Gevorgyan", 1, 'A'),
+                new Student("Siranush Mshetsyan", 1, 'A'),
+                new Student("Vahag Mkrtchyan", 1, 'B'),
+                new Student("Anahit Chaxmaxchyan", 1, 'B'),
+                new Student("Milena Xachatryan", 1, 'B'),
+                new Student("Lolita Bryusovna", 2, 'A'),
+                new Student("Torgom Rostovyan", 2,'A'),
+                new Student("Karlen Yesayan", 2, 'B'),
+                new Student("Vazgen Martirosyan", 2, 'B'),
+                new Student("Perch Proshyan", 2, 'B'),
         };
         try {
             uni.setStudentList(students);
         } catch (NullStudentListException e) {
             System.out.println("Please add students to the university!");
         }
-
     }
+
+
+    public static void distributeStudentsToFaculties(University uni) {
+        Faculty[] faculties = uni.getFacultyList();
+        try {
+            Student[] students = uni.getStudentList();
+            int facNum;
+            for (Student student : students) {
+                //    System.out.println(student.getGroupName());
+                facNum = student.getFacultyNumber();
+                facNum--;
+                int temp=faculties[facNum].getStudentQuantity();
+                faculties[facNum].setStudentQuantity(++temp);
+            }
+            int facultyQuantity=uni.getFacultyList().length;
+
+            for(int i=0; i<facultyQuantity;i++) {
+                int index = 0;
+
+              Student[] studentList= new Student[faculties[i].getStudentQuantity()];
+                for (Student student : students) {
+                    facNum = student.getFacultyNumber();
+                    facNum--;
+                    if (facNum == i) {
+                       studentList[index] = student;
+                        index++;
+                    }
+                }
+                faculties[i].setStudentList(studentList);
+        }
+
+
+        } catch (NullStudentListException e) {
+            System.out.println("Failed to distribute students to faculties!");
+            e.printStackTrace();
+            return;
+        }
+    }
+
 }

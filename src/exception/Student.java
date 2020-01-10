@@ -18,4 +18,9 @@ public class Student {
     }
 
     public String getFullName(){return  fullName;}
+
+    public int getFacultyNumber() {
+        return facultyNumber;
+    }
+
 }

@@ -13,10 +13,11 @@ public class Main {
         UniversityService.initializeStudents(AUA);
         try {
             System.out.println(AUA.getStudentList()[2].getFullName());
+            UniversityService.distributeStudentsToFaculties(AUA);
+            System.out.println(faculties[0].getStudentList()[1].getFullName());
         } catch (NullStudentListException e){
             e.printStackTrace();
         }
-
 
 
         System.out.println("Finished successfully!");

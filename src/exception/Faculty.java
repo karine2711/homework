@@ -13,7 +13,8 @@ public class Faculty {
     private String name;
     private  Group[] groups;
     private char[] groupNames;
-
+    private Student[] studentList;
+    private int studentQuantity=0;
 
     public Faculty(String name) {
         this.name=name;
@@ -48,5 +49,19 @@ public class Faculty {
         return groupNames;
     }
 
+    public Student[] getStudentList() {
+        return studentList;
+    }
 
+    public void setStudentList(Student[] studentList) {
+        this.studentList = studentList;
+    }
+
+    public int getStudentQuantity() {
+        return studentQuantity;
+    }
+
+    public void setStudentQuantity(int studentQuantity) {
+        this.studentQuantity = studentQuantity;
+    }
 }
