@@ -14,30 +14,30 @@ public class Main {
         //Add Students to University
         UniversityService.initializeStudents(AUA);
 
-      //  try {
-            UniversityService.distributeStudentsToFaculties(AUA);
-            //Distribute all students to groups
-            for (Faculty faculty : faculties) {
-                UniversityService.distributeStudentsToGroups(faculty);
-            }
 
-            //Grade all students
-            for (Faculty faculty : faculties) {
-                Group[] groups = faculty.getGroups();
-                for (Group group : groups) {
-                    UniversityService.gradeStudents(group, false);
-                }
-            }
+        UniversityService.distributeStudentsToFaculties(AUA);
+        //Distribute all students to groups
+        for (Faculty faculty : faculties) {
+            UniversityService.distributeStudentsToGroups(faculty);
+        }
 
-            //count given student's mean grade
-            try {
-                Student student = AUA.getStudentByInfo("CS", 'A', "Karine Gevorgyan");
-                student.printCourseGrades();
-                System.out.println("Mean grade = "+student.countMeanGrade());
-                System.out.println("---------------------------------");
-            } catch (NullPointerException e){
-                e.printStackTrace();
+        //Grade all students
+        for (Faculty faculty : faculties) {
+            Group[] groups = faculty.getGroups();
+            for (Group group : groups) {
+                UniversityService.gradeStudents(group, false);
             }
+        }
+
+        //count given student's mean grade
+        try {
+            Student student = AUA.getStudentByInfo("CS", 'A', "Karine Gevorgyan");
+            student.printCourseGrades();
+            System.out.println("Mean grade = "+student.countMeanGrade());
+            System.out.println("---------------------------------");
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
 
             //count mean grade in a given group, for a given subject
         try {
@@ -49,13 +49,25 @@ public class Main {
             );
             System.out.println("---------------------------------");
 
-        }catch (NullPointerException e){
+        } catch (NullPointerException e){
             e.printStackTrace();
         }
 
-//        } catch (NullStudentListException e){
-//            e.printStackTrace();
-//        }
+        //Count mean grade in given faculty
+        try {
+            Faculty faculty=AUA.getfacultyByName("CS");
+
+            System.out.println("Mean grade for given subject in faculty "
+                    +faculty.getName()
+                    +" = "+faculty.countMeanGrade("Data Structures")
+            );
+
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        } catch (NumberFormatException e){
+            System.out.println("The faculty doesn't contain the given course");
+        }
+
 
 
         System.out.println("Finished successfully!");
