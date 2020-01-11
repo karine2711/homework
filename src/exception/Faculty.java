@@ -13,13 +13,13 @@ import java.text.DecimalFormat;
 public class Faculty {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String name;
-    private  Group[] groups;
+    private Group[] groups;
     private char[] groupNames;
     private Student[] studentList;
-    private int studentQuantity=0;
+    private int studentQuantity = 0;
 
     public Faculty(String name) {
-        this.name=name;
+        this.name = name;
     }
 
     public String getName() {
@@ -27,7 +27,7 @@ public class Faculty {
     }
 
     public void setGroups(Group[] groups) throws NullGroupListException {
-        if(groups.length==0) {
+        if (groups.length == 0) {
             throw new NullGroupListException();
 
         } else {
@@ -36,17 +36,17 @@ public class Faculty {
     }
 
     public Group[] getGroups() {
-        if(groups.length==0){
+        if (groups.length == 0) {
             throw new NullGroupListException();
-        }else {
+        } else {
             return groups;
         }
     }
 
     public char[] getGroupNames() {
-        groupNames=new char[groups.length];
+        groupNames = new char[groups.length];
         for (int i = 0; i < this.getGroups().length; i++) {
-            groupNames[i]=groups[i].getName();
+            groupNames[i] = groups[i].getName();
         }
         return groupNames;
     }
@@ -67,12 +67,12 @@ public class Faculty {
         this.studentQuantity = studentQuantity;
     }
 
-    public  double countMeanGrade( String courseName) {
+    public double countMeanGrade(String courseName) {
 
         double sum = 0;
         int quantity = 0;
         for (Group group : groups) {
-            double mean =group.countMeanGrade(courseName);
+            double mean = group.countMeanGrade(courseName);
             sum += mean;
             if (mean != -1) {
                 quantity++;

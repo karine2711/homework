@@ -5,7 +5,7 @@ import exception.exceptions.NullGroupListException;
 import exception.exceptions.NullStudentListException;
 
 public class Main {
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         //Get the University and its faculties
         University AUA = University.getUniversity();
         Faculty[] faculties = AUA.getFacultyList();
@@ -33,42 +33,42 @@ public class Main {
         try {
             Student student = AUA.getStudentByInfo("CS", 'A', "Karine Gevorgyan");
             student.printCourseGrades();
-            System.out.println("Mean grade = "+student.countMeanGrade());
+            System.out.println("Mean grade = " + student.countMeanGrade());
             System.out.println("---------------------------------");
             System.out.println();
             System.out.println();
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
-            //count mean grade in a given group, for a given subject
+        //count mean grade in a given group, for a given subject
         try {
-            Group group=AUA.getGroupByInfo("EC",'B');
+            Group group = AUA.getGroupByInfo("EC", 'B');
 
             System.out.println("Mean grade for given subject in group "
-                    +group.getName()
-                    +" = "+group.countMeanGrade("Work ethics")
+                    + group.getName()
+                    + " = " + group.countMeanGrade("Work ethics")
             );
             System.out.println("---------------------------------");
             System.out.println();
             System.out.println();
 
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
         //Count mean grade in given faculty
         try {
-            Faculty faculty=AUA.getfacultyByName("CS");
+            Faculty faculty = AUA.getfacultyByName("CS");
 
             System.out.println("Mean grade for given subject in faculty "
-                    +faculty.getName()
-                    +" = "+faculty.countMeanGrade("Data Structures")
+                    + faculty.getName()
+                    + " = " + faculty.countMeanGrade("Data Structures")
             );
 
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             e.printStackTrace();
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("The faculty doesn't contain the given course");
             System.out.println("---------------------------------");
             System.out.println();
@@ -76,15 +76,15 @@ public class Main {
         }
 
         try {
-            Faculty faculty=AUA.getfacultyByName("CS");
+            Faculty faculty = AUA.getfacultyByName("CS");
 
             System.out.println("Mean grade for given subject in University "
-                    +" = "+AUA.countMeanGrade("Data Structures")
+                    + " = " + AUA.countMeanGrade("Data Structures")
             );
 
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             e.printStackTrace();
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("The University doesn't contain the given course");
         }
 

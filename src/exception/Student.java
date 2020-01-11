@@ -17,13 +17,15 @@ public class Student {
     private int groupIndex;
     private CourseGrade[] courseGrades;
 
-    public Student(String fullName, int facultyNumber, char groupName){
-        this.fullName=fullName;
-        this.groupName=groupName;
-        this.facultyNumber=facultyNumber;
+    public Student(String fullName, int facultyNumber, char groupName) {
+        this.fullName = fullName;
+        this.groupName = groupName;
+        this.facultyNumber = facultyNumber;
     }
 
-    public String getFullName(){return  fullName;}
+    public String getFullName() {
+        return fullName;
+    }
 
     public int getFacultyNumber() {
         return facultyNumber;
@@ -34,7 +36,7 @@ public class Student {
     }
 
     public void setGroupIndex(int index) {
-        this.groupIndex=index;
+        this.groupIndex = index;
     }
 
     public int getGroupIndex() {
@@ -48,10 +50,11 @@ public class Student {
     public void setCourseGrades(CourseGrade[] courseGrades) {
         this.courseGrades = courseGrades;
     }
-    public void printCourseGrades(){
+
+    public void printCourseGrades() {
         System.out.println("--" + this.getFullName() + "--");
-        for (CourseGrade courseGrade:this.courseGrades){
-            System.out.println(courseGrade.getCourseName()+":  "+courseGrade.getGrade());
+        for (CourseGrade courseGrade : this.courseGrades) {
+            System.out.println(courseGrade.getCourseName() + ":  " + courseGrade.getGrade());
         }
     }
 

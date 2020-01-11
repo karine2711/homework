@@ -14,10 +14,11 @@ import java.text.DecimalFormat;
 public class University {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private static final University UNIVERSITY;
+
     static {
         University UNIVERSITY1;
         try {
-           UNIVERSITY1=new University(new Faculty[]{new Faculty("CS"), new Faculty("EC")});
+            UNIVERSITY1 = new University(new Faculty[]{new Faculty("CS"), new Faculty("EC")});
 
         } catch (NullFacultyListException e) {
             try {
@@ -53,16 +54,16 @@ public class University {
         return facultyList;
     }
 
-    public String[] getFacultyNames(){
-        facultyNames=new String[facultyList.length];
-        for (int i = 0; i <facultyList.length ; i++) {
-            facultyNames[i]=facultyList[i].getName();
+    public String[] getFacultyNames() {
+        facultyNames = new String[facultyList.length];
+        for (int i = 0; i < facultyList.length; i++) {
+            facultyNames[i] = facultyList[i].getName();
         }
         return facultyNames;
     }
 
     public void setStudentList(Student[] studentList) throws NullStudentListException {
-        if(studentList.length==0){
+        if (studentList.length == 0) {
             throw new NullStudentListException();
         } else {
             this.studentList = studentList;
@@ -70,7 +71,7 @@ public class University {
     }
 
     public Student[] getStudentList() throws NullStudentListException {
-        if(studentList==null){
+        if (studentList == null) {
             throw new NullStudentListException();
         } else {
             return studentList;
@@ -78,64 +79,64 @@ public class University {
     }
 
 
-    public Student getStudentByInfo(String facultyName, char groupName, String fullName){
+    public Student getStudentByInfo(String facultyName, char groupName, String fullName) {
 
-        try{
-            Group group=getGroupByInfo(facultyName,groupName);
-            int   index=UniversityService.search(group.getStudentNames(),fullName);
-            if(index==-1){
-                System.out.println("There is no such student in group"+groupName+" of faculty "+facultyName);
+        try {
+            Group group = getGroupByInfo(facultyName, groupName);
+            int index = UniversityService.search(group.getStudentNames(), fullName);
+            if (index == -1) {
+                System.out.println("There is no such student in group" + groupName + " of faculty " + facultyName);
                 return null;
             }
             return group.getStudentList()[index];
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("Group is NULL");
             return null;
         }
 
     }
 
-    public Group getGroupByInfo(String facultyName, char groupName){
+    public Group getGroupByInfo(String facultyName, char groupName) {
 
-        try{
-            Faculty faculty=getfacultyByName(facultyName);
-            int index=UniversityService.search(faculty.getGroupNames(),groupName);
-            if(index==-1){
-                System.out.println("There is no such group in faculty"+facultyName);
+        try {
+            Faculty faculty = getfacultyByName(facultyName);
+            int index = UniversityService.search(faculty.getGroupNames(), groupName);
+            if (index == -1) {
+                System.out.println("There is no such group in faculty" + facultyName);
                 return null;
             }
-            Group group=faculty.getGroups()[index];
+            Group group = faculty.getGroups()[index];
 
-            return  group;
-        } catch (NullPointerException e){
+            return group;
+        } catch (NullPointerException e) {
             System.out.println("Faculty is null!");
             return null;
         }
     }
 
-    public Faculty getfacultyByName(String facultyName){
-        int index=UniversityService.search(UNIVERSITY.getFacultyNames(),facultyName);
-        if(index==-1){
+    public Faculty getfacultyByName(String facultyName) {
+        int index = UniversityService.search(UNIVERSITY.getFacultyNames(), facultyName);
+        if (index == -1) {
             System.out.println("There is no such faculty!");
             return null;
         }
-        Faculty faculty=UNIVERSITY.facultyList[index];
+        Faculty faculty = UNIVERSITY.facultyList[index];
 
         return faculty;
     }
 
-    public  double countMeanGrade(String courseName) {
+    public double countMeanGrade(String courseName) {
 
         double sum = 0;
         int quantity = 0;
-        for(Faculty faculty:facultyList)
-        for (Group group : faculty.getGroups()) {
-            double mean =group.countMeanGrade(courseName);
-            sum += mean;
-            if (mean != -1) {
-                quantity++;
+        for (Faculty faculty : facultyList)
+            for (Group group : faculty.getGroups()) {
+                double mean = group.countMeanGrade(courseName);
+                sum += mean;
+                if (mean != -1) {
+                    quantity++;
+                }
             }
-        }
         return Double.parseDouble(numberFormat.format(sum / quantity));
 
     }

@@ -1,7 +1,8 @@
 package exception.exceptions;
 
 public class NullStudentListException extends Exception {
-    public NullStudentListException() {}
+    public NullStudentListException() {
+    }
 
     @Override
     public String toString() {

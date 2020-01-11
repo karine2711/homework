@@ -8,22 +8,23 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- *Contains all general functions used within the program.
+ * Contains all general functions used within the program.
  *
  * @author Karine Gevorgyan
  */
 public class UniversityService {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
-    public static void initializeGroups(Faculty[] faculties)  {
+
+    public static void initializeGroups(Faculty[] faculties) {
         try {
             faculties[0].setGroups(new Group[]{
                     new Group('A', new String[]{"Introduction to CS", "Data Structures", "Discrete Maths"}),
                     new Group('B', new String[]{"Data Structures", "Discrete Maths", "Calculus", "Armenian Literature"})
             });
-        }catch (NullGroupListException e){
+        } catch (NullGroupListException e) {
             try {
-              DefaultHandler.setDefaultGroupList(faculties[0]);
-                 }catch (NullGroupListException ex) {
+                DefaultHandler.setDefaultGroupList(faculties[0]);
+            } catch (NullGroupListException ex) {
                 ex.printStackTrace();
             }
         }
@@ -33,10 +34,10 @@ public class UniversityService {
                     new Group('A', new String[]{"Armenian Literature", "Art History", "English", "Creative Writing"}),
                     new Group('B', new String[]{"Art History", "Creative Writing", "Work ethics", "Book analysis"})
             });
-        } catch (NullGroupListException e){
+        } catch (NullGroupListException e) {
             try {
                 DefaultHandler.setDefaultGroupList(faculties[0]);
-            }catch (NullGroupListException ex) {
+            } catch (NullGroupListException ex) {
                 ex.printStackTrace();
             }
         }
@@ -50,7 +51,7 @@ public class UniversityService {
                 new Student("Anahit Chaxmaxchyan", 1, 'B'),
                 new Student("Milena Xachatryan", 1, 'B'),
                 new Student("Lolita Bryusovna", 2, 'A'),
-                new Student("Torgom Rostovyan", 2,'A'),
+                new Student("Torgom Rostovyan", 2, 'A'),
                 new Student("Karlen Yesayan", 2, 'B'),
                 new Student("Vazgen Martirosyan", 2, 'B'),
                 new Student("Perch Proshyan", 2, 'B'),
@@ -72,25 +73,25 @@ public class UniversityService {
                 //    System.out.println(student.getGroupName());
                 facNum = student.getFacultyNumber();
                 facNum--;
-                int temp=faculties[facNum].getStudentQuantity();
+                int temp = faculties[facNum].getStudentQuantity();
                 faculties[facNum].setStudentQuantity(++temp);
             }
-            int facultyQuantity=uni.getFacultyList().length;
+            int facultyQuantity = uni.getFacultyList().length;
 
-            for(int i=0; i<facultyQuantity;i++) {
+            for (int i = 0; i < facultyQuantity; i++) {
                 int index = 0;
 
-              Student[] studentList= new Student[faculties[i].getStudentQuantity()];
+                Student[] studentList = new Student[faculties[i].getStudentQuantity()];
                 for (Student student : students) {
                     facNum = student.getFacultyNumber();
                     facNum--;
                     if (facNum == i) {
-                       studentList[index] = student;
+                        studentList[index] = student;
                         index++;
                     }
                 }
                 faculties[i].setStudentList(studentList);
-        }
+            }
 
 
         } catch (NullStudentListException e) {
@@ -110,7 +111,7 @@ public class UniversityService {
             int index = search(faculty.getGroupNames(), groupName);
             student.setGroupIndex(index);
             if (index != -1) {
-                int temp=groups[index].getStudentQuantity();
+                int temp = groups[index].getStudentQuantity();
                 groups[index].setStudentQuantity(++temp);
 
             }
@@ -119,18 +120,18 @@ public class UniversityService {
 
         for (int i = 0; i < groupQuantity; i++) {
             int index = 0;
-            Student[] studentList=new Student[groups[i].getStudentQuantity()];
+            Student[] studentList = new Student[groups[i].getStudentQuantity()];
             for (Student student : students) {
 
                 int groupIndex = student.getGroupIndex();
 
                 if (groupIndex == i) {
-                  studentList[index] = student;
+                    studentList[index] = student;
 
                     index++;
                 }
             }
-        groups[i].setStudentList(studentList);
+            groups[i].setStudentList(studentList);
         }
     }
 

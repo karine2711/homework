@@ -1,4 +1,5 @@
 package exception;
+
 /**
  * Represents the courses of the University
  *
@@ -9,9 +10,9 @@ public class CourseGrade {
     private double grade;
 
 
-    public CourseGrade(String courseName, double grade){
-        this.courseName=courseName;
-        this.grade=grade;
+    public CourseGrade(String courseName, double grade) {
+        this.courseName = courseName;
+        this.grade = grade;
     }
 
     public double getGrade() {
