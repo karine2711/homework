@@ -35,6 +35,8 @@ public class Main {
             student.printCourseGrades();
             System.out.println("Mean grade = "+student.countMeanGrade());
             System.out.println("---------------------------------");
+            System.out.println();
+            System.out.println();
         } catch (NullPointerException e){
             e.printStackTrace();
         }
@@ -48,6 +50,8 @@ public class Main {
                     +" = "+group.countMeanGrade("Work ethics")
             );
             System.out.println("---------------------------------");
+            System.out.println();
+            System.out.println();
 
         } catch (NullPointerException e){
             e.printStackTrace();
@@ -66,8 +70,23 @@ public class Main {
             e.printStackTrace();
         } catch (NumberFormatException e){
             System.out.println("The faculty doesn't contain the given course");
+            System.out.println("---------------------------------");
+            System.out.println();
+            System.out.println();
         }
 
+        try {
+            Faculty faculty=AUA.getfacultyByName("CS");
+
+            System.out.println("Mean grade for given subject in University "
+                    +" = "+AUA.countMeanGrade("Data Structures")
+            );
+
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        } catch (NumberFormatException e){
+            System.out.println("The University doesn't contain the given course");
+        }
 
 
         System.out.println("Finished successfully!");

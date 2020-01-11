@@ -2,6 +2,8 @@ package exception;
 
 import exception.exceptions.*;
 
+import java.text.DecimalFormat;
+
 /**
  * University is a singletone class, as the program is written for a specific university.
  * It contains the list of faculties and the list of students in the university, as well
@@ -10,7 +12,7 @@ import exception.exceptions.*;
  * @author Karine Gevorgyan
  */
 public class University {
-
+    final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private static final University UNIVERSITY;
     static {
         University UNIVERSITY1;
@@ -120,6 +122,21 @@ public class University {
         Faculty faculty=UNIVERSITY.facultyList[index];
 
         return faculty;
+    }
+
+    public  double countMeanGrade(String courseName) {
+
+        double sum = 0;
+        int quantity = 0;
+        for(Faculty faculty:facultyList)
+        for (Group group : faculty.getGroups()) {
+            double mean =group.countMeanGrade(courseName);
+            sum += mean;
+            if (mean != -1) {
+                quantity++;
+            }
+        }
+        return Double.parseDouble(numberFormat.format(sum / quantity));
 
     }
 }
