@@ -45,16 +45,16 @@ public class UniversityService {
 
     public static void initializeStudents(University uni) {
         Student[] students = new Student[]{
-                new Student("Karine Gevorgyan", 1, 'A'),
-                new Student("Siranush Mshetsyan", 1, 'A'),
-                new Student("Vahag Mkrtchyan", 1, 'B'),
-                new Student("Anahit Chaxmaxchyan", 1, 'B'),
-                new Student("Milena Xachatryan", 1, 'B'),
-                new Student("Lolita Bryusovna", 2, 'A'),
-                new Student("Torgom Rostovyan", 2, 'A'),
-                new Student("Karlen Yesayan", 2, 'B'),
-                new Student("Vazgen Martirosyan", 2, 'B'),
-                new Student("Perch Proshyan", 2, 'B'),
+                new Student("Karine Gevorgyan", "CS", 'A'),
+                new Student("Siranush Mshetsyan", "CS", 'A'),
+                new Student("Vahag Mkrtchyan", "CS", 'B'),
+                new Student("Anahit Chaxmaxchyan", "CS", 'B'),
+                new Student("Milena Xachatryan", "CS", 'B'),
+                new Student("Lolita Bryusovna", "EC", 'A'),
+                new Student("Torgom Rostovyan", "EC", 'A'),
+                new Student("Karlen Yesayan", "EC", 'B'),
+                new Student("Vazgen Martirosyan", "EC", 'B'),
+                new Student("Perch Proshyan", "EC", 'B'),
         };
         try {
             uni.setStudentList(students);
@@ -71,8 +71,7 @@ public class UniversityService {
             int facNum;
             for (Student student : students) {
                 //    System.out.println(student.getGroupName());
-                facNum = student.getFacultyNumber();
-                facNum--;
+                facNum = search( uni.getFacultyNames(),student.getFacultyName());
                 int temp = faculties[facNum].getStudentQuantity();
                 faculties[facNum].setStudentQuantity(++temp);
             }
@@ -83,8 +82,7 @@ public class UniversityService {
 
                 Student[] studentList = new Student[faculties[i].getStudentQuantity()];
                 for (Student student : students) {
-                    facNum = student.getFacultyNumber();
-                    facNum--;
+                    facNum =search( uni.getFacultyNames(),student.getFacultyName());
                     if (facNum == i) {
                         studentList[index] = student;
                         index++;
@@ -189,5 +187,29 @@ public class UniversityService {
                 return i;
         }
         return -1;
+    }
+
+    public static void addStudent(String facultyName, char groupName, String studentName){
+        University uni=University.getUniversity();
+        Faculty faculty=uni.getfacultyByName(facultyName);
+        Group group=uni.getGroupByInfo(facultyName,groupName);
+        Student student=new Student(studentName,facultyName,groupName);
+        Student[] temp=group.getStudentList();
+        temp=DynamicArray.addElement(temp,student);
+
+        group.setStudentList(temp);
+
+        temp=faculty.getStudentList();
+        temp=DynamicArray.addElement(temp,student);
+        faculty.setStudentList(temp);
+        try {
+           temp=uni.getStudentList();
+           student=new Student(studentName,facultyName,groupName);
+            temp=DynamicArray.addElement(temp,student);
+            uni.setStudentList(temp);
+        } catch (NullStudentListException e) {
+            e.printStackTrace();
+        }
+
     }
 }

@@ -13,22 +13,22 @@ public class Student {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String fullName;
     private char groupName;
-    private int facultyNumber;
+    private String facultyName;
     private int groupIndex;
     private CourseGrade[] courseGrades;
 
-    public Student(String fullName, int facultyNumber, char groupName) {
+    public Student(String fullName,String facultyName, char groupName) {
         this.fullName = fullName;
         this.groupName = groupName;
-        this.facultyNumber = facultyNumber;
+        this.facultyName = facultyName;
     }
 
     public String getFullName() {
         return fullName;
     }
 
-    public int getFacultyNumber() {
-        return facultyNumber;
+    public String getFacultyName() {
+        return facultyName;
     }
 
     public char getGroupName() {

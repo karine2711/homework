@@ -88,7 +88,8 @@ public class Main {
             System.out.println("The University doesn't contain the given course");
         }
 
-
+    UniversityService.addStudent("EC",'B',"John Smith");
+        System.out.println(AUA.getStudentByInfo("EC",'B',"John Smith").getFullName()    );
         System.out.println("Finished successfully!");
 
     }
