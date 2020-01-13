@@ -1,7 +1,4 @@
 package exception;
-
-import exception.exceptions.NullGroupListException;
-
 import java.text.DecimalFormat;
 import java.util.Scanner;
 

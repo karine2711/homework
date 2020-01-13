@@ -1,9 +1,5 @@
 package exception;
 
-import exception.exceptions.NullFacultyListException;
-import exception.exceptions.NullGroupListException;
-import exception.exceptions.NullStudentListException;
-
 public class Main {
     public static void main(String[] args) {
         //Create a university!

@@ -1,11 +1,6 @@
 package exception;
 
-import exception.exceptions.NullGroupListException;
-import exception.exceptions.NullStudentListException;
-
 import java.text.DecimalFormat;
-import java.util.Random;
-import java.util.Scanner;
 
 /**
  * Contains all general functions used within the program.
@@ -86,29 +81,4 @@ public class UniversityService {
         }
         return -1;
     }
-
-//    public static void addStudent(String facultyName, char groupName, String studentName){
-//        University uni=University.getUniversity();
-//        Faculty faculty=uni.getfacultyByName(facultyName);
-//        Group group=uni.getGroupByInfo(facultyName,groupName);
-//        Student student=new Student.StudentBuilder(studentName,facultyName,groupName).build();
-//        Student[] temp=group.getStudentList();
-//        temp=DynamicArray.addElement(temp,student);
-//
-//        group.setStudentList(temp);
-//
-//        temp=faculty.getStudentList();
-//        temp=DynamicArray.addElement(temp,student);
-//        faculty.setStudentList(temp);
-//        try {
-//           temp=uni.getStudentList();
-//            temp=DynamicArray.addElement(temp,student);
-//            uni.setStudentList(temp);
-//        } catch (NullStudentListException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
-
-
 }

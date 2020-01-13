@@ -1,7 +1,5 @@
 package exception;
 
-import exception.exceptions.*;
-
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
