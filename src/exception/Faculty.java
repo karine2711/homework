@@ -43,6 +43,14 @@ public class Faculty {
         return groupNames;
     }
 
+    public void printGroups() {
+        for (Group group:groups) {
+            System.out.println("    "+group.getName());
+            group.printStudents();
+
+        }
+    }
+
 //    public double countMeanGrade(String courseName) {
 //
 //        double sum = 0;

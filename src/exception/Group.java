@@ -38,7 +38,8 @@ public class Group {
 
     public void printStudents() {
         for (Student student : studentList) {
-            System.out.println(student.getFullName());
+            System.out.println("        "+student.getFullName());
+            student.printCourseGrades();
         }
     }
 

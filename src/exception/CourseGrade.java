@@ -7,7 +7,7 @@ package exception;
  */
 public class CourseGrade {
     private String courseName;
-    private double grade;
+    private double grade=0;
 
 
     public CourseGrade(String courseName, double grade) {

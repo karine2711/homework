@@ -9,22 +9,16 @@ public class Main {
         //Create a university!
         Student s=new Student.StudentBuilder("Ani","Armenia","English").build();
         University university=new University("AUA");
-        System.out.println(university.getFacultyList()[0].getGroups()[0].getStudentList()[0].getFullName());
-
-        //  UniversityService.distributeStudentsToFaculties(AUA);
-        //Distribute all students to groups
-//        for (Faculty faculty : faculties) {
-//            UniversityService.distributeStudentsToGroups(AUA.getStudentList());
-//        }
-
-        //Grade all students
-//        for (Faculty faculty : faculties) {
-//            Group[] groups = faculty.getGroups();
-//            for (Group group : groups) {
-//                UniversityService.gradeStudents(group, false);
-//            }
-//        }
-
+              Student Karine=UniversityService.getStudentByInfo(university,"CS","A","Karine Gevorgyan");
+        Karine.setGrade("Armenian Literature",5);
+        for(Faculty faculty:university.getFacultyList()){
+            for(Group group:faculty.getGroups()){
+                for(Student student:group.getStudentList()){
+                    student.gradeStudentRandomly();
+                }
+            }
+        }
+        university.printFaculties();
         //count given student's mean grade
 //        try {
 //            Student student = AUA.getStudentByInfo("CS", 'A', "Karine Gevorgyan");

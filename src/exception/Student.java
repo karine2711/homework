@@ -1,6 +1,7 @@
 package exception;
 
 import java.text.DecimalFormat;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -24,19 +25,33 @@ public class Student {
         return fullName;
     }
 
-
+    public void setGrade(String courseName, double grade){
+        int index;
+        index = UniversityService.search(this.courseGrades, courseName);
+        if (index == -1) {
+            System.out.println("The student doesn't study course named "+courseName);
+        } else {
+            this.courseGrades[index].setGrade(grade);
+        }
+    }
     public CourseGrade[] getCourseGrades() {
         return courseGrades;
     }
 
-    public void setCourseGrades(CourseGrade[] courseGrades) {
-        this.courseGrades = courseGrades;
+    public void printCourseGrades() {
+
+        for (CourseGrade courseGrade : this.courseGrades) {
+            System.out.println("            "+courseGrade.getCourseName() + ":  " + courseGrade.getGrade());
+        }
     }
 
-    public void printCourseGrades() {
-        System.out.println("--" + this.getFullName() + "--");
-        for (CourseGrade courseGrade : this.courseGrades) {
-            System.out.println(courseGrade.getCourseName() + ":  " + courseGrade.getGrade());
+    public void gradeStudentRandomly(){
+        Random rnd=new Random();
+        for(CourseGrade courseGrade:courseGrades){
+            if(courseGrade.getGrade()==0){
+                double temp=Double.parseDouble(numberFormat.format(rnd.nextDouble()*9+1));
+                courseGrade.setGrade(temp);
+            }
         }
     }
 
