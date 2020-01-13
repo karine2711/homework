@@ -45,16 +45,20 @@ public class UniversityService {
 
     public static void initializeStudents(University uni) {
         Student[] students = new Student[]{
-                new Student("Karine Gevorgyan", "CS", 'A'),
-                new Student("Siranush Mshetsyan", "CS", 'A'),
-                new Student("Vahag Mkrtchyan", "CS", 'B'),
-                new Student("Anahit Chaxmaxchyan", "CS", 'B'),
-                new Student("Milena Xachatryan", "CS", 'B'),
-                new Student("Lolita Bryusovna", "EC", 'A'),
-                new Student("Torgom Rostovyan", "EC", 'A'),
-                new Student("Karlen Yesayan", "EC", 'B'),
-                new Student("Vazgen Martirosyan", "EC", 'B'),
-                new Student("Perch Proshyan", "EC", 'B'),
+                new Student.StudentBuilder("Karine Gevorgyan", "CS", 'A')
+                .courseGrade("Data Science",10)
+                .course("Intro to CS")
+                .course("Some course")
+                .build(),
+//                new Student("Siranush Mshetsyan", "CS", 'A'),
+                new Student.StudentBuilder("Vahag Mkrtchyan", "CS", 'B').build(),
+//                new Student("Anahit Chaxmaxchyan", "CS", 'B'),
+//                new Student("Milena Xachatryan", "CS", 'B'),
+                new Student.StudentBuilder("Lolita Bryusovna", "EC", 'A').build(),
+//                new Student("Torgom Rostovyan", "EC", 'A'),
+                new Student.StudentBuilder("Karlen Yesayan", "EC", 'B').build(),
+//                new Student("Vazgen Martirosyan", "EC", 'B'),
+//                new Student("Perch Proshyan", "EC", 'B'),
         };
         try {
             uni.setStudentList(students);
@@ -189,11 +193,20 @@ public class UniversityService {
         return -1;
     }
 
+    public static int search(CourseGrade arr[], String  x) {
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            if (arr[i].getCourseName().equals(x))
+                return i;
+        }
+        return -1;
+    }
+
     public static void addStudent(String facultyName, char groupName, String studentName){
         University uni=University.getUniversity();
         Faculty faculty=uni.getfacultyByName(facultyName);
         Group group=uni.getGroupByInfo(facultyName,groupName);
-        Student student=new Student(studentName,facultyName,groupName);
+        Student student=new Student.StudentBuilder(studentName,facultyName,groupName).build();
         Student[] temp=group.getStudentList();
         temp=DynamicArray.addElement(temp,student);
 
@@ -204,7 +217,6 @@ public class UniversityService {
         faculty.setStudentList(temp);
         try {
            temp=uni.getStudentList();
-           student=new Student(studentName,facultyName,groupName);
             temp=DynamicArray.addElement(temp,student);
             uni.setStudentList(temp);
         } catch (NullStudentListException e) {
@@ -212,4 +224,7 @@ public class UniversityService {
         }
 
     }
+
+
+
 }

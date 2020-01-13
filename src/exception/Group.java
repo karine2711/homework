@@ -60,10 +60,6 @@ public class Group {
         return studentNames;
     }
 
-    public void setStudentNames(String[] studentNames) {
-        this.studentNames = studentNames;
-    }
-
     public double countMeanGrade(String courseName) {
         int courseIndex = UniversityService.search(courseNames, courseName);
         if (courseIndex == -1) {

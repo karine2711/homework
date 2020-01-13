@@ -17,10 +17,11 @@ public class Student {
     private int groupIndex;
     private CourseGrade[] courseGrades;
 
-    public Student(String fullName,String facultyName, char groupName) {
-        this.fullName = fullName;
-        this.groupName = groupName;
-        this.facultyName = facultyName;
+    public Student(StudentBuilder student) {
+        this.fullName =student.fullName;
+        this.groupName = student.groupName;
+        this.facultyName = student.facultyName;
+        this.courseGrades=student.courseGrades;
     }
 
     public String getFullName() {
@@ -65,5 +66,48 @@ public class Student {
             sum += courseGrade.getGrade();
         }
         return Double.parseDouble(numberFormat.format(sum / quantity));
+    }
+
+    //-----------------------------------------------------------------------------------------
+    public static class StudentBuilder {
+        private String fullName; //required
+        private char groupName; //required
+        private String facultyName; //required
+        private CourseGrade[] courseGrades={};
+
+        public StudentBuilder(String fullName, String facultyName, char groupName) {
+            this.fullName = fullName;
+            this.facultyName = facultyName;
+            this.groupName = groupName;
+        }
+
+        public StudentBuilder course(String courseName) {
+            int index = UniversityService.search(this.courseGrades, courseName);
+            if (index == -1) {
+                CourseGrade courseGrade = new CourseGrade(courseName);
+                DynamicArray.addElement(this.courseGrades, courseGrade);
+            }
+            return this;
+        }
+
+        public StudentBuilder courseGrade(String courseName, double grade) {
+            int index;
+
+               index = UniversityService.search(this.courseGrades, courseName);
+
+
+            if (index == -1) {
+                CourseGrade courseGrade = new CourseGrade(courseName, grade);
+                DynamicArray.addElement(this.courseGrades, courseGrade);
+            } else {
+                   this.courseGrades[index].setGrade(grade);
+            }
+            return this;
+        }
+
+        public Student build(){
+            Student w = new Student(this);
+            return w;
+        }
     }
 }
