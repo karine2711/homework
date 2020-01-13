@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class University {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String name;
-    private Faculty[] facultyList;
+    private Faculty[] facultyList={};
     private String[] facultyNames;
 
     public University(String name, Faculty... faculties) {

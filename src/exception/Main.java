@@ -7,7 +7,7 @@ import exception.exceptions.NullStudentListException;
 public class Main {
     public static void main(String[] args) {
         //Create a university!
-        University AUA=new University("AUA")
+        University university=new University("AUA");
 
         //  UniversityService.distributeStudentsToFaculties(AUA);
         //Distribute all students to groups
