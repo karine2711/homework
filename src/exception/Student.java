@@ -1,6 +1,7 @@
 package exception;
 
 import java.text.DecimalFormat;
+import java.util.Scanner;
 
 /**
  * The Student class represents the students of the university.
@@ -12,14 +13,10 @@ import java.text.DecimalFormat;
 public class Student {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String fullName;
-    private char groupName;
-    private String facultyName;
     private CourseGrade[] courseGrades;
 
     public Student(StudentBuilder student) {
         this.fullName = student.fullName;
-        this.groupName = student.groupName;
-        this.facultyName = student.facultyName;
         this.courseGrades = student.courseGrades;
     }
 
@@ -27,13 +24,6 @@ public class Student {
         return fullName;
     }
 
-    public String getFacultyName() {
-        return facultyName;
-    }
-
-    public char getGroupName() {
-        return groupName;
-    }
 
     public CourseGrade[] getCourseGrades() {
         return courseGrades;
@@ -62,14 +52,13 @@ public class Student {
     //-----------------------------------------------------------------------------------------
     public static class StudentBuilder {
         private String fullName; //required
-        private char groupName; //required
-        private String facultyName; //required
         private CourseGrade[] courseGrades = {};
 
-        public StudentBuilder(String fullName, String facultyName, char groupName) {
+        public StudentBuilder(String fullName, String... courses) {
             this.fullName = fullName;
-            this.facultyName = facultyName;
-            this.groupName = groupName;
+            for (String course : courses) {
+                course(course);
+            }
         }
 
         public StudentBuilder course(String courseName) {
@@ -95,11 +84,14 @@ public class Student {
 
         public Student build() {
             if (courseGrades.length == 0) {
-                System.out.println(fullName + " now studies only Armenian, as no subjects were added.");
-                DefaultHandler.setDefaultCourseList(this);
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("The student can't be added if he/she doesn't take any course");
+                System.out.print("Please enter at least one course for " + fullName);
+                System.out.print("Course: ");
+                course(scanner.next());
             }
-            Student w = new Student(this);
-            return w;
+            Student s = new Student(this);
+            return s;
         }
 
     }

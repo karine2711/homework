@@ -6,13 +6,8 @@ import exception.exceptions.NullStudentListException;
 
 public class Main {
     public static void main(String[] args) {
-        //Get the University and its faculties
-        University AUA = University.getUniversity();
-        Faculty[] faculties = AUA.getFacultyList();
-        //Add groups to faculties
-        UniversityService.initializeGroups(faculties);
-        //Add Students to University
-        UniversityService.initializeStudents(AUA);
+        //Create a university!
+        University AUA=new University("AUA")
 
         //  UniversityService.distributeStudentsToFaculties(AUA);
         //Distribute all students to groups

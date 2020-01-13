@@ -3,6 +3,7 @@ package exception;
 import exception.exceptions.*;
 
 import java.text.DecimalFormat;
+import java.util.Scanner;
 
 /**
  * University is a singletone class, as the program is written for a specific university.
@@ -13,41 +14,19 @@ import java.text.DecimalFormat;
  */
 public class University {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
-    private static final University UNIVERSITY;
-
-    static {
-        University UNIVERSITY1;
-        try {
-            UNIVERSITY1 = new University(new Faculty[]{new Faculty("CS"), new Faculty("EC")});
-
-        } catch (NullFacultyListException e) {
-            try {
-                UNIVERSITY1 = new University(new Faculty[]{new Faculty("Default")});
-            } catch (NullFacultyListException ex) {
-                ex.printStackTrace();
-                UNIVERSITY1 = null;
-            }
-
-        }
-        UNIVERSITY = UNIVERSITY1;
-    }
-
+    private String name;
     private Faculty[] facultyList;
-    private Student[] studentList;
     private String[] facultyNames;
 
-    private University(Faculty[] faculties) throws NullFacultyListException {
-        if (faculties.length == 0) {
-
-            throw new NullFacultyListException();
-
+    public University(String name, Faculty... faculties) {
+        this.name = name;
+        if (facultyList.length == 0) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("The University must have at least one faculty!");
+            facultyList = DefaultHandler.facultyListCreator();
         } else {
             facultyList = faculties;
         }
-    }
-
-    public static University getUniversity(String... faculties) {
-        return UNIVERSITY;
     }
 
     public Faculty[] getFacultyList() {
@@ -62,12 +41,5 @@ public class University {
         return facultyNames;
     }
 
-    public void setStudentList(Student[] studentList) throws NullStudentListException {
-        if (studentList.length == 0) {
-            throw new NullStudentListException();
-        } else {
-            this.studentList = studentList;
-        }
-    }
 
 }

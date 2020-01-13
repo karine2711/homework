@@ -3,6 +3,7 @@ package exception;
 import exception.exceptions.NullGroupListException;
 
 import java.text.DecimalFormat;
+import java.util.Scanner;
 
 /**
  * The faculty class represents the faculties of the university.
@@ -13,54 +14,33 @@ import java.text.DecimalFormat;
 public class Faculty {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String name;
-    private Group[] groups={};
-    private char[] groupNames;
-    private Student[] studentList;
-    private int studentQuantity = 0;
+    private Group[] groups = {};
 
-    public Faculty(String name) {
+    public Faculty(String name, Group... groups) {
         this.name = name;
+        if (groups.length == 0) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("The faculty must have at least one group!");
+            this.groups = DefaultHandler.groupListCreator();
+        } else {
+            this.groups = groups;
+        }
     }
 
     public String getName() {
         return name;
     }
 
-    public void setGroups(Group[] groups) throws NullGroupListException {
-        if (groups.length == 0) {
-            throw new NullGroupListException();
-
-        } else {
-            this.groups = groups;
-        }
-    }
-
     public Group[] getGroups() {
         return groups;
     }
 
-    public char[] getGroupNames() {
-        groupNames = new char[groups.length];
+    public String[] getGroupNames() {
+        String[] groupNames = new String[groups.length];
         for (int i = 0; i < this.getGroups().length; i++) {
             groupNames[i] = groups[i].getName();
         }
         return groupNames;
-    }
-
-    public Student[] getStudentList() {
-        return studentList;
-    }
-
-    public void setStudentList(Student[] studentList) {
-        this.studentList = studentList;
-    }
-
-    public int getStudentQuantity() {
-        return studentQuantity;
-    }
-
-    public void setStudentQuantity(int studentQuantity) {
-        this.studentQuantity = studentQuantity;
     }
 
 //    public double countMeanGrade(String courseName) {

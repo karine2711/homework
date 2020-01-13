@@ -2,6 +2,7 @@ package exception;
 
 import javax.xml.transform.sax.SAXResult;
 import java.text.DecimalFormat;
+import java.util.Scanner;
 
 /**
  * The Group class represents the groups in each faculty of the University.
@@ -11,26 +12,29 @@ import java.text.DecimalFormat;
  */
 public class Group {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
-    private char name;
-    private Student[] studentList={};
-    private String[] studentNames;
+    private String name;
+    private Student[] studentList = {};
 
-    public Group(char name) {
+
+    public Group(String name, Student... students) {
         this.name = name;
+        if (students.length == 0) {
+            System.out.println("A group cannot be created without students");
+            this.studentList = DefaultHandler.studentListCreator(name);
+        } else {
+            for (Student student : students) {
+                this.studentList = DynamicArray.addElement(studentList, student);
+            }
+        }
     }
 
-    public char getName() {
+    public String getName() {
         return name;
     }
 
     public Student[] getStudentList() {
         return studentList;
     }
-
-    public void setStudentList(Student[] studentList) {
-        this.studentList = studentList;
-    }
-
 
     public void printStudents() {
         for (Student student : studentList) {
@@ -39,14 +43,14 @@ public class Group {
     }
 
     public String[] getStudentNames() {
-        studentNames = new String[studentList.length];
+        String[] studentNames = new String[studentList.length];
         for (int i = 0; i < studentList.length; i++) {
             studentNames[i] = studentList[i].getFullName();
         }
         return studentNames;
     }
 
-//    public double countMeanGrade(String courseName) {
+    //    public double countMeanGrade(String courseName) {
 //        int courseIndex = UniversityService.search(courseNames, courseName);
 //        if (courseIndex == -1) {
 //            return -1;
