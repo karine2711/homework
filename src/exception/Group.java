@@ -51,20 +51,21 @@ public class Group {
         return studentNames;
     }
 
-    //    public double countMeanGrade(String courseName) {
-//        int courseIndex = UniversityService.search(courseNames, courseName);
-//        if (courseIndex == -1) {
-//            return -1;
-//        }
-//
-//        int quantity = studentList.length;
-//        double sum = 0;
-//        System.out.println(courseName);
-//        for (Student student : studentList) {
-//            System.out.println(student.getFullName() + "':  " + student.getCourseGrades()[courseIndex].getGrade());
-//            sum += student.getCourseGrades()[courseIndex].getGrade();
-//        }
-//
-//        return Double.parseDouble(numberFormat.format(sum / quantity));
-//    }
+        public double countMeanGrade(String courseName) {
+            System.out.println(courseName);
+       double sum=0;
+       int quantity=0;
+        for(Student student:studentList){
+            int index=UniversityService.search(student.getCourseGrades(),courseName);
+            if(index!=-1){
+                System.out.println(student.getFullName()+":  "+student.getCourseGrades()[index].getGrade());
+                sum+=student.getCourseGrades()[index].getGrade();
+                quantity++;
+            }
+        }
+        if(quantity==0){
+            return 0;
+        }
+        return Double.parseDouble(numberFormat.format(sum / quantity));
+    }
 }

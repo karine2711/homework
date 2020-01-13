@@ -42,7 +42,7 @@ public class DefaultHandler {
     public static CourseGrade[] courseListCreator() {
         CourseGrade[] courses = {};
         System.out.println("Do you want to create a course list by hand or use an example list?");
-        System.out.print("1=createByHand, anything else=use example");
+        System.out.print("1=createByHand, anything else=use example   ");
         System.out.print("Response: ");
         String response = scanner.next();
         if (response.equals("1")) {
@@ -85,7 +85,7 @@ public class DefaultHandler {
     public static Student[] studentListCreator() {
         Student[] students = {};
         System.out.println("Do you want to create a student list by hand or use an example list?");
-        System.out.print("1=createByHand, anything else=use example");
+        System.out.print("1=createByHand, anything else=use example   ");
         System.out.print("Response: ");
         String response = scanner.next();
         if (response.equals("1")) {
@@ -142,7 +142,7 @@ public class DefaultHandler {
     public static Group[] groupListCreator() {
         Group[] groups = {};
         System.out.println("Do you want to create a group list by hand or use an example list?");
-        System.out.print("1=createByHand, anything else=use example");
+        System.out.print("1=createByHand, anything else=use example   ");
         System.out.print("Response: ");
         String response = scanner.next();
         if (response.equals("1")) {

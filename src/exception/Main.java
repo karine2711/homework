@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         //Create a university!
         Student s = new Student.StudentBuilder("Ani", "Armenia", "English").build();
-        University university = new University("AUA", new Faculty("CS"));
+        University university = new University("AUA", new Faculty("CS"), new Faculty("EC"));
         try {
             Student karine = UniversityService.getStudentByInfo(university, "CS", "A", "Karine Gevorgyan");
             karine.setGrade("Armenian Literature", 5);
@@ -32,27 +32,27 @@ public class Main {
             karine.printCourseGrades();
             System.out.println("Mean grade = " + karine.countMeanGrade());
             System.out.println("---------------------------------");
-            System.out.println();
-            System.out.println();
+
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
-        //count mean grade in a given group, for a given subject
-//        try {
-//            Group group = AUA.getGroupByInfo("EC", 'B');
-//
-//            System.out.println("Mean grade for given subject in group "
-//                    + group.getName()
-//                    + " = " + group.countMeanGrade("Work ethics")
-//            );
-//            System.out.println("---------------------------------");
-//            System.out.println();
-//            System.out.println();
-//
-//        } catch (NullPointerException e) {
-//            e.printStackTrace();
-//        }
+      //  count mean grade in a given group, for a given subject
+        try {
+            Group group = UniversityService.getGroupByInfo(university,"EC", "B");
+            double grade=group.countMeanGrade("Business");
+            if(grade==0){
+                System.out.println("No such course in the group, or the students where not graded!");
+            }
+            System.out.println("Mean grade for given subject in group "
+                    + group.getName()
+                    + " = " + grade
+            );
+            System.out.println("---------------------------------");
+          
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
         //Count mean grade in given faculty
 //        try {
