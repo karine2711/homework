@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
 public class Faculty {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String name;
-    private Group[] groups;
+    private Group[] groups={};
     private char[] groupNames;
     private Student[] studentList;
     private int studentQuantity = 0;
@@ -36,11 +36,7 @@ public class Faculty {
     }
 
     public Group[] getGroups() {
-        if (groups.length == 0) {
-            throw new NullGroupListException();
-        } else {
-            return groups;
-        }
+        return groups;
     }
 
     public char[] getGroupNames() {
@@ -67,18 +63,18 @@ public class Faculty {
         this.studentQuantity = studentQuantity;
     }
 
-    public double countMeanGrade(String courseName) {
-
-        double sum = 0;
-        int quantity = 0;
-        for (Group group : groups) {
-            double mean = group.countMeanGrade(courseName);
-            sum += mean;
-            if (mean != -1) {
-                quantity++;
-            }
-        }
-        return Double.parseDouble(numberFormat.format(sum / quantity));
-
-    }
+//    public double countMeanGrade(String courseName) {
+//
+//        double sum = 0;
+//        int quantity = 0;
+//        for (Group group : groups) {
+//            double mean = group.countMeanGrade(courseName);
+//            sum += mean;
+//            if (mean != -1) {
+//                quantity++;
+//            }
+//        }
+//        return Double.parseDouble(numberFormat.format(sum / quantity));
+//
+//    }
 }

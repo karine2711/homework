@@ -9,5 +9,7 @@ public class DefaultHandler {
     public static void setDefaultGroupList(Faculty faculty) {
         faculty.setGroups(new Group[]{new Group('A', new String[]{"Armenian Language", "Armenian Literature"})});
     }
-
+    public static void setDefaultCourseList(Student.StudentBuilder student) {
+        student.course("Armenian");
+    }
 }

@@ -14,14 +14,13 @@ public class Student {
     private String fullName;
     private char groupName;
     private String facultyName;
-    private int groupIndex;
     private CourseGrade[] courseGrades;
 
     public Student(StudentBuilder student) {
-        this.fullName =student.fullName;
+        this.fullName = student.fullName;
         this.groupName = student.groupName;
         this.facultyName = student.facultyName;
-        this.courseGrades=student.courseGrades;
+        this.courseGrades = student.courseGrades;
     }
 
     public String getFullName() {
@@ -34,14 +33,6 @@ public class Student {
 
     public char getGroupName() {
         return groupName;
-    }
-
-    public void setGroupIndex(int index) {
-        this.groupIndex = index;
-    }
-
-    public int getGroupIndex() {
-        return groupIndex;
     }
 
     public CourseGrade[] getCourseGrades() {
@@ -73,7 +64,7 @@ public class Student {
         private String fullName; //required
         private char groupName; //required
         private String facultyName; //required
-        private CourseGrade[] courseGrades={};
+        private CourseGrade[] courseGrades = {};
 
         public StudentBuilder(String fullName, String facultyName, char groupName) {
             this.fullName = fullName;
@@ -85,29 +76,31 @@ public class Student {
             int index = UniversityService.search(this.courseGrades, courseName);
             if (index == -1) {
                 CourseGrade courseGrade = new CourseGrade(courseName);
-                DynamicArray.addElement(this.courseGrades, courseGrade);
+                courseGrades = DynamicArray.addElement(this.courseGrades, courseGrade);
             }
             return this;
         }
 
         public StudentBuilder courseGrade(String courseName, double grade) {
             int index;
-
-               index = UniversityService.search(this.courseGrades, courseName);
-
-
+            index = UniversityService.search(this.courseGrades, courseName);
             if (index == -1) {
                 CourseGrade courseGrade = new CourseGrade(courseName, grade);
-                DynamicArray.addElement(this.courseGrades, courseGrade);
+                courseGrades = DynamicArray.addElement(this.courseGrades, courseGrade);
             } else {
-                   this.courseGrades[index].setGrade(grade);
+                this.courseGrades[index].setGrade(grade);
             }
             return this;
         }
 
-        public Student build(){
+        public Student build() {
+            if (courseGrades.length == 0) {
+                System.out.println(fullName + " now studies only Armenian, as no subjects were added.");
+                DefaultHandler.setDefaultCourseList(this);
+            }
             Student w = new Student(this);
             return w;
         }
+
     }
 }

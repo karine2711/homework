@@ -12,26 +12,15 @@ import java.text.DecimalFormat;
 public class Group {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private char name;
-    private String courseNames[];
-    private Student[] studentList;
-    private int studentQuantity = 0;
+    private Student[] studentList={};
     private String[] studentNames;
 
-    public Group(char name, String[] courseNames) {
+    public Group(char name) {
         this.name = name;
-        this.courseNames = courseNames;
     }
 
     public char getName() {
         return name;
-    }
-
-    public int getStudentQuantity() {
-        return studentQuantity;
-    }
-
-    public void setStudentQuantity(int studentQuantity) {
-        this.studentQuantity = studentQuantity;
     }
 
     public Student[] getStudentList() {
@@ -42,9 +31,6 @@ public class Group {
         this.studentList = studentList;
     }
 
-    public String[] getCourseNames() {
-        return courseNames;
-    }
 
     public void printStudents() {
         for (Student student : studentList) {
@@ -60,20 +46,20 @@ public class Group {
         return studentNames;
     }
 
-    public double countMeanGrade(String courseName) {
-        int courseIndex = UniversityService.search(courseNames, courseName);
-        if (courseIndex == -1) {
-            return -1;
-        }
-
-        int quantity = studentList.length;
-        double sum = 0;
-        System.out.println(courseName);
-        for (Student student : studentList) {
-            System.out.println(student.getFullName() + "':  " + student.getCourseGrades()[courseIndex].getGrade());
-            sum += student.getCourseGrades()[courseIndex].getGrade();
-        }
-
-        return Double.parseDouble(numberFormat.format(sum / quantity));
-    }
+//    public double countMeanGrade(String courseName) {
+//        int courseIndex = UniversityService.search(courseNames, courseName);
+//        if (courseIndex == -1) {
+//            return -1;
+//        }
+//
+//        int quantity = studentList.length;
+//        double sum = 0;
+//        System.out.println(courseName);
+//        for (Student student : studentList) {
+//            System.out.println(student.getFullName() + "':  " + student.getCourseGrades()[courseIndex].getGrade());
+//            sum += student.getCourseGrades()[courseIndex].getGrade();
+//        }
+//
+//        return Double.parseDouble(numberFormat.format(sum / quantity));
+//    }
 }
