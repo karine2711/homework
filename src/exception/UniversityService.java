@@ -7,10 +7,11 @@ import java.text.DecimalFormat;
  *
  * @author Karine Gevorgyan
  */
-public class UniversityService {
-    final static DecimalFormat numberFormat = new DecimalFormat("#.0");
 
-    public static Student getStudentByInfo(University university, String facultyName, String groupName, String fullName) {
+public class UniversityService {
+
+    public static Student getStudentByInfo(University university, String facultyName, String groupName,
+                                           String fullName) {
 
         try {
             Group group = getGroupByInfo(university, facultyName, groupName);
@@ -37,7 +38,6 @@ public class UniversityService {
                 return null;
             }
             Group group = faculty.getGroups()[index];
-
             return group;
         } catch (NullPointerException e) {
             System.out.println("Faculty is null!");
@@ -68,15 +68,6 @@ public class UniversityService {
         int n = courseGrades.length;
         for (int i = 0; i < n; i++) {
             if (courseGrades[i].getCourseName().equals(courseName))
-                return i;
-        }
-        return -1;
-    }
-
-    public static int search(Student students[], String studentName) {
-        int n = students.length;
-        for (int i = 0; i < n; i++) {
-            if (students[i].getFullName().equals(studentName))
                 return i;
         }
         return -1;

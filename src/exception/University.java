@@ -10,7 +10,9 @@ import java.util.Scanner;
  *
  * @author Karine Gevorgyan
  */
+
 public class University {
+
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String name;
     private Faculty[] facultyList = {};

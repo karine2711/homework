@@ -1,4 +1,5 @@
 package exception;
+
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -8,7 +9,9 @@ import java.util.Scanner;
  *
  * @author Karine Gevorgyan
  */
+
 public class Faculty {
+
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String name;
     private Group[] groups = {};
@@ -41,8 +44,8 @@ public class Faculty {
     }
 
     public void printGroups() {
-        for (Group group:groups) {
-            System.out.println("    "+group.getName());
+        for (Group group : groups) {
+            System.out.println("    " + group.getName());
             group.printStudents();
 
         }
@@ -58,7 +61,7 @@ public class Faculty {
                 quantity++;
             }
         }
-        if (quantity==0){
+        if (quantity == 0) {
             return 0;
         }
         return Double.parseDouble(numberFormat.format(sum / quantity));

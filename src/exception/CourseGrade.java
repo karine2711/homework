@@ -5,13 +5,14 @@ package exception;
  *
  * @author Karine Gevorgyan
  */
+
 public class CourseGrade {
     private String courseName;
-    private double grade=0;
+    private double grade = 0;
 
 
     public CourseGrade(String courseName, double grade) {
-     this.courseName=courseName;
+        this.courseName = courseName;
         this.grade = grade;
     }
 

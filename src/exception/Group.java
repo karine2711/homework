@@ -17,6 +17,7 @@ public class Group {
 
 
     public Group(String name, Student... students) {
+
         this.name = name;
         if (students.length == 0) {
             System.out.println("A group cannot be created without students");
@@ -26,6 +27,7 @@ public class Group {
                 this.studentList = DynamicArray.addElement(studentList, student);
             }
         }
+
     }
 
     public String getName() {
@@ -36,13 +38,6 @@ public class Group {
         return studentList;
     }
 
-    public void printStudents() {
-        for (Student student : studentList) {
-            System.out.println("        "+student.getFullName());
-            student.printCourseGrades();
-        }
-    }
-
     public String[] getStudentNames() {
         String[] studentNames = new String[studentList.length];
         for (int i = 0; i < studentList.length; i++) {
@@ -51,18 +46,25 @@ public class Group {
         return studentNames;
     }
 
-        public double countMeanGrade(String courseName) {
-       double sum=0;
-       int quantity=0;
-        for(Student student:studentList){
-            int index=UniversityService.search(student.getCourseGrades(),courseName);
-            if(index!=-1){
-                System.out.println(student.getFullName()+":  "+student.getCourseGrades()[index].getGrade());
-                sum+=student.getCourseGrades()[index].getGrade();
+    public void printStudents() {
+        for (Student student : studentList) {
+            System.out.println("        " + student.getFullName());
+            student.printCourseGrades();
+        }
+    }
+
+    public double countMeanGrade(String courseName) {
+        double sum = 0;
+        int quantity = 0;
+        for (Student student : studentList) {
+            int index = UniversityService.search(student.getCourseGrades(), courseName);
+            if (index != -1) {
+                System.out.println(student.getFullName() + ":  " + student.getCourseGrades()[index].getGrade());
+                sum += student.getCourseGrades()[index].getGrade();
                 quantity++;
             }
         }
-        if(quantity==0){
+        if (quantity == 0) {
             return 0;
         }
         return Double.parseDouble(numberFormat.format(sum / quantity));

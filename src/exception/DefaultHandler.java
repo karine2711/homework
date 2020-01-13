@@ -7,44 +7,49 @@ import java.util.Scanner;
  *
  * @author Karine Gevorgyan
  */
+
 public class DefaultHandler {
     private static Scanner scanner = new Scanner(System.in);
+
+    //default lists
     private static String[] defaultCourseList = {"Armenian Literature", "History"};
+
     private static Student[][] defaultStudentList = {
             {
-                new Student.StudentBuilder("Karine Gevorgyan", defaultCourseList).build(),
-                new Student.StudentBuilder("Siranush Mshetsyan", "Intro to CS", "Discrete Maths","Armenian Literature").build(),
+                    new Student.StudentBuilder("Karine Gevorgyan", defaultCourseList).build(),
+                    new Student.StudentBuilder("Siranush Mshetsyan", "Intro to CS", "Discrete Maths", "Armenian Literature").build(),
             },
             {
-                new Student.StudentBuilder("Vahag Mkrtchyan", defaultCourseList).build(),
-                new Student.StudentBuilder("Anahit Chaxmaxchyan", "Data Structures", "Theory of Algorithms","Armenian Literature").build(),
+                    new Student.StudentBuilder("Vahag Mkrtchyan", defaultCourseList).build(),
+                    new Student.StudentBuilder("Anahit Chaxmaxchyan", "Data Structures", "Theory of Algorithms", "Armenian Literature").build(),
             },
             {
-                new Student.StudentBuilder("Vahag Mkrtchyan", defaultCourseList).build(),
-                new Student.StudentBuilder("Anahit Chaxmaxchyan", "Data Structures", "Theory of Algorithms").build(),
+                    new Student.StudentBuilder("Vahag Mkrtchyan", defaultCourseList).build(),
+                    new Student.StudentBuilder("Anahit Chaxmaxchyan", "Data Structures", "Theory of Algorithms").build(),
             },
             {
-                new Student.StudentBuilder("Lolita Bryusovna", "Business", "Agriculture").build(),
-                new Student.StudentBuilder("Torgom Rostovyan", "Intro to CS", "Theory of Algorithms").build(),
-                new Student.StudentBuilder("Karlen Yesayan", "English", "Business").build(),
+                    new Student.StudentBuilder("Lolita Bryusovna", "Business", "Agriculture").build(),
+                    new Student.StudentBuilder("Torgom Rostovyan", "Intro to CS", "Theory of Algorithms").build(),
+                    new Student.StudentBuilder("Karlen Yesayan", "English", "Business").build(),
             },
             {
-                new Student.StudentBuilder("Ed Park ", "Business", "Agriculture").build(),
-                new Student.StudentBuilder("Isabel Floyd", "Data Structures", "Theory of Algorithms").build(),
-                new Student.StudentBuilder("Dallas Knight", defaultCourseList).build(),
+                    new Student.StudentBuilder("Ed Park ", "Business", "Agriculture").build(),
+                    new Student.StudentBuilder("Isabel Floyd", "Data Structures", "Theory of Algorithms").build(),
+                    new Student.StudentBuilder("Dallas Knight", defaultCourseList).build(),
             },
             {
                     new Student.StudentBuilder("Tanya Peterson", defaultCourseList).build(),
                     new Student.StudentBuilder("Clifton Carter", "Data Structures",
-                            "Theory of Algorithms","Intro to CS","Business").build(),
+                            "Theory of Algorithms", "Intro to CS", "Business").build(),
             },
             {
                     new Student.StudentBuilder("Mildred Nelson", defaultCourseList).build(),
                     new Student.StudentBuilder("Pamela Norton", "Data Structures",
-                            "Theory of Algorithms","Intro to CS","Business").build(),
+                            "Theory of Algorithms", "Intro to CS", "Business").build(),
             },
 
     };
+
     private static Group[][] defaultGroupList = {
             {
                     new Group("A", defaultStudentList[0]),
@@ -56,9 +61,11 @@ public class DefaultHandler {
             },
 
     };
+
     private static int i = 0;
     private static int j = 0;
 
+    //methods
     public static CourseGrade[] courseListCreator() {
         CourseGrade[] courses = {};
         System.out.println("Do you want to create a course list by hand or use an example list?");
@@ -69,10 +76,10 @@ public class DefaultHandler {
             courses = createCourseListByHand();
         } else {
 
-           for (String courseName: defaultCourseList){
-               CourseGrade course=new CourseGrade(courseName);
-               courses=DynamicArray.addElement(courses,course);
-           }
+            for (String courseName : defaultCourseList) {
+                CourseGrade course = new CourseGrade(courseName);
+                courses = DynamicArray.addElement(courses, course);
+            }
         }
         return courses;
     }
@@ -87,13 +94,13 @@ public class DefaultHandler {
             System.out.print("Course Name: ");
             response = scanner.next();
         }
-        CourseGrade course=new CourseGrade(response);
+        CourseGrade course = new CourseGrade(response);
         courses = DynamicArray.addElement(courses, course);
         System.out.println("Course " + response + " added! Press 1 to exit");
         System.out.print("Course Name: ");
         response = scanner.next();
         while (!response.equals("1")) {
-            course=new CourseGrade(response);
+            course = new CourseGrade(response);
             courses = DynamicArray.addElement(courses, course);
             System.out.println("Course " + response + " added! Press 1 to exit");
             System.out.print("Course Name: ");
@@ -158,7 +165,6 @@ public class DefaultHandler {
         return student1;
     }
 
-
     public static Group[] groupListCreator() {
         Group[] groups = {};
         System.out.println("Do you want to create a group list by hand or use an example list?");
@@ -200,7 +206,6 @@ public class DefaultHandler {
         }
         return groups;
     }
-
 
     public static Faculty[] facultyListCreator() {
         Faculty[] faculties = {};

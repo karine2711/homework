@@ -11,7 +11,9 @@ import java.util.Scanner;
  *
  * @author Karine Gevorgyan
  */
+
 public class Student {
+
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String fullName;
     private CourseGrade[] courseGrades;
@@ -25,17 +27,18 @@ public class Student {
         return fullName;
     }
 
-    public void setGrade(String courseName, double grade){
+    public void setGrade(String courseName, double grade) {
         int index;
         index = UniversityService.search(this.courseGrades, courseName);
         if (index == -1) {
-            System.out.println("The student doesn't study course named "+courseName);
-        } else if(grade<=0 || grade>10){
-            System.out.println("The grade must be in the range (0,10]. Given grade "+ grade);
-        }else{
+            System.out.println("The student doesn't study course named " + courseName);
+        } else if (grade <= 0 || grade > 10) {
+            System.out.println("The grade must be in the range (0,10]. Given grade " + grade);
+        } else {
             this.courseGrades[index].setGrade(grade);
         }
     }
+
     public CourseGrade[] getCourseGrades() {
         return courseGrades;
     }
@@ -43,15 +46,15 @@ public class Student {
     public void printCourseGrades() {
 
         for (CourseGrade courseGrade : this.courseGrades) {
-            System.out.println("            "+courseGrade.getCourseName() + ":  " + courseGrade.getGrade());
+            System.out.println("            " + courseGrade.getCourseName() + ":  " + courseGrade.getGrade());
         }
     }
 
-    public void gradeStudentRandomly(){
-        Random rnd=new Random();
-        for(CourseGrade courseGrade:courseGrades){
-            if(courseGrade.getGrade()==0){
-                double temp=Double.parseDouble(numberFormat.format(rnd.nextDouble()*9+1));
+    public void gradeStudentRandomly() {
+        Random rnd = new Random();
+        for (CourseGrade courseGrade : courseGrades) {
+            if (courseGrade.getGrade() == 0) {
+                double temp = Double.parseDouble(numberFormat.format(rnd.nextDouble() * 9 + 1));
                 courseGrade.setGrade(temp);
             }
         }
@@ -67,7 +70,9 @@ public class Student {
     }
 
     //-----------------------------------------------------------------------------------------
+    //StudentBuilder Class
     public static class StudentBuilder {
+
         private String fullName; //required
         private CourseGrade[] courseGrades = {};
 
@@ -101,7 +106,7 @@ public class Student {
 
         public Student build() {
             if (courseGrades.length == 0) {
-              courseGrades=DefaultHandler.courseListCreator();
+                courseGrades = DefaultHandler.courseListCreator();
             }
             Student s = new Student(this);
             return s;
