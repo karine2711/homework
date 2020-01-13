@@ -15,61 +15,6 @@ import java.util.Scanner;
 public class UniversityService {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
 
-//    public static void initializeGroups(Faculty[] faculties) {
-//
-//        faculties[0].setGroups(new Group[]{
-//                new Group('A'),
-//                new Group('B')
-//        });
-//
-//
-//
-//        faculties[1].setGroups(new Group[]{
-//                new Group('A'),
-//                new Group('B')
-//        });
-//
-//    }
-
-//    public static void initializeStudents(University uni) {
-//        Student[] students = new Student[]{
-//                new Student.StudentBuilder("Karine Gevorgyan", "CS1")
-//                        .courseGrade("Data Science",10)
-//                        .course("Intro to CS")
-//                        .course("Some course")
-//                        .build(),
-////                new Student("Siranush Mshetsyan", "CS", 'A'),
-//                new Student.StudentBuilder("Vahag Mkrtchyan", "CS1").build(),
-////                new Student("Anahit Chaxmaxchyan", "CS", 'B'),
-////                new Student("Milena Xachatryan", "CS", 'B'),
-//                new Student.StudentBuilder("Lolita Bryusovna", "EC1").build(),
-////                new Student("Torgom Rostovyan", "EC", 'A'),
-//                new Student.StudentBuilder("Karlen Yesayan", "EC2").build(),
-////                new Student("Vazgen Martirosyan", "EC", 'B'),
-////                new Student("Perch Proshyan", "EC", 'B'),
-//        };
-////        try {
-////            distributeStudentsToGroups(students);
-////         ;
-////        } catch (NullStudentListException e) {
-////            System.out.println("Please add students to the university!");
-////        }
-//    }
-
-//    public static void distributeStudentsToGroups(Student[] students) {
-//
-//        for (Student student : students) {
-//            char groupName = student.getGroupName();
-//            String facultyName=student.getFacultyName();
-//            Faculty faculty= getFacultyByName(University,facultyName);
-//            int groupIndex=search(faculty.getGroupNames(),groupName);
-//            Group group=faculty.getGroups()[groupIndex];
-//            Student[] temp=group.getStudentList();
-//            DynamicArray.addElement(temp,student);
-//            group.setStudentList(temp);
-//        }
-//    }
-
     public static Student getStudentByInfo(University university, String facultyName, String groupName, String fullName) {
 
         try {
