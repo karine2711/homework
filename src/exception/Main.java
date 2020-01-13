@@ -62,27 +62,32 @@ public class Main {
             double grade = faculty.countMeanGrade("Armenian Literature");
             if (grade == 0) {
                 System.out.println("No such course in the faculty, or the students where not graded!");
+            }else {
+                System.out.println("Mean grade for given subject in faculty "
+                        + faculty.getName()
+                        + " = " + grade
+                );
+                System.out.println("---------------------------------");
             }
-            System.out.println("Mean grade for given subject in faculty "
-                    + faculty.getName()
-                    + " = " + grade
-            );
-
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
-//        try {
-//            Faculty faculty = UniversityService.getFacultyByName(university,"CS");
-//            System.out.println("Mean grade for given subject in University "
-//                    + " = " + university.countMeanGrade("Data Structures")
-//            );
-//
-//        } catch (NullPointerException e) {
-//            e.printStackTrace();
-//        } catch (NumberFormatException e) {
-//            System.out.println("The University doesn't contain the given course");
-//        }
+        System.out.println("Count mean grade in the university for given subject");
+        //Count mean grade in given faculty
+        try {
+            double grade=university.countMeanGrade("Data Structures");
+            if(grade==0){
+                System.out.println("No such course in the university, or the students where not graded!");
+            }else {
+                System.out.println("Mean grade for given subject in University "
+                        + " = " + university.countMeanGrade("Data Structures")
+                );
+            }
+            System.out.println("---------------------");
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
 //    UniversityService.addStudent("EC",'B',"John Smith");
 //        System.out.println(AUA.getStudentByInfo("EC",'B',"John Smith").getFullName()    );

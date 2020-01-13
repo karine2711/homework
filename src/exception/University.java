@@ -48,4 +48,21 @@ public class University {
 
         }
     }
+
+    public double countMeanGrade(String courseName) {
+        double sum = 0;
+        int quantity = 0;
+        for (Faculty faculty:facultyList) {
+            double mean = faculty.countMeanGrade(courseName);
+            sum += mean;
+            if (mean != 0) {
+                quantity++;
+            }
+        }
+        if (quantity==0){
+            return 0;
+        }
+        return Double.parseDouble(numberFormat.format(sum / quantity));
+
+    }
 }
