@@ -20,7 +20,7 @@ public class Group {
         this.name = name;
         if (students.length == 0) {
             System.out.println("A group cannot be created without students");
-            this.studentList = DefaultHandler.studentListCreator(name);
+            this.studentList = DefaultHandler.studentListCreator();
         } else {
             for (Student student : students) {
                 this.studentList = DynamicArray.addElement(studentList, student);

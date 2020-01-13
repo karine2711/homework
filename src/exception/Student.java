@@ -84,11 +84,7 @@ public class Student {
 
         public Student build() {
             if (courseGrades.length == 0) {
-                Scanner scanner = new Scanner(System.in);
-                System.out.println("The student can't be added if he/she doesn't take any course");
-                System.out.print("Please enter at least one course for " + fullName);
-                System.out.print("Course: ");
-                course(scanner.next());
+              courseGrades=DefaultHandler.courseListCreator();
             }
             Student s = new Student(this);
             return s;

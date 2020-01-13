@@ -33,6 +33,13 @@ public class DynamicArray {
         return temp;
     }
 
+    public static String[] addElement(String[] array, String element) {
+        int size = array.length;
+        String[] temp = incrementSize(array);
+        temp[size] = element;
+        return temp;
+    }
+
     public static Student[] incrementSize(Student[] students) {
         int size = students.length;
         size++;
@@ -73,6 +80,17 @@ public class DynamicArray {
         int size = array.length;
         size++;
         Faculty temp[] = new Faculty[size];
+        size--;
+        for (int i = 0; i < size; i++) {
+            temp[i] = array[i];
+        }
+        return temp;
+    }
+
+    public static String[] incrementSize(String[] array) {
+        int size = array.length;
+        size++;
+        String temp[] = new String[size];
         size--;
         for (int i = 0; i < size; i++) {
             temp[i] = array[i];

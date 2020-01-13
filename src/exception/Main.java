@@ -7,7 +7,9 @@ import exception.exceptions.NullStudentListException;
 public class Main {
     public static void main(String[] args) {
         //Create a university!
+        Student s=new Student.StudentBuilder("Ani","Armenia","English").build();
         University university=new University("AUA");
+        System.out.println(university.getFacultyList()[0].getGroups()[0].getStudentList()[0].getFullName());
 
         //  UniversityService.distributeStudentsToFaculties(AUA);
         //Distribute all students to groups
