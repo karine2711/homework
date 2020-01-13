@@ -36,47 +36,46 @@ public class Main {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-
-      //  count mean grade in a given group, for a given subject
+        System.out.println("Count mean grade in a given group, for a given subject");
+        //  count mean grade in a given group, for a given subject
         try {
-            Group group = UniversityService.getGroupByInfo(university,"EC", "B");
-            double grade=group.countMeanGrade("Business");
-            if(grade==0){
+            Group group = UniversityService.getGroupByInfo(university, "EC", "B");
+            double grade = group.countMeanGrade("Business");
+            if (grade == 0) {
                 System.out.println("No such course in the group, or the students where not graded!");
+            } else {
+                System.out.println("Mean grade for given subject in group "
+                        + group.getName()
+                        + " = " + grade
+                );
             }
-            System.out.println("Mean grade for given subject in group "
-                    + group.getName()
-                    + " = " + grade
-            );
             System.out.println("---------------------------------");
-          
+
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
+        System.out.println("Count mean grade in given faculty for given subject");
         //Count mean grade in given faculty
-//        try {
-//            Faculty faculty = AUA.getfacultyByName("CS");
-//
-//            System.out.println("Mean grade for given subject in faculty "
-//                    + faculty.getName()
-//                    + " = " + faculty.countMeanGrade("Data Structures")
-//            );
-//
-//        } catch (NullPointerException e) {
-//            e.printStackTrace();
-//        } catch (NumberFormatException e) {
-//            System.out.println("The faculty doesn't contain the given course");
-//            System.out.println("---------------------------------");
-//            System.out.println();
-//            System.out.println();
-//        }
+        try {
+            Faculty faculty = UniversityService.getFacultyByName(university, "CS");
+            double grade = faculty.countMeanGrade("Armenian Literature");
+            if (grade == 0) {
+                System.out.println("No such course in the faculty, or the students where not graded!");
+            }
+            System.out.println("Mean grade for given subject in faculty "
+                    + faculty.getName()
+                    + " = " + grade
+            );
+
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
 //        try {
-//            Faculty faculty = AUA.getfacultyByName("CS");
-//
+//            Faculty faculty = UniversityService.getFacultyByName(university,"CS");
 //            System.out.println("Mean grade for given subject in University "
-//                    + " = " + AUA.countMeanGrade("Data Structures")
+//                    + " = " + university.countMeanGrade("Data Structures")
 //            );
 //
 //        } catch (NullPointerException e) {

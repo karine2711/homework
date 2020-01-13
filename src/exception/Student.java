@@ -30,7 +30,9 @@ public class Student {
         index = UniversityService.search(this.courseGrades, courseName);
         if (index == -1) {
             System.out.println("The student doesn't study course named "+courseName);
-        } else {
+        } else if(grade<=0 || grade>10){
+            System.out.println("The grade must be in the range (0,10]. Given grade "+ grade);
+        }else{
             this.courseGrades[index].setGrade(grade);
         }
     }

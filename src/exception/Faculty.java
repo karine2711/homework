@@ -51,18 +51,20 @@ public class Faculty {
         }
     }
 
-//    public double countMeanGrade(String courseName) {
-//
-//        double sum = 0;
-//        int quantity = 0;
-//        for (Group group : groups) {
-//            double mean = group.countMeanGrade(courseName);
-//            sum += mean;
-//            if (mean != -1) {
-//                quantity++;
-//            }
-//        }
-//        return Double.parseDouble(numberFormat.format(sum / quantity));
-//
-//    }
+    public double countMeanGrade(String courseName) {
+        double sum = 0;
+        int quantity = 0;
+        for (Group group : groups) {
+            double mean = group.countMeanGrade(courseName);
+            sum += mean;
+            if (mean != 0) {
+                quantity++;
+            }
+        }
+        if (quantity==0){
+            return 0;
+        }
+        return Double.parseDouble(numberFormat.format(sum / quantity));
+
+    }
 }

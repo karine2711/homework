@@ -52,7 +52,6 @@ public class Group {
     }
 
         public double countMeanGrade(String courseName) {
-            System.out.println(courseName);
        double sum=0;
        int quantity=0;
         for(Student student:studentList){

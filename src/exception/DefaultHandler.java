@@ -11,19 +11,39 @@ public class DefaultHandler {
     private static Scanner scanner = new Scanner(System.in);
     private static String[] defaultCourseList = {"Armenian Literature", "History"};
     private static Student[][] defaultStudentList = {
-            {new Student.StudentBuilder("Karine Gevorgyan", defaultCourseList).build(),
-                    new Student.StudentBuilder("Siranush Mshetsyan", "Intro to CS", "Discrete Maths").build(),
+            {
+                new Student.StudentBuilder("Karine Gevorgyan", defaultCourseList).build(),
+                new Student.StudentBuilder("Siranush Mshetsyan", "Intro to CS", "Discrete Maths","Armenian Literature").build(),
             },
-            {new Student.StudentBuilder("Vahag Mkrtchyan", defaultCourseList).build(),
-                    new Student.StudentBuilder("Anahit Chaxmaxchyan", "Data structures", "Theory of Algorithms").build(),
+            {
+                new Student.StudentBuilder("Vahag Mkrtchyan", defaultCourseList).build(),
+                new Student.StudentBuilder("Anahit Chaxmaxchyan", "Data Structures", "Theory of Algorithms","Armenian Literature").build(),
             },
-            {new Student.StudentBuilder("Vahag Mkrtchyan", defaultCourseList).build(),
-                    new Student.StudentBuilder("Anahit Chaxmaxchyan", "Data structures", "Theory of Algorithms").build(),
+            {
+                new Student.StudentBuilder("Vahag Mkrtchyan", defaultCourseList).build(),
+                new Student.StudentBuilder("Anahit Chaxmaxchyan", "Data Structures", "Theory of Algorithms").build(),
             },
-            {new Student.StudentBuilder("Lolita Bryusovna", "Business", "Agriculture").build(),
-                    new Student.StudentBuilder("Torgom Rostovyan", "Intro to CS", "Theory of Algorithms").build(),
-                    new Student.StudentBuilder("Karlen Yesayan", "English", "Business").build(),
-            }
+            {
+                new Student.StudentBuilder("Lolita Bryusovna", "Business", "Agriculture").build(),
+                new Student.StudentBuilder("Torgom Rostovyan", "Intro to CS", "Theory of Algorithms").build(),
+                new Student.StudentBuilder("Karlen Yesayan", "English", "Business").build(),
+            },
+            {
+                new Student.StudentBuilder("Ed Park ", "Business", "Agriculture").build(),
+                new Student.StudentBuilder("Isabel Floyd", "Data Structures", "Theory of Algorithms").build(),
+                new Student.StudentBuilder("Dallas Knight", defaultCourseList).build(),
+            },
+            {
+                    new Student.StudentBuilder("Tanya Peterson", defaultCourseList).build(),
+                    new Student.StudentBuilder("Clifton Carter", "Data Structures",
+                            "Theory of Algorithms","Intro to CS","Business").build(),
+            },
+            {
+                    new Student.StudentBuilder("Mildred Nelson", defaultCourseList).build(),
+                    new Student.StudentBuilder("Pamela Norton", "Data Structures",
+                            "Theory of Algorithms","Intro to CS","Business").build(),
+            },
+
     };
     private static Group[][] defaultGroupList = {
             {
