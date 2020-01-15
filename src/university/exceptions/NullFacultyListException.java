@@ -1,4 +1,4 @@
-package exception.exceptions;
+package university.exceptions;
 
 /**
  * Handles the scenario, when the University is about to

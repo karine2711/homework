@@ -1,4 +1,4 @@
-package exception;
+package university;
 
 /**
  * Represents the courses of the University

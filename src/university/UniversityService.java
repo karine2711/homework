@@ -1,4 +1,4 @@
-package exception;
+package university;
 
 /**
  * Contains all general functions used within the program.

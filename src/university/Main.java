@@ -1,4 +1,4 @@
-package exception;
+package university;
 
 
 public class Main {
@@ -19,7 +19,6 @@ public class Main {
         //try to get a student and set a grade
 
         try {
-            System.out.println("Try to get a student and set some course grades");
             Student karine = UniversityService.getStudentByInfo(
                     university,
                     "CS",
@@ -47,7 +46,7 @@ public class Main {
         // count given student's mean grade
         try {
             System.out.println("-------------------------------------------------");
-            System.out.println("Count given student's mean grade");
+            System.out.println("--Count given student's mean grade--");
             Student karine = UniversityService.getStudentByInfo(university, "CS", "CS1", "Karine Gevorgyan");
             System.out.println(karine.getFullName());
             karine.printCourseGrades();
@@ -61,7 +60,7 @@ public class Main {
         //  count mean grade in a given group, for a given subject
         try {
             System.out.println("------------------------------------------------------");
-            System.out.println("Count mean grade in a given group, for a given subject");
+            System.out.println("--Count mean grade in a given group, for a given subject--");
             Group group = UniversityService.getGroupByInfo(university, "EC", "EC1");
             double grade = group.countMeanGrade("Music");
             if (grade == 0) {
@@ -81,7 +80,7 @@ public class Main {
         //  Count mean grade in given faculty
         try {
             System.out.println("-----------------------------------------------");
-            System.out.println("Count mean grade in given faculty for given subject");
+            System.out.println("--Count mean grade in given faculty for given subject--");
             Faculty faculty = UniversityService.getFacultyByName(university, "CS");
             double grade = faculty.countMeanGrade("Machine Learning");
             if (grade == 0) {
@@ -102,7 +101,7 @@ public class Main {
         // Count mean grade in university for given subject
         try {
             System.out.println("----------------------------------------------------");
-            System.out.println("Count mean grade in the university for given subject");
+            System.out.println("--Count mean grade in the university for given subject--");
             double grade = university.countMeanGrade("Data Structures");
             if (grade == 0) {
                 System.out.println("No such course in the university, or the students where not graded!");

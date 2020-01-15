@@ -1,9 +1,8 @@
-package exception;
+package university;
 
-import exception.exceptions.NullGroupListException;
+import university.exceptions.NullGroupListException;
 
 import java.text.DecimalFormat;
-import java.util.Scanner;
 
 /**
  * The faculty class represents the faculties of the university.

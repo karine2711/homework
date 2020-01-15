@@ -1,6 +1,6 @@
-package exception;
+package university;
 
-import exception.exceptions.NullStudentListException;
+import university.exceptions.NullStudentListException;
 
 import java.text.DecimalFormat;
 
@@ -11,7 +11,7 @@ import java.text.DecimalFormat;
  * @author Karine Gevorgyan
  */
 public class Group {
-    
+
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String name;
     private Student[] students;

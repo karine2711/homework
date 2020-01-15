@@ -1,7 +1,4 @@
-package exception.exceptions;
-
-import exception.Faculty;
-import exception.Group;
+package university.exceptions;
 
 /**
  * Handles the scenario, when the it is attempted

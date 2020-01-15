@@ -1,7 +1,6 @@
-package exception;
+package university;
 
-import exception.exceptions.NullCourseListException;
-import exception.exceptions.NullStudentListException;
+import university.exceptions.NullCourseListException;
 
 import java.text.DecimalFormat;
 import java.util.Random;
