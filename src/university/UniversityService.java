@@ -3,6 +3,7 @@ package university;
 import university.exceptions.missingItemExceptions.FacultyNotFoundException;
 import university.exceptions.missingItemExceptions.GroupNotFoundException;
 import university.exceptions.missingItemExceptions.StudentNotFoundException;
+import university.universityParts.*;
 
 /**
  * Contains all general functions used within the program.

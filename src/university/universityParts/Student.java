@@ -1,5 +1,6 @@
-package university;
+package university.universityParts;
 
+import university.UniversityService;
 import university.exceptions.GradeOutOfRangeException;
 import university.exceptions.missingItemExceptions.CourseNotFoundException;
 import university.exceptions.nullListExceptions.NullCourseListException;

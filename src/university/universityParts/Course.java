@@ -1,4 +1,4 @@
-package university;
+package university.universityParts;
 
 /**
  * Represents the courses of the University

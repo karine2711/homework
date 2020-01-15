@@ -1,5 +1,6 @@
-package university;
+package university.universityParts;
 
+import university.UniversityService;
 import university.exceptions.nullListExceptions.NullStudentListException;
 
 import java.text.DecimalFormat;

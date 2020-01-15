@@ -1,4 +1,4 @@
-package university;
+package university.universityParts;
 
 import university.exceptions.nullListExceptions.NullFacultyListException;
 

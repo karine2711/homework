@@ -4,6 +4,10 @@ package university;
 import university.exceptions.GradeOutOfRangeException;
 import university.exceptions.missingItemExceptions.ItemNotFoundException;
 import university.exceptions.nullListExceptions.NullListException;
+import university.universityParts.Faculty;
+import university.universityParts.Group;
+import university.universityParts.Student;
+import university.universityParts.University;
 
 public class Main {
     public static void main(String[] args) {
