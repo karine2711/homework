@@ -16,6 +16,9 @@ public class Student {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String fullName;
     private Course[] courses;
+    private String address;
+    private String phone;
+    private String email;
 
     private Student(StudentBuilder student) {
         this.fullName = student.fullName;
@@ -70,6 +73,18 @@ public class Student {
             sum += course.getGrade();
         }
         return Double.parseDouble(numberFormat.format(sum / quantity));
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     //-----------------------------------------------------------------------------------------

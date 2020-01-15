@@ -7,6 +7,43 @@ package exception;
  */
 
 public class UniversityService {
+    public static University initializeUniversity() {
+        Student Karine = new Student.StudentBuilder("Karine Gevorgyan")
+                .address("Tumanyan 5")
+                .phone("046251378")
+                .email("karine@mail.ru")
+                .build();
+        Student Siranush = new Student.StudentBuilder("Siranush Mshetsyan")
+                .email("siranush@mail.ru")
+                .build();
+        Student Vahag = new Student.StudentBuilder("Vahag Mkrtchyan")
+                .phone("025468579")
+                .build();
+        Student Anahit = new Student.StudentBuilder("Anahit Chaxmaxchyan")
+                .address("Baxramyan 1")
+                .build();
+        Student Lolita = new Student.StudentBuilder("Lolita Bryusovna").build();
+        Student Torgom = new Student.StudentBuilder("Torgom Rostovyan").build();
+        Student Karlen = new Student.StudentBuilder("Karlen Yesayan").build();
+        Student Ed = new Student.StudentBuilder("Ed Park ").build();
+        Student Isabel = new Student.StudentBuilder("Isabel Floyd").build();
+        Student Dallas = new Student.StudentBuilder("Dallas Knight").build();
+        Group CS1 = new Group("CS1");
+        CS1.setStudentList(Karine, Siranush);
+        Group CS2 = new Group("CS2");
+        CS2.setStudentList(Vahag, Anahit);
+        Group EC1 = new Group("EC1");
+        EC1.setStudentList(Lolita, Torgom, Karlen);
+        Group EC2 = new Group("EC2");
+        EC2.setStudentList(Ed, Isabel, Dallas);
+        Faculty CS = new Faculty("CS");
+        CS.setGroupList(CS1, CS2);
+        Faculty EC = new Faculty("EC");
+        EC.setGroupList(EC1, EC2);
+        University AUA = new University("AUA");
+        AUA.setFacultyList(CS, EC);
+        return AUA;
+    }
 
     public static Student getStudentByInfo(University university, String facultyName, String groupName,
                                            String fullName) {

@@ -18,7 +18,7 @@ public class University {
     private Faculty[] facultyList = {};
     private String[] facultyNames;
 
-    public University(String name, Faculty... faculties) {
+    public University(String name) {
         this.name = name;
     }
 
