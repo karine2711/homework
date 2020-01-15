@@ -2,7 +2,7 @@ package university;
 
 
 import university.exceptions.GradeOutOfRangeException;
-import university.exceptions.missingItemExceptions.ItemNotFoundException;
+import university.exceptions.itemNotFoundExceptions.ItemNotFoundException;
 import university.exceptions.nullListExceptions.NullListException;
 import university.universityParts.Faculty;
 import university.universityParts.Group;

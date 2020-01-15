@@ -1,8 +1,8 @@
 package university;
 
-import university.exceptions.missingItemExceptions.FacultyNotFoundException;
-import university.exceptions.missingItemExceptions.GroupNotFoundException;
-import university.exceptions.missingItemExceptions.StudentNotFoundException;
+import university.exceptions.itemNotFoundExceptions.FacultyNotFoundException;
+import university.exceptions.itemNotFoundExceptions.GroupNotFoundException;
+import university.exceptions.itemNotFoundExceptions.StudentNotFoundException;
 import university.universityParts.*;
 
 /**

@@ -1,4 +1,4 @@
-package university.exceptions.missingItemExceptions;
+package university.exceptions.itemNotFoundExceptions;
 
 public class ItemNotFoundException extends RuntimeException {
     @Override
