@@ -1,6 +1,7 @@
 package university;
 
 
+import university.exceptions.GradeOutOfRangeException;
 import university.exceptions.missingItemExceptions.ItemNotFoundException;
 import university.exceptions.nullListExceptions.NullListException;
 
@@ -26,10 +27,19 @@ public class Main {
                     university,
                     "CS",
                     "CS1",
-                    "Karine Gevorgyahiohn"
+                    "Karine Gevorgyan"
             );
-            karine.setGrade("Armenian", 6);
-            karine.setGrade("Maths", 9);
+            try {
+                karine.setGrade("Armenian", 10);
+            }catch (GradeOutOfRangeException e){
+                e.printStackTrace();
+            }
+            try {
+                karine.setGrade("Maths", 5);
+            }catch (GradeOutOfRangeException e){
+                e.printStackTrace();
+            }
+
         } catch (ItemNotFoundException e) {
             System.out.println();
             System.out.println(e.toString());

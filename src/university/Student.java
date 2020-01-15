@@ -1,5 +1,7 @@
 package university;
 
+import university.exceptions.GradeOutOfRangeException;
+import university.exceptions.missingItemExceptions.CourseNotFoundException;
 import university.exceptions.nullListExceptions.NullCourseListException;
 
 import java.text.DecimalFormat;
@@ -16,6 +18,8 @@ import java.util.Random;
 public class Student {
 
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
+    final static int MIN_GRADE=0;
+    final static int MAX_GRADE=10;
     private String fullName;
     private Course[] courses;
     private String address;
@@ -56,9 +60,9 @@ public class Student {
         int index;
         index = UniversityService.search(this.courses, courseName);
         if (index == -1) {
-            System.out.println("The student doesn't study course named " + courseName);
+            throw new CourseNotFoundException(courseName,fullName);
         } else if (grade <= 0 || grade > 10) {
-            System.out.println("The grade must be in the range (0,10]. Given grade " + grade);
+            throw new GradeOutOfRangeException(grade, MIN_GRADE, MAX_GRADE);
         } else {
             this.courses[index].setGrade(grade);
         }
