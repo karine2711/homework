@@ -1,6 +1,6 @@
-package university.exceptions;
+package university.exceptions.nullListExceptions;
 
-public class NullCourseListException extends RuntimeException {
+public class NullCourseListException extends NullListException {
     private String studentName = "";
 
     public NullCourseListException(String studentName) {

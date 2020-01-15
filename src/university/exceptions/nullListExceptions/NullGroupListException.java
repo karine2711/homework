@@ -1,4 +1,4 @@
-package university.exceptions;
+package university.exceptions.nullListExceptions;
 
 /**
  * Handles the scenario, when the it is attempted
@@ -7,7 +7,7 @@ package university.exceptions;
  *
  * @author Karine Gevorgyan
  */
-public class NullGroupListException extends RuntimeException {
+public class NullGroupListException extends NullListException {
     private String facultyName;
 
     public NullGroupListException(String facultyName) {

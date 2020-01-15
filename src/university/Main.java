@@ -1,6 +1,9 @@
 package university;
 
 
+import university.exceptions.missingItemExceptions.ItemNotFoundException;
+import university.exceptions.nullListExceptions.NullListException;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -11,7 +14,7 @@ public class Main {
         //grade all students randomly
         try {
             university.gradeAllStudentsRandomly();
-        } catch (RuntimeException e) {
+        } catch (NullListException e) {
             e.printStackTrace();
         }
 
@@ -23,13 +26,14 @@ public class Main {
                     university,
                     "CS",
                     "CS1",
-                    "Karine Gevorgyan"
+                    "Karine Gevorgyahiohn"
             );
             karine.setGrade("Armenian", 6);
             karine.setGrade("Maths", 9);
-        } catch (NullPointerException ignored) {
-            //because it's handled within the getStudentByInfo()
-        } catch (RuntimeException e) {
+        } catch (ItemNotFoundException e) {
+            System.out.println();
+            System.out.println(e.toString());
+        } catch (NullListException e) {
             e.printStackTrace();
         }
 
@@ -38,7 +42,7 @@ public class Main {
         try {
             System.out.println("\n------------------------------------------\nThe whole University structure\n");
             university.printFaculties();
-        } catch (RuntimeException e) {
+        } catch (NullListException e) {
             e.printStackTrace();
         }
 
@@ -51,8 +55,9 @@ public class Main {
             System.out.println(karine.getFullName());
             karine.printCourseGrades();
             System.out.println("Mean grade = " + karine.countMeanGrade());
-        } catch (NullPointerException ignored) {
-        } catch (RuntimeException e) {
+        }  catch (ItemNotFoundException e) {
+            System.out.println(e.toString());
+        } catch (NullListException e) {
             e.printStackTrace();
         }
 
@@ -71,8 +76,9 @@ public class Main {
                         + " = " + grade
                 );
             }
-        } catch (NullPointerException ignored) {
-        } catch (RuntimeException e) {
+        }  catch (ItemNotFoundException e) {
+            System.out.println(e.toString());
+        } catch (NullListException e) {
             e.printStackTrace();
         }
 
@@ -92,8 +98,9 @@ public class Main {
                 );
 
             }
-        } catch (NullPointerException ignored) {
-        } catch (RuntimeException e) {
+        } catch (ItemNotFoundException e) {
+            System.out.println(e.toString());
+        } catch (NullListException e) {
             e.printStackTrace();
         }
 
@@ -110,8 +117,9 @@ public class Main {
                         + " = " + university.countMeanGrade("Armenian")
                 );
             }
-        } catch (NullPointerException ignored) {
-        } catch (RuntimeException e) {
+        }  catch (ItemNotFoundException e) {
+            System.out.println(e.toString());
+        } catch (NullListException e) {
             e.printStackTrace();
         }
 

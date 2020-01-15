@@ -1,4 +1,4 @@
-package university.exceptions;
+package university.exceptions.nullListExceptions;
 
 /**
  * Handles the scenario, when the University is about to
@@ -6,7 +6,7 @@ package university.exceptions;
  *
  * @author Karine Gevorgyan
  */
-public class NullFacultyListException extends RuntimeException {
+public class NullFacultyListException extends NullListException {
     private String universityName;
 
     public NullFacultyListException(String univerityName) {

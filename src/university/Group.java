@@ -1,6 +1,6 @@
 package university;
 
-import university.exceptions.NullStudentListException;
+import university.exceptions.nullListExceptions.NullStudentListException;
 
 import java.text.DecimalFormat;
 

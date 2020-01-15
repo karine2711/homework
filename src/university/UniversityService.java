@@ -1,5 +1,9 @@
 package university;
 
+import university.exceptions.missingItemExceptions.FacultyNotFoundException;
+import university.exceptions.missingItemExceptions.GroupNotFoundException;
+import university.exceptions.missingItemExceptions.StudentNotFoundException;
+
 /**
  * Contains all general functions used within the program.
  *
@@ -98,34 +102,23 @@ public class UniversityService {
     public static Student getStudentByInfo(University university, String facultyName, String groupName,
                                            String fullName) {
 
-        try {
             Group group = getGroupByInfo(university, facultyName, groupName);
             int index = search(group.getStudentNames(), fullName);
             if (index == -1) {
-                System.out.println("There is no student called " + fullName + " in group " + groupName + " of faculty " + facultyName);
-                return null;
+                throw new StudentNotFoundException(fullName,groupName,facultyName);
             }
             return group.getStudents()[index];
-        } catch (NullPointerException e) {
-            return null;
-        }
 
     }
 
     public static Group getGroupByInfo(University university, String facultyName, String groupName) {
 
-        try {
             Faculty faculty = getFacultyByName(university, facultyName);
-
             int index = search(faculty.getGroupNames(), groupName);
             if (index == -1) {
-                System.out.println("There is no group called " + groupName + " in faculty " + facultyName);
-                return null;
+               throw new GroupNotFoundException(groupName,facultyName);
             }
             return faculty.getGroups()[index];
-        } catch (NullPointerException e) {
-            return null;
-        }
 
     }
 
@@ -133,8 +126,7 @@ public class UniversityService {
 
         int index = search(university.getFacultyNames(), facultyName);
         if (index == -1) {
-            System.out.println("There is no faculty " + facultyName + " in university " + university.getName());
-            return null;
+           throw new FacultyNotFoundException(facultyName);
         }
         return university.getFaculties()[index];
 
