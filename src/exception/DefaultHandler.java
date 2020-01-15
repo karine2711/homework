@@ -66,8 +66,8 @@ public class DefaultHandler {
     private static int j = 0;
 
     //methods
-    public static CourseGrade[] courseListCreator() {
-        CourseGrade[] courses = {};
+    public static Course[] courseListCreator() {
+        Course[] courses = {};
         System.out.println("Do you want to create a course list by hand or use an example list?");
         System.out.print("1=createByHand, anything else=use example   ");
         System.out.print("Response: ");
@@ -77,15 +77,15 @@ public class DefaultHandler {
         } else {
 
             for (String courseName : defaultCourseList) {
-                CourseGrade course = new CourseGrade(courseName);
+                Course course = new Course(courseName);
                 courses = DynamicArray.addElement(courses, course);
             }
         }
         return courses;
     }
 
-    private static CourseGrade[] createCourseListByHand() {
-        CourseGrade[] courses = {};
+    private static Course[] createCourseListByHand() {
+        Course[] courses = {};
         System.out.println("Please enter '1' to stop adding courses");
         System.out.print("Course Name: ");
         String response = scanner.next();
@@ -94,13 +94,13 @@ public class DefaultHandler {
             System.out.print("Course Name: ");
             response = scanner.next();
         }
-        CourseGrade course = new CourseGrade(response);
+        Course course = new Course(response);
         courses = DynamicArray.addElement(courses, course);
         System.out.println("Course " + response + " added! Press 1 to exit");
         System.out.print("Course Name: ");
         response = scanner.next();
         while (!response.equals("1")) {
-            course = new CourseGrade(response);
+            course = new Course(response);
             courses = DynamicArray.addElement(courses, course);
             System.out.println("Course " + response + " added! Press 1 to exit");
             System.out.print("Course Name: ");

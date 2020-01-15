@@ -16,15 +16,12 @@ public class Faculty {
     private String name;
     private Group[] groups = {};
 
-    public Faculty(String name, Group... groups) {
+    public Faculty(String name) {
         this.name = name;
-        if (groups.length == 0) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("The faculty must have at least one group!");
-            this.groups = DefaultHandler.groupListCreator();
-        } else {
-            this.groups = groups;
-        }
+    }
+
+    public void setGroupList(Group...groups){
+        this.groups = groups;
     }
 
     public String getName() {

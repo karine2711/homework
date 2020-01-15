@@ -20,13 +20,10 @@ public class University {
 
     public University(String name, Faculty... faculties) {
         this.name = name;
-        if (faculties.length == 0) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("The University must have at least one faculty!");
-            facultyList = DefaultHandler.facultyListCreator();
-        } else {
-            facultyList = faculties;
-        }
+    }
+
+    public void setFacultyList(Faculty...faculties){
+        facultyList=faculties;
     }
 
     public Faculty[] getFacultyList() {

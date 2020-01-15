@@ -6,17 +6,16 @@ package exception;
  * @author Karine Gevorgyan
  */
 
-public class CourseGrade {
+public class Course {
     private String courseName;
     private double grade = 0;
 
-
-    public CourseGrade(String courseName, double grade) {
+    public Course(String courseName, double grade) {
         this.courseName = courseName;
         this.grade = grade;
     }
 
-    public CourseGrade(String courseName) {
+    public Course(String courseName) {
         this.courseName = courseName;
     }
 

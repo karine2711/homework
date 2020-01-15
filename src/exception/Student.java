@@ -2,7 +2,6 @@ package exception;
 
 import java.text.DecimalFormat;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * The Student class represents the students of the university.
@@ -16,11 +15,11 @@ public class Student {
 
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String fullName;
-    private CourseGrade[] courseGrades;
+    private Course[] courses;
 
-    public Student(StudentBuilder student) {
+    private Student(StudentBuilder student) {
         this.fullName = student.fullName;
-        this.courseGrades = student.courseGrades;
+        this.courses = student.courses;
     }
 
     public String getFullName() {
@@ -29,42 +28,46 @@ public class Student {
 
     public void setGrade(String courseName, double grade) {
         int index;
-        index = UniversityService.search(this.courseGrades, courseName);
+        index = UniversityService.search(this.courses, courseName);
         if (index == -1) {
             System.out.println("The student doesn't study course named " + courseName);
         } else if (grade <= 0 || grade > 10) {
             System.out.println("The grade must be in the range (0,10]. Given grade " + grade);
         } else {
-            this.courseGrades[index].setGrade(grade);
+            this.courses[index].setGrade(grade);
         }
     }
 
-    public CourseGrade[] getCourseGrades() {
-        return courseGrades;
+    public Course[] getCourses() {
+        return courses;
     }
 
     public void printCourseGrades() {
 
-        for (CourseGrade courseGrade : this.courseGrades) {
-            System.out.println("            " + courseGrade.getCourseName() + ":  " + courseGrade.getGrade());
+        for (Course course : this.courses) {
+            System.out.println("            " + course.getCourseName() + ":  " + course.getGrade());
         }
+    }
+
+    private void setCourses(Course...courses) {
+       this.courses=courses;
     }
 
     public void gradeStudentRandomly() {
         Random rnd = new Random();
-        for (CourseGrade courseGrade : courseGrades) {
-            if (courseGrade.getGrade() == 0) {
+        for (Course course : courses) {
+            if (course.getGrade() == 0) {
                 double temp = Double.parseDouble(numberFormat.format(rnd.nextDouble() * 9 + 1));
-                courseGrade.setGrade(temp);
+                course.setGrade(temp);
             }
         }
     }
 
     public double countMeanGrade() {
-        int quantity = courseGrades.length;
+        int quantity = courses.length;
         double sum = 0;
-        for (CourseGrade courseGrade : courseGrades) {
-            sum += courseGrade.getGrade();
+        for (Course course : courses) {
+            sum += course.getGrade();
         }
         return Double.parseDouble(numberFormat.format(sum / quantity));
     }
@@ -74,43 +77,35 @@ public class Student {
     public static class StudentBuilder {
 
         private String fullName; //required
-        private CourseGrade[] courseGrades = {};
+        private Course[] courses = {};
+        private String address;
+        private String phone;
+        private String email;
 
-        public StudentBuilder(String fullName, String... courses) {
+        public StudentBuilder(String fullName) {
             this.fullName = fullName;
-            for (String course : courses) {
-                course(course);
-            }
         }
 
-        public StudentBuilder course(String courseName) {
-            int index = UniversityService.search(this.courseGrades, courseName);
-            if (index == -1) {
-                CourseGrade courseGrade = new CourseGrade(courseName);
-                courseGrades = DynamicArray.addElement(this.courseGrades, courseGrade);
-            }
+        public StudentBuilder address(String address){
+            this.address=address;
             return this;
         }
 
-        public StudentBuilder courseGrade(String courseName, double grade) {
-            int index;
-            index = UniversityService.search(this.courseGrades, courseName);
-            if (index == -1) {
-                CourseGrade courseGrade = new CourseGrade(courseName, grade);
-                courseGrades = DynamicArray.addElement(this.courseGrades, courseGrade);
-            } else {
-                this.courseGrades[index].setGrade(grade);
-            }
+        public StudentBuilder phone(String phone){
+            this.phone=phone;
+            return this;
+        }
+
+        public StudentBuilder email(String email){
+            this.email=email;
             return this;
         }
 
         public Student build() {
-            if (courseGrades.length == 0) {
-                courseGrades = DefaultHandler.courseListCreator();
-            }
             Student s = new Student(this);
             return s;
         }
 
     }
+
 }

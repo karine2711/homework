@@ -1,7 +1,5 @@
 package exception;
 
-import java.text.DecimalFormat;
-
 /**
  * Contains all general functions used within the program.
  *
@@ -64,10 +62,10 @@ public class UniversityService {
         return -1;
     }
 
-    public static int search(CourseGrade courseGrades[], String courseName) {
-        int n = courseGrades.length;
+    public static int search(Course courses[], String courseName) {
+        int n = courses.length;
         for (int i = 0; i < n; i++) {
-            if (courseGrades[i].getCourseName().equals(courseName))
+            if (courses[i].getCourseName().equals(courseName))
                 return i;
         }
         return -1;

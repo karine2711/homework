@@ -1,8 +1,6 @@
 package exception;
 
-import javax.xml.transform.sax.SAXResult;
 import java.text.DecimalFormat;
-import java.util.Scanner;
 
 /**
  * The Group class represents the groups in each faculty of the University.
@@ -16,18 +14,12 @@ public class Group {
     private Student[] studentList = {};
 
 
-    public Group(String name, Student... students) {
-
+    public Group(String name) {
         this.name = name;
-        if (students.length == 0) {
-            System.out.println("A group cannot be created without students");
-            this.studentList = DefaultHandler.studentListCreator();
-        } else {
-            for (Student student : students) {
-                this.studentList = DynamicArray.addElement(studentList, student);
-            }
-        }
+    }
 
+    public void setStudentList(Student...students){
+            this.studentList = students;
     }
 
     public String getName() {
@@ -57,10 +49,10 @@ public class Group {
         double sum = 0;
         int quantity = 0;
         for (Student student : studentList) {
-            int index = UniversityService.search(student.getCourseGrades(), courseName);
+            int index = UniversityService.search(student.getCourses(), courseName);
             if (index != -1) {
-                System.out.println(student.getFullName() + ":  " + student.getCourseGrades()[index].getGrade());
-                sum += student.getCourseGrades()[index].getGrade();
+                System.out.println(student.getFullName() + ":  " + student.getCourses()[index].getGrade());
+                sum += student.getCourses()[index].getGrade();
                 quantity++;
             }
         }
