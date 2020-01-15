@@ -1,5 +1,7 @@
 package exception;
 
+import exception.exceptions.NullCourseListException;
+
 import java.text.DecimalFormat;
 import java.util.Random;
 
@@ -68,6 +70,9 @@ public class Student {
 
     public double countMeanGrade() {
         int quantity = courses.length;
+        if(quantity==0){
+            throw new NullCourseListException(fullName);
+        }
         double sum = 0;
         for (Course course : courses) {
             sum += course.getGrade();
