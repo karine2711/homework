@@ -10,11 +10,14 @@ import exception.Group;
  * @author Karine Gevorgyan
  */
 public class NullGroupListException extends RuntimeException{
-    public NullGroupListException() {
+    private String facultyName;
+
+    public NullGroupListException(String facultyName) {
+        this.facultyName=facultyName;
     }
 
     @Override
     public String toString() {
-        return "Error! No group in the faculty";
+        return "Error! Faculty"+facultyName+"doesn't contain any groups!";
     }
 }

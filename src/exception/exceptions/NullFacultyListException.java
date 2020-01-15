@@ -6,14 +6,15 @@ package exception.exceptions;
  *
  * @author Karine Gevorgyan
  */
-public class NullFacultyListException extends Exception {
+public class NullFacultyListException extends RuntimeException {
+    private String universityName;
 
-    public NullFacultyListException() {
-
+    public NullFacultyListException(String univerityName) {
+        this.universityName=univerityName;
     }
 
     @Override
     public String toString() {
-        return "Error! No faculty in the University!";
+        return "Error! University "+universityName+" doesn't contain any faculties!";
     }
 }
