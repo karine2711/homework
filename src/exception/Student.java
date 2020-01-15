@@ -25,7 +25,6 @@ public class Student {
 
     private Student(StudentBuilder student) {
         this.fullName = student.fullName;
-        this.courses = student.courses;
     }
 
     public String getFullName() {
@@ -74,9 +73,6 @@ public class Student {
 
     public double countMeanGrade() {
         int quantity =getCourses().length;
-        if(quantity==0){
-            throw new NullCourseListException(fullName);
-        }
         double sum = 0;
         for (Course course :getCourses()) {
             sum += course.getGrade();

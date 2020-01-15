@@ -114,9 +114,6 @@ public class UniversityService {
             return group.getStudentList()[index];
         } catch (NullPointerException e){
             return null;
-        }catch (NullStudentListException e){
-            e.printStackTrace();
-            return null;
         }
 
     }
@@ -134,25 +131,18 @@ public class UniversityService {
            return faculty.getGroups()[index];
         } catch (NullPointerException e){
             return null;
-        }catch (NullGroupListException e){
-            e.printStackTrace();
-            return null;
         }
 
     }
 
     public static Faculty getFacultyByName(University university, String facultyName) {
-        try {
+
             int index = search(university.getFacultyNames(), facultyName);
-        if (index == -1) {
-            System.out.println("There is no faculty "+facultyName+" in the university ");
-            return null;
-        }
+            if (index == -1) {
+                System.out.println("There is no faculty " + facultyName + " in the university ");
+                return null;
+            }
             return university.getFacultyList()[index];
-        } catch (NullFacultyListException e){
-            e.printStackTrace();
-            return null;
-        }
 
     }
 
