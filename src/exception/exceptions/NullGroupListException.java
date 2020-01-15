@@ -18,6 +18,6 @@ public class NullGroupListException extends RuntimeException{
 
     @Override
     public String toString() {
-        return "Error! Faculty"+facultyName+"doesn't contain any groups!";
+        return "NullGroupListException! Faculty "+facultyName+" doesn't contain any groups!";
     }
 }

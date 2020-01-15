@@ -1,6 +1,7 @@
 package exception;
 
 import exception.exceptions.NullCourseListException;
+import exception.exceptions.NullStudentListException;
 
 import java.text.DecimalFormat;
 import java.util.Random;
@@ -44,23 +45,26 @@ public class Student {
     }
 
     public Course[] getCourses() {
+        if(courses==null){
+            throw new NullCourseListException(fullName);
+        }
         return courses;
     }
 
     public void printCourseGrades() {
 
-        for (Course course : this.courses) {
+        for (Course course :getCourses()) {
             System.out.println("            " + course.getCourseName() + ":  " + course.getGrade());
         }
     }
 
-    private void setCourses(Course...courses) {
+    public void setCourses(Course...courses) {
        this.courses=courses;
     }
 
     public void gradeStudentRandomly() {
         Random rnd = new Random();
-        for (Course course : courses) {
+        for (Course course : getCourses()) {
             if (course.getGrade() == 0) {
                 double temp = Double.parseDouble(numberFormat.format(rnd.nextDouble() * 9 + 1));
                 course.setGrade(temp);
@@ -69,12 +73,12 @@ public class Student {
     }
 
     public double countMeanGrade() {
-        int quantity = courses.length;
+        int quantity =getCourses().length;
         if(quantity==0){
             throw new NullCourseListException(fullName);
         }
         double sum = 0;
-        for (Course course : courses) {
+        for (Course course :getCourses()) {
             sum += course.getGrade();
         }
         return Double.parseDouble(numberFormat.format(sum / quantity));

@@ -9,6 +9,6 @@ public class NullCourseListException extends RuntimeException {
 
     @Override
     public String toString() {
-        return "Error! Student "+studentName+ " doesn't study any courses!";
+        return "NullCourseListException! Student "+studentName+ " doesn't study any courses!";
     }
 }

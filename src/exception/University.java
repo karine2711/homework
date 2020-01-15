@@ -1,5 +1,7 @@
 package exception;
 
+import exception.exceptions.NullFacultyListException;
+
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -15,11 +17,15 @@ public class University {
 
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String name;
-    private Faculty[] facultyList = {};
+    private Faculty[] facultyList;
     private String[] facultyNames;
 
     public University(String name) {
         this.name = name;
+    }
+
+    public String getName(){
+        return name;
     }
 
     public void setFacultyList(Faculty...faculties){
@@ -27,29 +33,44 @@ public class University {
     }
 
     public Faculty[] getFacultyList() {
+        if(facultyList==null){
+            throw new NullFacultyListException(name);
+        }
         return facultyList;
+
     }
 
     public String[] getFacultyNames() {
-        facultyNames = new String[facultyList.length];
-        for (int i = 0; i < facultyList.length; i++) {
+        int size=getFacultyList().length;
+        facultyNames = new String[size];
+        for (int i = 0; i < size; i++) {
             facultyNames[i] = facultyList[i].getName();
         }
         return facultyNames;
     }
 
     public void printFaculties() {
-        for (Faculty faculty : facultyList) {
+        for (Faculty faculty : getFacultyList()) {
             System.out.println(faculty.getName());
             faculty.printGroups();
 
         }
     }
 
+    public void gradeAllStudentsRandomly(){
+        for (Faculty faculty : getFacultyList()) {
+            for (Group group : faculty.getGroups()) {
+                for (Student student : group.getStudentList()) {
+                    student.gradeStudentRandomly();
+                }
+            }
+        }
+    }
+
     public double countMeanGrade(String courseName) {
         double sum = 0;
         int quantity = 0;
-        for (Faculty faculty:facultyList) {
+        for (Faculty faculty:getFacultyList()) {
             double mean = faculty.countMeanGrade(courseName);
             sum += mean;
             if (mean != 0) {

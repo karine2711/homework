@@ -15,6 +15,6 @@ public class NullFacultyListException extends RuntimeException {
 
     @Override
     public String toString() {
-        return "Error! University "+universityName+" doesn't contain any faculties!";
+        return "NullFacultyListException! University "+universityName+" doesn't contain any faculties!";
     }
 }

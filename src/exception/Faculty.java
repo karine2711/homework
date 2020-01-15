@@ -1,5 +1,7 @@
 package exception;
 
+import exception.exceptions.NullGroupListException;
+
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -14,7 +16,7 @@ public class Faculty {
 
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String name;
-    private Group[] groups = {};
+    private Group[] groups;
 
     public Faculty(String name) {
         this.name = name;
@@ -29,19 +31,23 @@ public class Faculty {
     }
 
     public Group[] getGroups() {
+        if(groups==null){
+            throw new NullGroupListException(name);
+        }
         return groups;
     }
 
     public String[] getGroupNames() {
-        String[] groupNames = new String[groups.length];
-        for (int i = 0; i < this.getGroups().length; i++) {
+       int size=getGroups().length;
+        String[] groupNames = new String[size];
+        for (int i = 0; i < size; i++) {
             groupNames[i] = groups[i].getName();
         }
         return groupNames;
     }
 
     public void printGroups() {
-        for (Group group : groups) {
+        for (Group group : getGroups()) {
             System.out.println("    " + group.getName());
             group.printStudents();
 
@@ -51,7 +57,7 @@ public class Faculty {
     public double countMeanGrade(String courseName) {
         double sum = 0;
         int quantity = 0;
-        for (Group group : groups) {
+        for (Group group : getGroups()) {
             double mean = group.countMeanGrade(courseName);
             sum += mean;
             if (mean != 0) {

@@ -9,6 +9,6 @@ public class NullStudentListException extends RuntimeException {
 
     @Override
     public String toString() {
-        return "Error! Group "+groupName+" doesn't contain any students!";
+        return "NullStudentListException! Group "+groupName+" doesn't contain any students!";
     }
 }
