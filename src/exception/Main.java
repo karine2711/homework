@@ -7,15 +7,19 @@ public class Main {
         //Create a university!
         University university = UniversityService.initializeUniversity();
 
+
         //grade all students randomly
         try {
             university.gradeAllStudentsRandomly();
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
+
+
         //try to get a student and set a grade
-        System.out.println("Try to get a student and set some course grades");
+
         try {
+            System.out.println("Try to get a student and set some course grades");
             Student karine = UniversityService.getStudentByInfo(
                     university,
                     "CS",
@@ -30,20 +34,20 @@ public class Main {
             e.printStackTrace();
         }
 
+
         //print the whole University structure
-        System.out.println("\n------------------------------------------\nThe whole University structure\n");
         try {
+            System.out.println("\n------------------------------------------\nThe whole University structure\n");
             university.printFaculties();
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
-        ;
 
 
         // count given student's mean grade
-        System.out.println("-------------------------------------------------");
-        System.out.println("Count given student's mean grade");
         try {
+            System.out.println("-------------------------------------------------");
+            System.out.println("Count given student's mean grade");
             Student karine = UniversityService.getStudentByInfo(university, "CS", "CS1", "Karine Gevorgyan");
             System.out.println(karine.getFullName());
             karine.printCourseGrades();
@@ -53,11 +57,11 @@ public class Main {
             e.printStackTrace();
         }
 
+
         //  count mean grade in a given group, for a given subject
         try {
             System.out.println("------------------------------------------------------");
             System.out.println("Count mean grade in a given group, for a given subject");
-
             Group group = UniversityService.getGroupByInfo(university, "EC", "EC1");
             double grade = group.countMeanGrade("Music");
             if (grade == 0) {
@@ -68,7 +72,6 @@ public class Main {
                         + " = " + grade
                 );
             }
-
         } catch (NullPointerException ignored) {
         } catch (RuntimeException e) {
             e.printStackTrace();
@@ -79,7 +82,6 @@ public class Main {
         try {
             System.out.println("-----------------------------------------------");
             System.out.println("Count mean grade in given faculty for given subject");
-
             Faculty faculty = UniversityService.getFacultyByName(university, "CS");
             double grade = faculty.countMeanGrade("Machine Learning");
             if (grade == 0) {

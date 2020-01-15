@@ -31,6 +31,28 @@ public class Student {
         return fullName;
     }
 
+
+    public void setCourses(Course...courses) {
+        this.courses=courses;
+    }
+
+    public Course[] getCourses() {
+        if(courses==null){
+            throw new NullCourseListException(fullName);
+        }
+        return courses;
+    }
+
+    public void gradeStudentRandomly() {
+        Random rnd = new Random();
+        for (Course course : getCourses()) {
+            if (course.getGrade() == 0) {
+                double temp = Double.parseDouble(numberFormat.format(rnd.nextDouble() * 9 + 1));
+                course.setGrade(temp);
+            }
+        }
+    }
+
     public void setGrade(String courseName, double grade) {
         int index;
         index = UniversityService.search(this.courses, courseName);
@@ -43,31 +65,10 @@ public class Student {
         }
     }
 
-    public Course[] getCourses() {
-        if(courses==null){
-            throw new NullCourseListException(fullName);
-        }
-        return courses;
-    }
-
     public void printCourseGrades() {
 
         for (Course course :getCourses()) {
             System.out.println("            " + course.getCourseName() + ":  " + course.getGrade());
-        }
-    }
-
-    public void setCourses(Course...courses) {
-       this.courses=courses;
-    }
-
-    public void gradeStudentRandomly() {
-        Random rnd = new Random();
-        for (Course course : getCourses()) {
-            if (course.getGrade() == 0) {
-                double temp = Double.parseDouble(numberFormat.format(rnd.nextDouble() * 9 + 1));
-                course.setGrade(temp);
-            }
         }
     }
 

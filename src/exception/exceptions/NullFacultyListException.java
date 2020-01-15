@@ -10,11 +10,11 @@ public class NullFacultyListException extends RuntimeException {
     private String universityName;
 
     public NullFacultyListException(String univerityName) {
-        this.universityName=univerityName;
+        this.universityName = univerityName;
     }
 
     @Override
     public String toString() {
-        return "NullFacultyListException! University "+universityName+" doesn't contain any faculties!";
+        return "NullFacultyListException! University " + universityName + " doesn't contain any faculties!";
     }
 }

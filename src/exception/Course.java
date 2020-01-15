@@ -7,13 +7,9 @@ package exception;
  */
 
 public class Course {
+
     private String courseName;
     private double grade = 0;
-
-    public Course(String courseName, double grade) {
-        this.courseName = courseName;
-        this.grade = grade;
-    }
 
     public Course(String courseName) {
         this.courseName = courseName;

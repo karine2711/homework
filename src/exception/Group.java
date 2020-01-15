@@ -11,41 +11,41 @@ import java.text.DecimalFormat;
  * @author Karine Gevorgyan
  */
 public class Group {
+    
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String name;
-    private Student[] studentList;
-
+    private Student[] students;
 
     public Group(String name) {
         this.name = name;
-    }
-
-    public void setStudentList(Student...students){
-            this.studentList = students;
     }
 
     public String getName() {
         return name;
     }
 
-    public Student[] getStudentList() {
-        if(studentList==null){
+    public void setStudents(Student... students) {
+        this.students = students;
+    }
+
+    public Student[] getStudents() {
+        if (students == null) {
             throw new NullStudentListException(name);
         }
-        return studentList;
+        return students;
     }
 
     public String[] getStudentNames() {
-        int size=getStudentList().length;
+        int size = getStudents().length;
         String[] studentNames = new String[size];
-        for (int i = 0; i <size; i++) {
-            studentNames[i] = studentList[i].getFullName();
+        for (int i = 0; i < size; i++) {
+            studentNames[i] = students[i].getFullName();
         }
         return studentNames;
     }
 
     public void printStudents() {
-        for (Student student : getStudentList()) {
+        for (Student student : getStudents()) {
             System.out.println("        " + student.getFullName());
             student.printCourseGrades();
         }
@@ -54,7 +54,7 @@ public class Group {
     public double countMeanGrade(String courseName) {
         double sum = 0;
         int quantity = 0;
-        for (Student student : getStudentList()) {
+        for (Student student : getStudents()) {
             int index = UniversityService.search(student.getCourses(), courseName);
             if (index != -1) {
                 System.out.println(student.getFullName() + ":  " + student.getCourses()[index].getGrade());
@@ -67,4 +67,5 @@ public class Group {
         }
         return Double.parseDouble(numberFormat.format(sum / quantity));
     }
+
 }

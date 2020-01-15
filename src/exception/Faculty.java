@@ -22,23 +22,23 @@ public class Faculty {
         this.name = name;
     }
 
-    public void setGroupList(Group...groups){
-        this.groups = groups;
-    }
-
     public String getName() {
         return name;
     }
 
+    public void setGroups(Group... groups) {
+        this.groups = groups;
+    }
+
     public Group[] getGroups() {
-        if(groups==null){
+        if (groups == null) {
             throw new NullGroupListException(name);
         }
         return groups;
     }
 
     public String[] getGroupNames() {
-       int size=getGroups().length;
+        int size = getGroups().length;
         String[] groupNames = new String[size];
         for (int i = 0; i < size; i++) {
             groupNames[i] = groups[i].getName();
@@ -70,4 +70,5 @@ public class Faculty {
         return Double.parseDouble(numberFormat.format(sum / quantity));
 
     }
+
 }

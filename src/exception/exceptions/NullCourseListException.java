@@ -1,7 +1,7 @@
 package exception.exceptions;
 
 public class NullCourseListException extends RuntimeException {
-    private String studentName="";
+    private String studentName = "";
 
     public NullCourseListException(String studentName) {
         this.studentName = studentName;
@@ -9,6 +9,6 @@ public class NullCourseListException extends RuntimeException {
 
     @Override
     public String toString() {
-        return "NullCourseListException! Student "+studentName+ " doesn't study any courses!";
+        return "NullCourseListException! Student " + studentName + " doesn't study any courses!";
     }
 }
