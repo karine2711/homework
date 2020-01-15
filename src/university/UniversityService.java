@@ -103,23 +103,23 @@ public class UniversityService {
     public static Student getStudentByInfo(University university, String facultyName, String groupName,
                                            String fullName) {
 
-            Group group = getGroupByInfo(university, facultyName, groupName);
-            int index = search(group.getStudentNames(), fullName);
-            if (index == -1) {
-                throw new StudentNotFoundException(fullName,groupName,facultyName);
-            }
-            return group.getStudents()[index];
+        Group group = getGroupByInfo(university, facultyName, groupName);
+        int index = search(group.getStudentNames(), fullName);
+        if (index == -1) {
+            throw new StudentNotFoundException(fullName, groupName, facultyName);
+        }
+        return group.getStudents()[index];
 
     }
 
     public static Group getGroupByInfo(University university, String facultyName, String groupName) {
 
-            Faculty faculty = getFacultyByName(university, facultyName);
-            int index = search(faculty.getGroupNames(), groupName);
-            if (index == -1) {
-               throw new GroupNotFoundException(groupName,facultyName);
-            }
-            return faculty.getGroups()[index];
+        Faculty faculty = getFacultyByName(university, facultyName);
+        int index = search(faculty.getGroupNames(), groupName);
+        if (index == -1) {
+            throw new GroupNotFoundException(groupName, facultyName);
+        }
+        return faculty.getGroups()[index];
 
     }
 
@@ -127,7 +127,7 @@ public class UniversityService {
 
         int index = search(university.getFacultyNames(), facultyName);
         if (index == -1) {
-           throw new FacultyNotFoundException(facultyName);
+            throw new FacultyNotFoundException(facultyName);
         }
         return university.getFaculties()[index];
 

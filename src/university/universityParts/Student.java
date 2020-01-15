@@ -19,8 +19,8 @@ import java.util.Random;
 public class Student {
 
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
-    final static int MIN_GRADE=0;
-    final static int MAX_GRADE=10;
+    final static int MIN_GRADE = 0;
+    final static int MAX_GRADE = 10;
     private String fullName;
     private Course[] courses;
     private String address;
@@ -36,12 +36,12 @@ public class Student {
     }
 
 
-    public void setCourses(Course...courses) {
-        this.courses=courses;
+    public void setCourses(Course... courses) {
+        this.courses = courses;
     }
 
     public Course[] getCourses() {
-        if(courses==null){
+        if (courses == null) {
             throw new NullCourseListException(fullName);
         }
         return courses;
@@ -61,7 +61,7 @@ public class Student {
         int index;
         index = UniversityService.search(this.courses, courseName);
         if (index == -1) {
-            throw new CourseNotFoundException(courseName,fullName);
+            throw new CourseNotFoundException(courseName, fullName);
         } else if (grade <= 0 || grade > 10) {
             throw new GradeOutOfRangeException(grade, MIN_GRADE, MAX_GRADE);
         } else {
@@ -71,15 +71,15 @@ public class Student {
 
     public void printCourseGrades() {
 
-        for (Course course :getCourses()) {
+        for (Course course : getCourses()) {
             System.out.println("            " + course.getCourseName() + ":  " + course.getGrade());
         }
     }
 
     public double countMeanGrade() {
-        int quantity =getCourses().length;
+        int quantity = getCourses().length;
         double sum = 0;
-        for (Course course :getCourses()) {
+        for (Course course : getCourses()) {
             sum += course.getGrade();
         }
         return Double.parseDouble(numberFormat.format(sum / quantity));
@@ -111,18 +111,18 @@ public class Student {
             this.fullName = fullName;
         }
 
-        public StudentBuilder address(String address){
-            this.address=address;
+        public StudentBuilder address(String address) {
+            this.address = address;
             return this;
         }
 
-        public StudentBuilder phone(String phone){
-            this.phone=phone;
+        public StudentBuilder phone(String phone) {
+            this.phone = phone;
             return this;
         }
 
-        public StudentBuilder email(String email){
-            this.email=email;
+        public StudentBuilder email(String email) {
+            this.email = email;
             return this;
         }
 

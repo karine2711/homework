@@ -35,12 +35,12 @@ public class Main {
             );
             try {
                 karine.setGrade("Armenian", 10);
-            }catch (GradeOutOfRangeException e){
+            } catch (GradeOutOfRangeException e) {
                 e.printStackTrace();
             }
             try {
                 karine.setGrade("Maths", 5);
-            }catch (GradeOutOfRangeException e){
+            } catch (GradeOutOfRangeException e) {
                 e.printStackTrace();
             }
 
@@ -69,7 +69,7 @@ public class Main {
             System.out.println(karine.getFullName());
             karine.printCourseGrades();
             System.out.println("Mean grade = " + karine.countMeanGrade());
-        }  catch (ItemNotFoundException e) {
+        } catch (ItemNotFoundException e) {
             System.out.println(e.toString());
         } catch (NullListException e) {
             e.printStackTrace();
@@ -90,7 +90,7 @@ public class Main {
                         + " = " + grade
                 );
             }
-        }  catch (ItemNotFoundException e) {
+        } catch (ItemNotFoundException e) {
             System.out.println(e.toString());
         } catch (NullListException e) {
             e.printStackTrace();
@@ -131,7 +131,7 @@ public class Main {
                         + " = " + university.countMeanGrade("Armenian")
                 );
             }
-        }  catch (ItemNotFoundException e) {
+        } catch (ItemNotFoundException e) {
             System.out.println(e.toString());
         } catch (NullListException e) {
             e.printStackTrace();
