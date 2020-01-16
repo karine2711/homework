@@ -10,7 +10,7 @@ import java.util.Random;
 
 /**
  * The Student class represents the students of the university.
- * Contains lists of courseGrades and relevant information about
+ * Contains lis:ts of courseGrades and relevant information about
  * the student.
  *
  * @author Karine Gevorgyan
@@ -29,12 +29,15 @@ public class Student {
 
     private Student(StudentBuilder student) {
         this.fullName = student.fullName;
+        this.courses=student.courses;
+        this.address=student.address;
+        this.phone=student.phone;
+        this.email=student.email;
     }
 
     public String getFullName() {
         return fullName;
     }
-
 
     public void setCourses(Course... courses) {
         this.courses = courses;
