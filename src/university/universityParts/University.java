@@ -17,11 +17,15 @@ public class University {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String name;
     private Faculty[] faculties;
+    private static final University UNIVERSITY=new University("AUA");
 
-    public University(String name) {
+    private University(String name) {
         this.name = name;
     }
 
+    public static University getUniversity(){
+        return UNIVERSITY;
+    }
     public String getName() {
         return name;
     }

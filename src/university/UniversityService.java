@@ -95,7 +95,7 @@ public class UniversityService {
         EC.setGroups(EC1, EC2);
 
         //Create University and return
-        University AUA = new University("AUA");
+        University AUA = University.getUniversity();
         AUA.setFaculties(CS, EC);
         return AUA;
     }
