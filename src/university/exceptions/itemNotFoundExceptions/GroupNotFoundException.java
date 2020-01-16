@@ -2,17 +2,13 @@ package university.exceptions.itemNotFoundExceptions;
 
 public class GroupNotFoundException extends ItemNotFoundException {
 
-    String groupName;
-    String facultyName;
-
     public GroupNotFoundException(String groupName, String facultyName) {
-        this.groupName = groupName;
-        this.facultyName = facultyName;
+        super(String.format("There is no group %s in faculty %s!",groupName,facultyName));
     }
 
     @Override
     public String toString() {
-        return "There is no group " + groupName +
-                " in faculty " + facultyName + "!";
+        return this.getMessage();
     }
+
 }

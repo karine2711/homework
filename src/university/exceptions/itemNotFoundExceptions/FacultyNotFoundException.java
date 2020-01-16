@@ -1,15 +1,14 @@
 package university.exceptions.itemNotFoundExceptions;
 
 public class FacultyNotFoundException extends ItemNotFoundException {
-    String facultyName;
 
     public FacultyNotFoundException(String facultyName) {
-        this.facultyName = facultyName;
+        super(String.format( "There is no faculty %s in the University!",facultyName));
     }
 
     @Override
     public String toString() {
-        return "There is no faulty " + facultyName +
-                " in the University!";
+        return this.getMessage();
     }
+
 }

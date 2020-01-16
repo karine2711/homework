@@ -7,14 +7,14 @@ package university.exceptions.nullListExceptions;
  * @author Karine Gevorgyan
  */
 public class NullFacultyListException extends NullListException {
-    private String universityName;
 
-    public NullFacultyListException(String univerityName) {
-        this.universityName = univerityName;
+    public NullFacultyListException(String universityName) {
+        super(String.format("NullFacultyListException! University %s doesn't contain any faculties!", universityName));
     }
 
     @Override
     public String toString() {
-        return "NullFacultyListException! University " + universityName + " doesn't contain any faculties!";
+        return this.getMessage();
     }
+
 }

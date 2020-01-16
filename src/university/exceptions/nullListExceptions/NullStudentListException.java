@@ -1,14 +1,14 @@
 package university.exceptions.nullListExceptions;
 
 public class NullStudentListException extends NullListException {
-    private String groupName;
 
     public NullStudentListException(String groupName) {
-        this.groupName = groupName;
+        super(String.format("NullStudentListException! Group %s doesn't contain any students!", groupName));
     }
 
     @Override
     public String toString() {
-        return "NullStudentListException! Group " + groupName + " doesn't contain any students!";
+        return this.getMessage();
     }
+
 }

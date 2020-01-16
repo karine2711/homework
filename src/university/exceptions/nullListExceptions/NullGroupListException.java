@@ -8,14 +8,14 @@ package university.exceptions.nullListExceptions;
  * @author Karine Gevorgyan
  */
 public class NullGroupListException extends NullListException {
-    private String facultyName;
 
     public NullGroupListException(String facultyName) {
-        this.facultyName = facultyName;
+        super(String.format("NullGroupListException! Faculty %s doesn't contain any groups!", facultyName));
     }
 
     @Override
     public String toString() {
-        return "NullGroupListException! Faculty " + facultyName + " doesn't contain any groups!";
+        return this.getMessage();
     }
+
 }

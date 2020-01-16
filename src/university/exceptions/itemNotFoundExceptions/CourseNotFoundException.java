@@ -1,16 +1,14 @@
 package university.exceptions.itemNotFoundExceptions;
 
 public class CourseNotFoundException extends ItemNotFoundException {
-    String courseName;
-    String studentName;
 
-    public CourseNotFoundException(String courseName, String studentName) {
-        this.courseName = courseName;
-        this.studentName = studentName;
+     public CourseNotFoundException(String courseName, String studentName) {
+        super(String.format("Student %s doesn't take %s",studentName, courseName));
     }
 
     @Override
     public String toString() {
-        return "Student " + studentName + " doesn't take " + courseName;
+        return this.getMessage();
     }
+
 }

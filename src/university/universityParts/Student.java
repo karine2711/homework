@@ -62,7 +62,7 @@ public class Student {
 
     public void setGrade(String courseName, double grade) {
         int index;
-        index = UniversityService.search(this.courses, courseName);
+        index = UniversityService.search(this.getCourses(), courseName);
         if (index == -1) {
             throw new CourseNotFoundException(courseName, fullName);
         } else if (grade <=MIN_GRADE || grade > MAX_GRADE) {
@@ -105,7 +105,7 @@ public class Student {
     public static class StudentBuilder {
 
         private String fullName; //required
-        private Course[] courses = {};
+        private Course[] courses;
         private String address;
         private String phone;
         private String email;
