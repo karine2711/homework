@@ -17,7 +17,6 @@ public class University {
     final static DecimalFormat numberFormat = new DecimalFormat("#.0");
     private String name;
     private Faculty[] faculties;
-    private String[] facultyNames;
 
     public University(String name) {
         this.name = name;
@@ -41,7 +40,7 @@ public class University {
 
     public String[] getFacultyNames() {
         int size = getFaculties().length;
-        facultyNames = new String[size];
+        String[] facultyNames = new String[size];
         for (int i = 0; i < size; i++) {
             facultyNames[i] = faculties[i].getName();
         }
