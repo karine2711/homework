@@ -62,7 +62,7 @@ public class Student {
         index = UniversityService.search(this.courses, courseName);
         if (index == -1) {
             throw new CourseNotFoundException(courseName, fullName);
-        } else if (grade <= 0 || grade > 10) {
+        } else if (grade <=MIN_GRADE || grade > MAX_GRADE) {
             throw new GradeOutOfRangeException(grade, MIN_GRADE, MAX_GRADE);
         } else {
             this.courses[index].setGrade(grade);
