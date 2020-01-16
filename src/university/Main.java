@@ -70,7 +70,7 @@ public class Main {
             karine.printCourseGrades();
             System.out.println("Mean grade = " + karine.countMeanGrade());
         } catch (ItemNotFoundException e) {
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         } catch (NullListException e) {
             e.printStackTrace();
         }
@@ -91,7 +91,7 @@ public class Main {
                 );
             }
         } catch (ItemNotFoundException e) {
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         } catch (NullListException e) {
             e.printStackTrace();
         }
@@ -113,7 +113,7 @@ public class Main {
 
             }
         } catch (ItemNotFoundException e) {
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         } catch (NullListException e) {
             e.printStackTrace();
         }
@@ -132,7 +132,7 @@ public class Main {
                 );
             }
         } catch (ItemNotFoundException e) {
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         } catch (NullListException e) {
             e.printStackTrace();
         }
