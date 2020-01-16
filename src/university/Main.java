@@ -15,7 +15,6 @@ public class Main {
         //Create a university!
         University university = UniversityService.initializeUniversity();
 
-
         //grade all students randomly
         try {
             university.gradeAllStudentsRandomly();
@@ -23,9 +22,25 @@ public class Main {
             e.printStackTrace();
         }
 
+        setSomeGrades(university);      //try to get a student and set a grade
 
-        //try to get a student and set a grade
+        printUniversityStructure(university);         //print the whole University structure
 
+        // print given student's mean grade
+        printStudentsMeanGrade(university, "CS", "CS1", "Karine Gevorgyan");
+
+        //  print mean grade in a given group, for a given subject
+        printGroupMeanGradeForSubject(university, "EC", "EC1", "Music");
+
+        //  print mean grade in given faculty
+        printFacultyMeanGradeForSubject(university, "CS", "Machine Learning");
+
+        // Count mean grade in university for given subject
+        printUniversityMeanGradeForSubject(university, "Armenian");
+
+    }
+
+    private static void setSomeGrades(University university) {
         try {
             Student karine = UniversityService.getStudentByInfo(
                     university,
@@ -50,43 +65,47 @@ public class Main {
         } catch (NullListException e) {
             e.printStackTrace();
         }
+    }
 
-
-        //print the whole University structure
+    private static void printUniversityStructure(University university) {
         try {
-            System.out.println("\n------------------------------------------\nThe whole University structure\n");
+            System.out.println("\n-----------------------------------------------");
+            System.out.println("The whole structure of" + university.getName() + " university!\n");
             university.printFaculties();
         } catch (NullListException e) {
             e.printStackTrace();
         }
+    }
 
-
-        // count given student's mean grade
+    private static void printStudentsMeanGrade(University university, String facultyName, String groupName,
+                                               String fullName) {
         try {
             System.out.println("-------------------------------------------------");
             System.out.println("--Count given student's mean grade--");
-            Student karine = UniversityService.getStudentByInfo(university, "CS", "CS1", "Karine Gevorgyan");
-            System.out.println(karine.getFullName());
+            Student karine = UniversityService.getStudentByInfo(university, facultyName, groupName, fullName);
+            System.out.println(fullName + "'s grades");
             karine.printCourseGrades();
-            System.out.println("Mean grade = " + karine.countMeanGrade());
+            System.out.println(fullName + "'s mean grade = " + karine.countMeanGrade());
         } catch (ItemNotFoundException e) {
             System.out.println(e.getMessage());
         } catch (NullListException e) {
             e.printStackTrace();
         }
+    }
 
-
-        //  count mean grade in a given group, for a given subject
+    private static void printGroupMeanGradeForSubject(University university, String facultyName, String groupName,
+                                                      String courseName) {
         try {
             System.out.println("------------------------------------------------------");
             System.out.println("--Count mean grade in a given group, for a given subject--");
-            Group group = UniversityService.getGroupByInfo(university, "EC", "EC1");
-            double grade = group.countMeanGrade("Music");
+            Group group = UniversityService.getGroupByInfo(university, facultyName, groupName);
+            double grade = group.countMeanGrade(courseName);
             if (grade == 0) {
-                System.out.println("No one in the group passes the given course, or the students were not graded!");
+                System.out.println("No one in group " + groupName + " passes " + courseName +
+                        "or the students were not graded!");
             } else {
-                System.out.println("Mean grade for given subject in group "
-                        + group.getName()
+                System.out.println("Mean grade for" + courseName + " in group "
+                        + groupName
                         + " = " + grade
                 );
             }
@@ -95,19 +114,21 @@ public class Main {
         } catch (NullListException e) {
             e.printStackTrace();
         }
+    }
 
-
-        //  Count mean grade in given faculty
+    private static void printFacultyMeanGradeForSubject(University university, String facultyName,
+                                                        String courseName) {
         try {
             System.out.println("-----------------------------------------------");
             System.out.println("--Count mean grade in given faculty for given subject--");
-            Faculty faculty = UniversityService.getFacultyByName(university, "CS");
-            double grade = faculty.countMeanGrade("Machine Learning");
+            Faculty faculty = UniversityService.getFacultyByName(university, facultyName);
+            double grade = faculty.countMeanGrade(courseName);
             if (grade == 0) {
-                System.out.println("No such course in the faculty, or the students where not graded!");
+                System.out.println("There is no course called " + courseName + " passed in faculty" +
+                        facultyName + ", or the students where not graded!");
             } else {
                 System.out.println("Mean grade for given subject in faculty "
-                        + faculty.getName()
+                        + facultyName
                         + " = " + grade
                 );
 
@@ -117,18 +138,19 @@ public class Main {
         } catch (NullListException e) {
             e.printStackTrace();
         }
+    }
 
-
-        // Count mean grade in university for given subject
+    private static void printUniversityMeanGradeForSubject(University university, String courseName) {
         try {
             System.out.println("----------------------------------------------------");
             System.out.println("--Count mean grade in the university for given subject--");
-            double grade = university.countMeanGrade("Data Structures");
+            double grade = university.countMeanGrade(courseName);
             if (grade == 0) {
-                System.out.println("No such course in the university, or the students where not graded!");
+                System.out.println("No course called" + courseName + " is passed in university, " +
+                        university.getName() + "or the students where not graded!");
             } else {
                 System.out.println("Mean grade for given subject in University "
-                        + " = " + university.countMeanGrade("Armenian")
+                        + " = " + grade
                 );
             }
         } catch (ItemNotFoundException e) {
@@ -136,7 +158,6 @@ public class Main {
         } catch (NullListException e) {
             e.printStackTrace();
         }
-
     }
 
 }
