@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 
 /**
  * The faculty class represents the faculties of the university.
- * Contains lists of groups and students.
+ * Contains a list of groups.
  *
  * @author Karine Gevorgyan
  */

@@ -6,8 +6,8 @@ import java.text.DecimalFormat;
 
 /**
  * University is a singletone class, as the program is written for a specific university.
- * It contains the list of faculties and the list of students in the university, as well
- * some methods to work with those lists.
+ * It contains the list of faculties in the university, as well
+ * some methods that University associated methods
  *
  * @author Karine Gevorgyan
  */

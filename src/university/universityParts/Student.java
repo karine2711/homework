@@ -10,7 +10,7 @@ import java.util.Random;
 
 /**
  * The Student class represents the students of the university.
- * Contains lis:ts of courseGrades and relevant information about
+ * Contains a list of courses and relevant information about
  * the student.
  *
  * @author Karine Gevorgyan
