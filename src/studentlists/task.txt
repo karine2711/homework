@@ -1,0 +1,27 @@
+1. Implement Comparator interface to create a class and use it to sort an ArrayList of students by first name in ascending order and by age in descending order using Collections class
+
+2. Use Comparable interface to sort Students by last name in ascending order and apply it to LinkedList collection of Students
+
+3. Write a custom implementation of dynamic array that stores Student elements and has the following methods:
+boolean add(Student s); //appends the student to the end of the array
+boolean remove(Student s); // removes the first occurrence of the specified student from the array if present. Returns true, if succeeds, and false otherwise
+int size(); //returns the number of elements in the array
+Student get(int index); //returns the student at index, and null otherwise
+
+4. Write a custom implementation of doubly linked list that will store Student elements and will have the following methods:
+
+public void push(Student student); // inserts the student at the front of the list.
+public Student pop();  // removes and returns the first student of the list
+public boolean addLast(Student student) //appends the specified student to the end of the list.
+public Student removeLast() //removes and returns the last student.
+public int size() //returns the number of students in this list.
+
+5. Write a class that provides methods to
+a) initialize students and store them in the dynamic array of task 3 and the linkedlist of task 4
+b) display the first and last name for all stored students
+
+Note that Student class must have the following fields:
+String firstName
+String lastName
+int age
+
