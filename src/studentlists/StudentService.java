@@ -11,12 +11,29 @@ import java.util.List;
 public class StudentService {
 
     public static void printStudentShortInfo(List<Student> studentList) {
-        for (Student student : studentList) {
-            System.out.println(student.getFirstName() + " " + student.getLastName() + " " + student.getAge());
+        if (studentList != null) {
+            for (Student student : studentList) {
+                System.out.println(student.getFirstName() + " " + student.getLastName() + " " + student.getAge());
+            }
+        } else {
+            System.out.println("The student array you provided is null!");
         }
     }
 
-    public static ArrayList<Student> initializeStudentArrayList() {
+    public static void printStudentShortInfo(StudentDynamicArray dynamicArray) {
+        int size = dynamicArray.size();
+
+        if (size != 0) {
+            for (int i = 0; i < size; i++) {
+                Student student = dynamicArray.get(i);
+                System.out.println(student.getFirstName() + " " + student.getLastName() + " " + student.getAge());
+            }
+        } else {
+            System.out.println("The student array you provided is null!");
+        }
+    }
+
+    public static ArrayList<Student> initializeStudents() {
         ArrayList<Student> studentArrayList = new ArrayList<>();
         studentArrayList.add(new Student("Emma", "Sharp", 25));
         studentArrayList.add(new Student("Anthony", "Evans", 18));
@@ -30,5 +47,15 @@ public class StudentService {
         return studentArrayList;
     }
 
+    public static Student findStudent(StudentDynamicArray dynamicArray, String firstName, String lastName) {
+        int size = dynamicArray.size();
+        for (int i = 0; i < size; i++) {
+            if (dynamicArray.get(i).getFirstName().equals(firstName) &&
+                    dynamicArray.get(i).getLastName().equals(lastName)) {
+                return dynamicArray.get(i);
+            }
+        }
+        return null;
+    }
 
 }
