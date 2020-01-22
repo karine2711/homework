@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Provides methods to work with student objects and lists
  */
+
 public class StudentService {
 
     public static void printStudentShortInfo(List<Student> studentList) {
@@ -20,8 +21,6 @@ public class StudentService {
             System.out.println("The student array you provided is null!");
         }
     }
-
-
 
     //Creates an ArrayList<Student>, DynamicArray and StudentLinkedList and returns the ArrayList
     public static ArrayList<Student> initializeStudents() {
@@ -39,7 +38,9 @@ public class StudentService {
     }
 
     public static Student findStudent(StudentDynamicArray dynamicArray, String firstName, String lastName) {
+
         int size = dynamicArray.size();
+
         for (int i = 0; i < size; i++) {
             if (dynamicArray.get(i).getFirstName().equals(firstName) &&
                     dynamicArray.get(i).getLastName().equals(lastName)) {

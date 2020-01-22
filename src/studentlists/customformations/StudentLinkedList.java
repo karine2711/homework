@@ -4,17 +4,15 @@ import studentlists.Student;
 
 import java.util.*;
 
-public class StudentLinkedList implements Iterable<Student>{
+/**
+ * Custom implementation of a linked list, design to store Student elements
+ */
 
+public class StudentLinkedList implements Iterable<Student> {
 
     private Element first;
     private Element last;
     private int size = 0;
-
-    @Override
-    public Iterator<Student> iterator() {
-        return new StudentLinkedListIterator();
-    }
 
     public int size() {
         return size;
@@ -70,9 +68,14 @@ public class StudentLinkedList implements Iterable<Student>{
         return student;
     }
 
+    @Override
+    public Iterator<Student> iterator() {
+        return new StudentLinkedListIterator();
+    }
 
 
     private class Element {
+
         public Student student;
         public Element next;
         public Element previous;
@@ -83,11 +86,11 @@ public class StudentLinkedList implements Iterable<Student>{
             this.next = next;
         }
 
-
     }
 
 
     private class StudentLinkedListIterator implements Iterator {
+
         private Element position = new Element(null, null, first);
 
         public boolean hasNext() {

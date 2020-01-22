@@ -1,14 +1,15 @@
 package studentlists.comparators;
 
 import studentlists.Student;
+
 import java.util.Comparator;
 
 /**
  * Provides a comparator for sorting a Student list
  * in an ascending order
  * when compared by their first names
- *
  */
+
 public class StudentSorterByFirstName implements Comparator<Student> {
 
     @Override

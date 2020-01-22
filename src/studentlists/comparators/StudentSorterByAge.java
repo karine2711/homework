@@ -8,7 +8,6 @@ import java.util.Comparator;
  * Provides a comparator for sorting a Student list
  * in an ascending order
  * when compared by their ages
- *
  */
 
 public class StudentSorterByAge implements Comparator<Student> {

@@ -1,16 +1,19 @@
 package studentlists;
 
 import studentlists.comparators.*;
-import studentlists.customformations.CustomInitializer;
-import studentlists.customformations.StudentDynamicArray;
-import studentlists.customformations.StudentLinkedList;
+import studentlists.customformations.*;
 
 import static studentlists.StudentService.*;
 
 import java.util.*;
 
+/**
+ * The main class of the program, which stores tester methods and
+ * public static void main()
+ */
 
 public class Main {
+
     private static final String SEPERATOR = "--------------------";
 
     public static void main(String[] args) {
@@ -90,4 +93,5 @@ public class Main {
         CustomInitializer.initializeStudentLinkedList(studentArrayList);
         CustomInitializer.printStudentLinkedList();
     }
+
 }
