@@ -35,8 +35,6 @@ public class StudentService {
         studentArrayList.add(new Student("Isabel", "Griffin", 29));
         studentArrayList.add(new Student("Cole", "Shelton", 31));
         studentArrayList.add(new Student("Tommy", "Rodriguez", 16));
-        CustomInitializer.initializeStudentDynamicArray(studentArrayList);
-        CustomInitializer.initializeStudentLinkedList(studentArrayList);
         return studentArrayList;
     }
 
