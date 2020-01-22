@@ -36,6 +36,10 @@ public class Main {
         StudentLinkedList customStudentLinkedList = new StudentLinkedList();
         testStudentLinkedList(customStudentLinkedList);
 
+        //task 5
+        System.out.println(SEPERATOR + "TASK 5" + SEPERATOR);
+        testCustomInitializer(studentArrayList);
+
     }
 
     public static void printDoubleSortedList(List list, Comparator comparator1,
@@ -76,5 +80,14 @@ public class Main {
         System.out.println(studentLinkedList.removeLast().getFirstName());
         System.out.println(studentLinkedList.pop().getFirstName());
         System.out.println(studentLinkedList.size());
+    }
+
+    public static void testCustomInitializer(List<Student> studentArrayList) {
+        System.out.println(SEPERATOR + "Initialized Dynamic Array" + SEPERATOR);
+        CustomInitializer.initializeStudentDynamicArray(studentArrayList);
+        CustomInitializer.printStudentDynamicArray();
+        System.out.println(SEPERATOR + "Initialized Linked List" + SEPERATOR);
+        CustomInitializer.initializeStudentLinkedList(studentArrayList);
+        CustomInitializer.printStudentLinkedList();
     }
 }
