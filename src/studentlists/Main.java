@@ -26,6 +26,11 @@ public class Main {
         studentLinkedList.addAll(studentArrayList);
         printSortedList(studentLinkedList);
 
+        //task3
+        System.out.println(SEPERATOR + "TASK 3" + SEPERATOR);
+        StudentDynamicArray studentDynamicArray = new StudentDynamicArray();
+        testStudentDynamicArray(studentDynamicArray);
+
     }
 
     public static void printDoubleSortedList(List list, Comparator comparator1,
@@ -44,6 +49,18 @@ public class Main {
         Collections.sort(list);
         System.out.println(SEPERATOR + "Sorted by last name" + SEPERATOR);
         printStudentShortInfo(list);
+    }
+
+    public static void testStudentDynamicArray(StudentDynamicArray studentDynamicArray) {
+        studentDynamicArray.add(new Student("Karine", "Gevorgyan", 18));
+        studentDynamicArray.add(new Student("Anna", "Mkrtchyan", 20));
+        System.out.println("Student [0] = " + studentDynamicArray.get(0).getFirstName());
+        System.out.println("size = " + studentDynamicArray.size());
+        Student Karine = StudentService.findStudent(studentDynamicArray, "Karine", "Gevorgyan");
+        studentDynamicArray.remove(Karine);
+        System.out.println(SEPERATOR + "After removing Karine" + SEPERATOR);
+        System.out.println("Student [0] = " + studentDynamicArray.get(0).getFirstName());
+        System.out.println("size = " + studentDynamicArray.size());
     }
 
 }
