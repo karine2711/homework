@@ -1,5 +1,6 @@
 package studentlists;
 
+import studentlists.customformations.CustomInitializer;
 import studentlists.customformations.StudentDynamicArray;
 
 import java.util.ArrayList;
@@ -20,19 +21,9 @@ public class StudentService {
         }
     }
 
-    public static void printStudentShortInfo(StudentDynamicArray dynamicArray) {
-        int size = dynamicArray.size();
 
-        if (size != 0) {
-            for (int i = 0; i < size; i++) {
-                Student student = dynamicArray.get(i);
-                System.out.println(student.getFirstName() + " " + student.getLastName() + " " + student.getAge());
-            }
-        } else {
-            System.out.println("The student array you provided is null!");
-        }
-    }
 
+    //Creates an ArrayList<Student>, DynamicArray and StudentLinkedList and returns the ArrayList
     public static ArrayList<Student> initializeStudents() {
         ArrayList<Student> studentArrayList = new ArrayList<>();
         studentArrayList.add(new Student("Emma", "Sharp", 25));
@@ -44,6 +35,8 @@ public class StudentService {
         studentArrayList.add(new Student("Isabel", "Griffin", 29));
         studentArrayList.add(new Student("Cole", "Shelton", 31));
         studentArrayList.add(new Student("Tommy", "Rodriguez", 16));
+        CustomInitializer.initializeStudentDynamicArray(studentArrayList);
+        CustomInitializer.initializeStudentLinkedList(studentArrayList);
         return studentArrayList;
     }
 

@@ -18,13 +18,12 @@ public class Main {
         System.out.println("--------------------Sorted by name(asc) and then by age(desc)-----------------------------");
         printStudentShortInfo(studentArrayList);
         System.out.println("--------------------Dynamic array------------------");
-        CustomInitializer.initializeStudentDynamicArray();
         StudentDynamicArray array = CustomInitializer.getDynamicArray();
-        printStudentShortInfo(array);
+        CustomInitializer.printStudentDynamicArray();
         Student Harvey = StudentService.findStudent(array, "Harvey", "Drew");
         array.remove(Harvey);
         System.out.println("------After removing Harvey Drew--------");
-        printStudentShortInfo(array);
+        CustomInitializer.printStudentDynamicArray();
 
         System.out.println("\n------Linked list sorted by last name--------");
         LinkedList <Student> linkedList1=new LinkedList<Student>(studentArrayList);
