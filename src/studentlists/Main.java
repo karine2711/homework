@@ -31,11 +31,11 @@ public class Main {
 
         //make a linked list
         StudentLinkedList linkedList = new StudentLinkedList();
-        linkedList.push(array.get(0));
-        linkedList.push(array.get(1));
-        linkedList.push(array.get(2));
-        linkedList.push(array.get(3));
-        linkedList.push(array.get(4));
+        linkedList.addLast(array.get(0));
+        linkedList.addLast(array.get(1));
+        linkedList.addLast(array.get(2));
+        linkedList.addLast(array.get(3));
+        linkedList.addLast(array.get(4));
 
         Iterator<Student> iterator = linkedList.iterator();
 
@@ -45,11 +45,11 @@ public class Main {
 
         }
         System.out.println("------------");
-        System.out.println(linkedList.pop().getFirstName());
-        System.out.println(linkedList.pop().getFirstName());
-        System.out.println(linkedList.pop().getFirstName());
-        System.out.println(linkedList.pop().getFirstName());
-        System.out.println(linkedList.pop().getFirstName());
+        System.out.println(linkedList.removeLast().getFirstName());
+        System.out.println(linkedList.removeLast().getFirstName());
+        System.out.println(linkedList.removeLast().getFirstName());
+        System.out.println(linkedList.removeLast().getFirstName());
+        System.out.println(linkedList.removeLast().getFirstName());
 
 
     }

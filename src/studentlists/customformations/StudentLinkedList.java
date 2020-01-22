@@ -6,7 +6,7 @@ import java.util.*;
 
 public class StudentLinkedList implements Iterable<Student> {
 
-    Element current;
+
     Element first;
     Element last;
 
@@ -19,11 +19,10 @@ public class StudentLinkedList implements Iterable<Student> {
         if (first == null) {
             first = new Element(student, null, null);
             last = first;
-            current = first;
         } else {
-            Element nf = new Element(student, null, first);
-            first.previous = nf;
-            first=nf;
+            Element temp = new Element(student, null, first);
+            first.previous = temp;
+            first=temp;
         }
     }
 
@@ -39,6 +38,28 @@ public class StudentLinkedList implements Iterable<Student> {
         return student;
     }
 
+    public void addLast(Student student){
+        if (first == null) {
+            first = new Element(student, null, null);
+            last = first;
+        } else {
+            Element temp = new Element(student, last, null);
+            last.next = temp;
+            last=temp;
+        }
+    }
+
+    public Student removeLast(){
+        if (first == null) {
+            return null;
+        }
+        if(last.previous!=null){
+        last.previous.next = null;
+        }
+        Student student = last.student;
+        last = last.previous;
+        return student;
+    }
 
     private class Element {
         public Student student;
