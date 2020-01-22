@@ -9,17 +9,17 @@ import studentlists.Student;
 public class StudentDynamicArray {
 
     private int size = 0;
-    private int position = -1;
+    private int position = 0;
     private int capacity = 10;
     private Student[] students = new Student[capacity];
 
     public boolean add(Student student) {
-        position++;
         if (position >= capacity) {
             students = ensureCapacity(capacity * 2);
         }
         students[position] = student;
         size++;
+        position++;
         return true;
     }
 
@@ -56,7 +56,9 @@ public class StudentDynamicArray {
     }
 
     private Student[] ensureCapacity(int capacity) {
+
         Student temp[] = new Student[capacity];
+
         for (int i = 0; i < capacity; i++) {
             temp[i] = students[i];
         }
