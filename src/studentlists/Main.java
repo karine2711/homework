@@ -31,6 +31,11 @@ public class Main {
         StudentDynamicArray studentDynamicArray = new StudentDynamicArray();
         testStudentDynamicArray(studentDynamicArray);
 
+        //task4
+        System.out.println(SEPERATOR + "TASK 4" + SEPERATOR);
+        StudentLinkedList customStudentLinkedList = new StudentLinkedList();
+        testStudentLinkedList(customStudentLinkedList);
+
     }
 
     public static void printDoubleSortedList(List list, Comparator comparator1,
@@ -63,4 +68,13 @@ public class Main {
         System.out.println("size = " + studentDynamicArray.size());
     }
 
+    public static void testStudentLinkedList(StudentLinkedList studentLinkedList) {
+        studentLinkedList.addLast(new Student("Laura", "Zohrabyan", 18));
+        studentLinkedList.push(new Student("Anna", "Mkrtchyan", 20));
+        studentLinkedList.push(new Student("Tigran", "Shamshyan", 19));
+        System.out.println(studentLinkedList.size());
+        System.out.println(studentLinkedList.removeLast().getFirstName());
+        System.out.println(studentLinkedList.pop().getFirstName());
+        System.out.println(studentLinkedList.size());
+    }
 }
