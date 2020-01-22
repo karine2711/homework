@@ -7,9 +7,9 @@ import java.util.*;
 public class StudentLinkedList implements Iterable<Student> {
 
 
-    Element first;
-    Element last;
-    int size=0;
+    private Element first;
+    private Element last;
+    private int size=0;
 
     @Override
     public Iterator<Student> iterator() {
