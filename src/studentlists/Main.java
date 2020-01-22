@@ -43,11 +43,7 @@ public class Main {
         System.out.println(linkedList.size());
         Iterator<Student> iterator = linkedList.iterator();
 
-        while (iterator.hasNext()) {
 
-            System.out.println(iterator.next().getFirstName());
-
-        }
         System.out.println("------------");
         System.out.println(linkedList.pop().getFirstName());
         System.out.println(linkedList.removeLast().getFirstName());

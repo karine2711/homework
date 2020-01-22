@@ -4,6 +4,7 @@ import studentlists.Student;
 import studentlists.StudentService;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -41,6 +42,14 @@ public class CustomInitializer {
             }
         } else {
             System.out.println("The student array you provided is null!");
+        }
+    }
+
+    public static void printStudentLinkedList() {
+        Iterator<Student>iterator=linkedList.iterator();
+        while(iterator.hasNext()){
+            Student student=iterator.next();
+            System.out.println(student.getFirstName()+"  "+student.getLastName());
         }
     }
 
