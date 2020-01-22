@@ -1,6 +1,6 @@
 package studentlists;
 
-public class Student {
+public class Student implements Comparable<Student> {
     private String firstName;
     private String lastName;
     private int age;
@@ -29,5 +29,10 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public int compareTo(Student student) {
+        return this.lastName.compareTo(student.lastName);
     }
 }

@@ -4,19 +4,19 @@ import studentlists.Student;
 
 import java.util.*;
 
-public class StudentLinkedList implements Iterable<Student> {
+public class StudentLinkedList implements Iterable<Student>{
 
 
     private Element first;
     private Element last;
-    private int size=0;
+    private int size = 0;
 
     @Override
     public Iterator<Student> iterator() {
         return new StudentLinkedListIterator();
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
 
@@ -27,7 +27,7 @@ public class StudentLinkedList implements Iterable<Student> {
         } else {
             Element temp = new Element(student, null, first);
             first.previous = temp;
-            first=temp;
+            first = temp;
         }
         size++;
     }
@@ -45,30 +45,32 @@ public class StudentLinkedList implements Iterable<Student> {
         return student;
     }
 
-    public void addLast(Student student){
+    public void addLast(Student student) {
         if (first == null) {
             first = new Element(student, null, null);
             last = first;
         } else {
             Element temp = new Element(student, last, null);
             last.next = temp;
-            last=temp;
+            last = temp;
         }
         size++;
     }
 
-    public Student removeLast(){
+    public Student removeLast() {
         if (first == null) {
             return null;
         }
-        if(last.previous!=null){
-        last.previous.next = null;
+        if (last.previous != null) {
+            last.previous.next = null;
         }
         Student student = last.student;
         last = last.previous;
         size--;
         return student;
     }
+
+
 
     private class Element {
         public Student student;
@@ -86,7 +88,7 @@ public class StudentLinkedList implements Iterable<Student> {
 
 
     private class StudentLinkedListIterator implements Iterator {
-        private Element position=new Element(null,null,first);
+        private Element position = new Element(null, null, first);
 
         public boolean hasNext() {
             if (position.next != null)
@@ -97,12 +99,13 @@ public class StudentLinkedList implements Iterable<Student> {
 
         public Student next() {
             if (this.hasNext()) {
-                position=position.next;
+                position = position.next;
                 return position.student;
             } else
                 return null;
         }
 
     }
+
 
 }

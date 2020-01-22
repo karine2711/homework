@@ -7,14 +7,12 @@ import studentlists.customformations.StudentLinkedList;
 
 import static studentlists.StudentService.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import java.util.*;
 
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Student> studentArrayList = initializeStudents();
+        List<Student> studentArrayList = initializeStudents();
         printStudentShortInfo(studentArrayList);
         Collections.sort(studentArrayList, new StudentSorterByFirstName().thenComparing(new StudentSorterByAge().reversed()));
         System.out.println("--------------------Sorted by name(asc) and then by age(desc)-----------------------------");
@@ -23,11 +21,17 @@ public class Main {
         CustomInitializer.initializeStudentDynamicArray();
         StudentDynamicArray array = CustomInitializer.getDynamicArray();
         printStudentShortInfo(array);
-        Student student = StudentService.findStudent(array, "Harvey", "Drew");
-        array.remove(student);
+        Student Harvey = StudentService.findStudent(array, "Harvey", "Drew");
+        array.remove(Harvey);
         System.out.println("------After removing Harvey Drew--------");
         printStudentShortInfo(array);
 
+        System.out.println("\n------Linked list sorted by last name--------");
+        LinkedList <Student> linkedList1=new LinkedList<Student>(studentArrayList);
+        Collections.sort(linkedList1);
+        for(Student student:linkedList1){
+            System.out.println(student.getLastName()+" "+student.getFirstName());
+        }
 
         //make a linked list
         StudentLinkedList linkedList = new StudentLinkedList();
