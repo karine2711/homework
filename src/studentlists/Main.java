@@ -29,12 +29,12 @@ public class Main {
         studentLinkedList.addAll(studentArrayList);
         printSortedList(studentLinkedList);
 
-        //task3
+        //task 3
         System.out.println(SEPERATOR + "TASK 3" + SEPERATOR);
         StudentDynamicArray studentDynamicArray = new StudentDynamicArray();
         testStudentDynamicArray(studentDynamicArray);
 
-        //task4
+        //task 4
         System.out.println(SEPERATOR + "TASK 4" + SEPERATOR);
         StudentLinkedList customStudentLinkedList = new StudentLinkedList();
         testStudentLinkedList(customStudentLinkedList);
@@ -45,7 +45,8 @@ public class Main {
 
     }
 
-    public static void printDoubleSortedList(List list, Comparator comparator1,
+    //Prints the provided list, sorts it by comparator1, then by comparator2 and prints it again.
+    public static void printDoubleSortedList(List<Student> list, Comparator comparator1,
                                              Comparator comparator2) {
         System.out.println(SEPERATOR + "Initial List" + SEPERATOR);
         printStudentShortInfo(list);
@@ -55,7 +56,8 @@ public class Main {
 
     }
 
-    public static void printSortedList(List list) {
+    //Sorts the provided Student list by last names(Student's comparable). Prints it before and after sort.
+    public static void printSortedList(List<Student> list) {
         System.out.println(SEPERATOR + "Initial List" + SEPERATOR);
         printStudentShortInfo(list);
         Collections.sort(list);
@@ -63,6 +65,7 @@ public class Main {
         printStudentShortInfo(list);
     }
 
+    //Calls all methods of StudentDynamicArray for testing purposes
     public static void testStudentDynamicArray(StudentDynamicArray studentDynamicArray) {
         studentDynamicArray.add(new Student("Karine", "Gevorgyan", 18));
         studentDynamicArray.add(new Student("Anna", "Mkrtchyan", 20));
@@ -75,6 +78,7 @@ public class Main {
         System.out.println("size = " + studentDynamicArray.size());
     }
 
+    //Calls all methods of StudentLinkedList for testing purposes
     public static void testStudentLinkedList(StudentLinkedList studentLinkedList) {
         studentLinkedList.addLast(new Student("Laura", "Zohrabyan", 18));
         studentLinkedList.push(new Student("Anna", "Mkrtchyan", 20));
@@ -85,6 +89,7 @@ public class Main {
         System.out.println(studentLinkedList.size());
     }
 
+    //Calls all methods of CustomInitializer for testing purposes
     public static void testCustomInitializer(List<Student> studentArrayList) {
         System.out.println(SEPERATOR + "Initialized Dynamic Array" + SEPERATOR);
         CustomInitializer.initializeStudentDynamicArray(studentArrayList);

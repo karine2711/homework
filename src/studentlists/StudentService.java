@@ -12,6 +12,9 @@ import java.util.List;
 
 public class StudentService {
 
+    /*If the provided list is not null, prints the name,
+     * surname and age of all students, otherwise prints a warning.
+     */
     public static void printStudentShortInfo(List<Student> studentList) {
         if (studentList != null) {
             for (Student student : studentList) {
@@ -37,6 +40,7 @@ public class StudentService {
         return studentArrayList;
     }
 
+    //finds a student in a given DynamicArray, based on their full name.
     public static Student findStudent(StudentDynamicArray dynamicArray, String firstName, String lastName) {
 
         int size = dynamicArray.size();

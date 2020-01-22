@@ -25,12 +25,15 @@ public class CustomInitializer {
 
 
     //initializers
+
+    //Adds all elements of a list to a custom student dynamic array
     public static void initializeStudentDynamicArray(List<Student> studentList) {
         for (Student student : studentList) {
             dynamicArray.add(student);
         }
     }
 
+    //Add all elements of a list to a custom student linked list
     public static void initializeStudentLinkedList(List<Student> studentList) {
         for (Student student : studentList) {
             linkedList.addLast(student);
@@ -39,6 +42,8 @@ public class CustomInitializer {
 
 
     //printers
+
+    //prints names and surnames of all students in the stored dynamic array
     public static void printStudentDynamicArray() {
 
         int size = dynamicArray.size();
@@ -54,6 +59,7 @@ public class CustomInitializer {
 
     }
 
+    //prints names and surnames of all students in the stored linked list
     public static void printStudentLinkedList() {
 
         Iterator<Student> iterator = linkedList.iterator();

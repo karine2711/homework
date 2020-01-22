@@ -13,16 +13,20 @@ public class StudentDynamicArray {
     private int capacity = 10;
     private Student[] students = new Student[capacity];
 
-    public boolean add(Student student) {
+    //appends the student to the end of the array
+    public void add(Student student) {
         if (position >= capacity) {
             students = ensureCapacity(capacity * 2);
         }
         students[position] = student;
         size++;
         position++;
-        return true;
     }
 
+    /*
+     * removes the first occurrence of the specified student from
+     * the array if present. Returns true, if succeeds, and false otherwise
+     */
     public boolean remove(Student s) {
 
         int index = 0;
@@ -43,10 +47,12 @@ public class StudentDynamicArray {
         }
     }
 
+    //returns the number of elements in the array
     public int size() {
         return size;
     }
 
+    //returns the student at index, and null otherwise
     public Student get(int index) {
         if (index <= position && index >= 0 && students[index] != null) {
             return students[index];
@@ -55,6 +61,7 @@ public class StudentDynamicArray {
         }
     }
 
+    //extends the dynamic array to match the given capacity
     private Student[] ensureCapacity(int capacity) {
 
         Student temp[] = new Student[capacity];

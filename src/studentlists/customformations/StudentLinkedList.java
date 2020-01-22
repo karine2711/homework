@@ -14,10 +14,12 @@ public class StudentLinkedList implements Iterable<Student> {
     private Element last;
     private int size = 0;
 
+    //returns the number of students in this list.
     public int size() {
         return size;
     }
 
+    // inserts the student at the front of the list.
     public void push(Student student) {
         if (first == null) {
             first = new Element(student, null, null);
@@ -30,6 +32,7 @@ public class StudentLinkedList implements Iterable<Student> {
         size++;
     }
 
+    // removes and returns the first student of the list
     public Student pop() {
         if (first == null) {
             return null;
@@ -43,6 +46,7 @@ public class StudentLinkedList implements Iterable<Student> {
         return student;
     }
 
+    //appends the specified student to the end of the list.
     public void addLast(Student student) {
         if (first == null) {
             first = new Element(student, null, null);
@@ -55,6 +59,7 @@ public class StudentLinkedList implements Iterable<Student> {
         size++;
     }
 
+    //removes and returns the last student.
     public Student removeLast() {
         if (first == null) {
             return null;
@@ -73,7 +78,10 @@ public class StudentLinkedList implements Iterable<Student> {
         return new StudentLinkedListIterator();
     }
 
-
+    /*
+     *stores each Student element of the linked list,
+     *along with information about its previous and next elements.
+     */
     private class Element {
 
         public Student student;
@@ -88,7 +96,7 @@ public class StudentLinkedList implements Iterable<Student> {
 
     }
 
-
+    //returns a student per iteration
     private class StudentLinkedListIterator implements Iterator {
 
         private Element position = new Element(null, null, first);
