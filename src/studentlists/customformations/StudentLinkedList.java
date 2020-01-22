@@ -9,10 +9,15 @@ public class StudentLinkedList implements Iterable<Student> {
 
     Element first;
     Element last;
+    int size=0;
 
     @Override
     public Iterator<Student> iterator() {
         return new StudentLinkedListIterator();
+    }
+
+    public int size(){
+        return size;
     }
 
     public void push(Student student) {
@@ -24,6 +29,7 @@ public class StudentLinkedList implements Iterable<Student> {
             first.previous = temp;
             first=temp;
         }
+        size++;
     }
 
     public Student pop() {
@@ -35,6 +41,7 @@ public class StudentLinkedList implements Iterable<Student> {
         }
         Student student = first.student;
         first = first.next;
+        size--;
         return student;
     }
 
@@ -47,6 +54,7 @@ public class StudentLinkedList implements Iterable<Student> {
             last.next = temp;
             last=temp;
         }
+        size++;
     }
 
     public Student removeLast(){
@@ -58,6 +66,7 @@ public class StudentLinkedList implements Iterable<Student> {
         }
         Student student = last.student;
         last = last.previous;
+        size--;
         return student;
     }
 
