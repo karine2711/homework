@@ -3,11 +3,13 @@ package studentlists;
 import studentlists.comparators.*;
 import studentlists.customformations.CustomInitializer;
 import studentlists.customformations.StudentDynamicArray;
+import studentlists.customformations.StudentLinkedList;
 
 import static studentlists.StudentService.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 
 public class Main {
@@ -25,6 +27,31 @@ public class Main {
         array.remove(student);
         System.out.println("------After removing Harvey Drew--------");
         printStudentShortInfo(array);
+
+
+        //make a linked list
+        StudentLinkedList linkedList = new StudentLinkedList();
+        linkedList.push(array.get(0));
+        linkedList.push(array.get(1));
+        linkedList.push(array.get(2));
+        linkedList.push(array.get(3));
+        linkedList.push(array.get(4));
+
+        Iterator<Student> iterator = linkedList.iterator();
+
+        while (iterator.hasNext()) {
+
+            System.out.println(iterator.next().getFirstName());
+
+        }
+        System.out.println("------------");
+        System.out.println(linkedList.pop().getFirstName());
+        System.out.println(linkedList.pop().getFirstName());
+        System.out.println(linkedList.pop().getFirstName());
+        System.out.println(linkedList.pop().getFirstName());
+        System.out.println(linkedList.pop().getFirstName());
+
+
     }
 
 
