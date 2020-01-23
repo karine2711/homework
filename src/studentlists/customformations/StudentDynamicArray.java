@@ -32,7 +32,7 @@ public class StudentDynamicArray {
         while (s != students[index] && index < size) {
             index++;
         }
-        if (index >= size) {
+        if (index == size) {
             return false;
         } else {
             for (int i = index; i < size-1; i++) {
