@@ -45,9 +45,6 @@ public class Main {
 
     //Sorts the provided Student list by last names(Student's comparable). Prints it before and after sort.
     public static void printSortedList(List<Student> list) {
-        if (list == null) {
-            throw new NullPointerException("The provided list is null!");
-        }
         System.out.println(SEPERATOR + "Initial List" + SEPERATOR);
         printStudentShortInfo(list);
         Collections.sort(list);
@@ -57,12 +54,10 @@ public class Main {
 
     //Calls all methods of StudentDynamicArray for testing purposes
     public static void testStudentDynamicArray(StudentDynamicArray studentDynamicArray) {
-        if (studentDynamicArray == null) {
-            throw new NullPointerException("The provided custom student dynamic array is null!");
-        }
-        studentDynamicArray.add(new Student("Karine", "Gevorgyan", 18));
-        studentDynamicArray.add(new Student("Anna", "Mkrtchyan", 20));
         try {
+            studentDynamicArray.add(new Student("Karine", "Gevorgyan", 18));
+            studentDynamicArray.add(new Student("Anna", "Mkrtchyan", 20));
+
             System.out.println("Student [0] = " + studentDynamicArray.get(0).getFirstName());
             System.out.println("size = " + studentDynamicArray.size());
             Student karine = StudentService.findStudent(studentDynamicArray, "Karine", "Gevorgyan");
@@ -77,19 +72,16 @@ public class Main {
 
     //Calls all methods of StudentLinkedList for testing purposes
     public static void testStudentLinkedList(StudentLinkedList studentLinkedList) {
-        if (studentLinkedList == null) {
-            throw new NullPointerException("The provided custom student linked list is null!");
-        }
-        studentLinkedList.addLast(new Student("Laura", "Zohrabyan", 18));
-        studentLinkedList.push(new Student("Anna", "Mkrtchyan", 20));
-        studentLinkedList.push(new Student("Tigran", "Shamshyan", 19));
         try {
+            studentLinkedList.addLast(new Student("Laura", "Zohrabyan", 18));
+            studentLinkedList.push(new Student("Anna", "Mkrtchyan", 20));
+            studentLinkedList.push(new Student("Tigran", "Shamshyan", 19));
             System.out.println(studentLinkedList.size());
             System.out.println(studentLinkedList.removeLast().getFirstName());
             System.out.println(studentLinkedList.pop().getFirstName());
             System.out.println(studentLinkedList.size());
-        } catch (NullPointerException e) {
-            throw new NullPointerException("The provided custom student linked list is null!");
+        } catch (NullPointerException|NoSuchElementException e) {
+            e.printStackTrace();
         }
     }
 
@@ -136,21 +128,13 @@ public class Main {
     public static void task3() {
         System.out.println(SEPERATOR + "TASK 3" + SEPERATOR);
         StudentDynamicArray studentDynamicArray = new StudentDynamicArray();
-        try {
-            testStudentDynamicArray(studentDynamicArray);
-        } catch (NullPointerException e) {
-            System.out.println(e.getMessage());
-        }
+        testStudentDynamicArray(studentDynamicArray);
     }
 
     public static void task4() {
         System.out.println(SEPERATOR + "TASK 4" + SEPERATOR);
         StudentLinkedList customStudentLinkedList = new StudentLinkedList();
-        try {
-            testStudentLinkedList(customStudentLinkedList);
-        } catch (NullPointerException e) {
-            System.out.println(e.getMessage());
-        }
+        testStudentLinkedList(customStudentLinkedList);
     }
 
     public static void task5() {
