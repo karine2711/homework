@@ -19,53 +19,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //task 1
-        System.out.println(SEPERATOR + "TASK 1" + SEPERATOR);
-        List<Student> studentArrayList = initializeStudents();
-        try {
-            printDoubleSortedList(studentArrayList, new StudentSorterByFirstName(), new StudentSorterByAge());
-        } catch (NullPointerException e) {
-            System.out.println(e.getMessage());
-        }
+        task1();
 
-        //task 2
-        System.out.println(SEPERATOR + "TASK 2" + SEPERATOR);
-        try {
-            List<Student> studentLinkedList = new LinkedList<>(studentArrayList);
-            printSortedList(studentLinkedList);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
+        task2();
 
+        task3();
 
-        //task 3
-        System.out.println(SEPERATOR + "TASK 3" + SEPERATOR);
-        StudentDynamicArray studentDynamicArray = new StudentDynamicArray();
-        try {
-            testStudentDynamicArray(studentDynamicArray);
-        } catch (NullPointerException e) {
-            System.out.println(e.getMessage());
-        }
+        task4();
 
-
-        //task 4
-        System.out.println(SEPERATOR + "TASK 4" + SEPERATOR);
-        StudentLinkedList customStudentLinkedList = new StudentLinkedList();
-        try {
-            testStudentLinkedList(customStudentLinkedList);
-        } catch (NullPointerException e) {
-            System.out.println(e.getMessage());
-        }
-
-
-        //task 5
-        System.out.println(SEPERATOR + "TASK 5" + SEPERATOR);
-        try {
-            testCustomInitializer(studentArrayList);
-        } catch (NullPointerException e) {
-            System.out.println(e.getMessage());
-        }
-
+        task5();
 
     }
 
@@ -147,6 +109,57 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+    }
+
+    //tasks
+
+    public static void task1() {
+        System.out.println(SEPERATOR + "TASK 1" + SEPERATOR);
+        List<Student> studentArrayList = initializeStudents();
+        try {
+            printDoubleSortedList(studentArrayList, new StudentSorterByFirstName(), new StudentSorterByAge());
+        } catch (NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void task2() {
+        System.out.println(SEPERATOR + "TASK 2" + SEPERATOR);
+        try {
+            List<Student> studentLinkedList = new LinkedList<>(initializeStudents());
+            printSortedList(studentLinkedList);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void task3() {
+        System.out.println(SEPERATOR + "TASK 3" + SEPERATOR);
+        StudentDynamicArray studentDynamicArray = new StudentDynamicArray();
+        try {
+            testStudentDynamicArray(studentDynamicArray);
+        } catch (NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void task4() {
+        System.out.println(SEPERATOR + "TASK 4" + SEPERATOR);
+        StudentLinkedList customStudentLinkedList = new StudentLinkedList();
+        try {
+            testStudentLinkedList(customStudentLinkedList);
+        } catch (NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void task5() {
+        System.out.println(SEPERATOR + "TASK 5" + SEPERATOR);
+        try {
+            testCustomInitializer(initializeStudents());
+        } catch (NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }
