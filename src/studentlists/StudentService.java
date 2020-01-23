@@ -50,9 +50,10 @@ public class StudentService {
         int size = dynamicArray.size();
 
         for (int i = 0; i < size; i++) {
-            if (dynamicArray.get(i).getFirstName().equals(firstName) &&
-                    dynamicArray.get(i).getLastName().equals(lastName)) {
-                return dynamicArray.get(i);
+            Student student=dynamicArray.get(i);
+            if (student.getFirstName().equals(firstName) &&
+                    student.getLastName().equals(lastName)) {
+                return student;
             }
         }
         return null;
