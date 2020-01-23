@@ -3,7 +3,6 @@ package studentlists;
 import studentlists.comparators.*;
 import studentlists.customformations.*;
 import studentlists.exceptions.MissingInitializationException;
-import studentlists.exceptions.NullFormationException;
 
 import static studentlists.StudentService.*;
 
@@ -25,7 +24,7 @@ public class Main {
         List<Student> studentArrayList = initializeStudents();
         try {
             printDoubleSortedList(studentArrayList, new StudentSorterByFirstName(), new StudentSorterByAge());
-        } catch (NullFormationException e) {
+        } catch (NullPointerException e) {
             System.out.println(e.getMessage());
         }
 
@@ -37,8 +36,6 @@ public class Main {
             printSortedList(studentLinkedList);
         } catch (NullPointerException e) {
             e.printStackTrace();
-        } catch (NullFormationException e) {
-            System.out.println(e.getMessage());
         }
 
 
@@ -47,7 +44,7 @@ public class Main {
         StudentDynamicArray studentDynamicArray = new StudentDynamicArray();
         try {
             testStudentDynamicArray(studentDynamicArray);
-        } catch (NullFormationException e) {
+        } catch (NullPointerException e) {
             System.out.println(e.getMessage());
         }
 
@@ -57,7 +54,7 @@ public class Main {
         StudentLinkedList customStudentLinkedList = new StudentLinkedList();
         try {
             testStudentLinkedList(customStudentLinkedList);
-        } catch (NullFormationException e) {
+        } catch (NullPointerException e) {
             System.out.println(e.getMessage());
         }
 
@@ -66,7 +63,7 @@ public class Main {
         System.out.println(SEPERATOR + "TASK 5" + SEPERATOR);
         try {
             testCustomInitializer(studentArrayList);
-        } catch (NullFormationException e) {
+        } catch (NullPointerException e) {
             System.out.println(e.getMessage());
         }
 
@@ -88,7 +85,7 @@ public class Main {
     //Sorts the provided Student list by last names(Student's comparable). Prints it before and after sort.
     public static void printSortedList(List<Student> list) {
         if (list == null) {
-            throw new NullFormationException("list");
+            throw new NullPointerException("The provided list is null!");
         }
         System.out.println(SEPERATOR + "Initial List" + SEPERATOR);
         printStudentShortInfo(list);
@@ -100,7 +97,7 @@ public class Main {
     //Calls all methods of StudentDynamicArray for testing purposes
     public static void testStudentDynamicArray(StudentDynamicArray studentDynamicArray) {
         if (studentDynamicArray == null) {
-            throw new NullFormationException("custom student dynamic array");
+            throw new NullPointerException("The provided custom student dynamic array is null!");
         }
         studentDynamicArray.add(new Student("Karine", "Gevorgyan", 18));
         studentDynamicArray.add(new Student("Anna", "Mkrtchyan", 20));
@@ -112,7 +109,7 @@ public class Main {
             System.out.println(SEPERATOR + "After removing Karine" + SEPERATOR);
             System.out.println("Student [0] = " + studentDynamicArray.get(0).getFirstName());
             System.out.println("size = " + studentDynamicArray.size());
-        } catch (IndexOutOfBoundsException|NullPointerException e) {
+        } catch (IndexOutOfBoundsException | NullPointerException e) {
             e.printStackTrace();
         }
     }
@@ -120,7 +117,7 @@ public class Main {
     //Calls all methods of StudentLinkedList for testing purposes
     public static void testStudentLinkedList(StudentLinkedList studentLinkedList) {
         if (studentLinkedList == null) {
-            throw new NullFormationException("custom student linked list");
+            throw new NullPointerException("The provided custom student linked list is null!");
         }
         studentLinkedList.addLast(new Student("Laura", "Zohrabyan", 18));
         studentLinkedList.push(new Student("Anna", "Mkrtchyan", 20));
@@ -131,14 +128,14 @@ public class Main {
             System.out.println(studentLinkedList.pop().getFirstName());
             System.out.println(studentLinkedList.size());
         } catch (NullPointerException e) {
-            throw new NullFormationException("custom student linked list");
+            throw new NullPointerException("The provided custom student linked list is null!");
         }
     }
 
     //Calls all methods of CustomInitializer for testing purposes
     public static void testCustomInitializer(List<Student> studentArrayList) {
         if (studentArrayList == null) {
-            throw new NullFormationException("list");
+            throw new NullPointerException("The provided list is null!");
         }
         try {
             System.out.println(SEPERATOR + "Initialized Dynamic Array" + SEPERATOR);

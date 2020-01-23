@@ -2,7 +2,6 @@ package studentlists.customformations;
 
 import studentlists.Student;
 import studentlists.exceptions.MissingInitializationException;
-import studentlists.exceptions.NullFormationException;
 
 import java.util.Iterator;
 import java.util.List;
