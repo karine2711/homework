@@ -9,7 +9,7 @@ import studentlists.Student;
 public class StudentDynamicArray {
 
     private int size = 0;
-    private int capacity = 1;
+    private int capacity = 10;
     private Student[] students = new Student[capacity];
 
     //appends the student to the end of the array
@@ -29,7 +29,7 @@ public class StudentDynamicArray {
 
         int index = 0;
 
-        while (s != students[index] && index < size) {
+        while ( index < size && s != students[index]) {
             index++;
         }
         if (index == size) {
