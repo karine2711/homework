@@ -37,11 +37,11 @@ public class StudentLinkedList implements Iterable<Student> {
         if (first == null) {
             throw new NoSuchElementException("There is no student in this list!");
         }
-        if (first.next != null) {
-            first.next.previous = null;
-        }
         Student student = first.student;
         first = first.next;
+        if(first!=null) {
+            first.previous = null;
+        }
         size--;
         return student;
     }
@@ -64,11 +64,11 @@ public class StudentLinkedList implements Iterable<Student> {
         if (first == null) {
             throw new NoSuchElementException("There is no student in this list!");
         }
-        if (last.previous != null) {
-            last.previous.next = null;
-        }
         Student student = last.student;
         last = last.previous;
+        if (last != null) {
+            last.next = null;
+        }
         size--;
         return student;
     }
