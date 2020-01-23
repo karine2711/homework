@@ -63,7 +63,7 @@ public class StudentDynamicArray {
 
         Student temp[] = new Student[capacity];
 
-        for (int i = 0; i < capacity; i++) {
+        for (int i = 0; i < capacity/2; i++) {
             temp[i] = students[i];
         }
         return temp;
