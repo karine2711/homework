@@ -35,7 +35,7 @@ public class StudentLinkedList implements Iterable<Student> {
     // removes and returns the first student of the list
     public Student pop() {
         if (first == null) {
-            return null;
+            throw new NoSuchElementException("There is no student in this list!");
         }
         if (first.next != null) {
             first.next.previous = null;
@@ -62,7 +62,7 @@ public class StudentLinkedList implements Iterable<Student> {
     //removes and returns the last student.
     public Student removeLast() {
         if (first == null) {
-            return null;
+            throw new NoSuchElementException("There is no student in this list!");
         }
         if (last.previous != null) {
             last.previous.next = null;
