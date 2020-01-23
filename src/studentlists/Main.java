@@ -30,9 +30,8 @@ public class Main {
 
         //task 2
         System.out.println(SEPERATOR + "TASK 2" + SEPERATOR);
-        List<Student> studentLinkedList = new LinkedList<>();
         try {
-            studentLinkedList.addAll(studentArrayList);
+            List<Student> studentLinkedList = new LinkedList<>(studentArrayList);
             printSortedList(studentLinkedList);
         } catch (NullPointerException e) {
             e.printStackTrace();
