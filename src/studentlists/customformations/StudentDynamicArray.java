@@ -64,6 +64,7 @@ public class StudentDynamicArray {
         return temp;
     }
 
+    //shifts all students allocated after given index to the left by one.
     private void shiftPositions(int index) {
         for (int i = index; i < size - 1; i++) {
             students[i] = students[i + 1];
