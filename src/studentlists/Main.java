@@ -112,8 +112,7 @@ public class Main {
             System.out.println(SEPERATOR + "After removing Karine" + SEPERATOR);
             System.out.println("Student [0] = " + studentDynamicArray.get(0).getFirstName());
             System.out.println("size = " + studentDynamicArray.size());
-        } catch (NullPointerException e) {
-            System.out.println("Student not found at the given index");
+        } catch (IndexOutOfBoundsException|NullPointerException e) {
             e.printStackTrace();
         }
     }

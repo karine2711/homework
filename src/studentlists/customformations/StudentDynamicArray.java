@@ -45,13 +45,12 @@ public class StudentDynamicArray {
         return size;
     }
 
-    //returns the student at index, and null otherwise
+    //returns the student at index, throws IndexOutOfBounds() otherwise.
     public Student get(int index) {
-        if (index <= size && index >= 0 && students[index] != null) {
-            return students[index];
-        } else {
-            return null;
+        if (index >= size && index < 0) {
+            throw new IndexOutOfBoundsException();
         }
+        return students[index];
     }
 
     //extends the dynamic array to match the given capacity
