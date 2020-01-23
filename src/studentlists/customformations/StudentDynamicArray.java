@@ -9,18 +9,16 @@ import studentlists.Student;
 public class StudentDynamicArray {
 
     private int size = 0;
-    private int position = 0;
     private int capacity = 10;
     private Student[] students = new Student[capacity];
 
     //appends the student to the end of the array
     public void add(Student student) {
-        if (position >= capacity) {
+        if (size >= capacity) {
             students = ensureCapacity(capacity * 2);
         }
-        students[position] = student;
+        students[size] = student;
         size++;
-        position++;
     }
 
     /*
@@ -37,12 +35,11 @@ public class StudentDynamicArray {
         if (index >= size) {
             return false;
         } else {
-            for (int i = index; i < position; i++) {
+            for (int i = index; i < size; i++) {
                 students[i] = students[i + 1];
             }
-            students[position] = null;
+            students[size] = null;
             size--;
-            position--;
             return true;
         }
     }
@@ -54,7 +51,7 @@ public class StudentDynamicArray {
 
     //returns the student at index, and null otherwise
     public Student get(int index) {
-        if (index <= position && index >= 0 && students[index] != null) {
+        if (index <= size && index >= 0 && students[index] != null) {
             return students[index];
         } else {
             return null;
