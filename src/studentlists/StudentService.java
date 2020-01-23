@@ -2,6 +2,7 @@ package studentlists;
 
 import studentlists.customformations.CustomInitializer;
 import studentlists.customformations.StudentDynamicArray;
+import studentlists.exceptions.NullFormationException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class StudentService {
                 System.out.println(student.getFirstName() + " " + student.getLastName() + " " + student.getAge());
             }
         } else {
-            System.out.println("The student array you provided is null!");
+           throw new NullFormationException("list");
         }
     }
 
@@ -42,6 +43,10 @@ public class StudentService {
 
     //finds a student in a given DynamicArray, based on their full name.
     public static Student findStudent(StudentDynamicArray dynamicArray, String firstName, String lastName) {
+
+        if(dynamicArray==null){
+            throw new NullFormationException("Dynamic Array");
+        }
 
         int size = dynamicArray.size();
 

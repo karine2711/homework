@@ -1,6 +1,8 @@
 package studentlists.customformations;
 
 import studentlists.Student;
+import studentlists.exceptions.MissingInitializationException;
+import studentlists.exceptions.NullFormationException;
 
 import java.util.Iterator;
 import java.util.List;
@@ -54,13 +56,17 @@ public class CustomInitializer {
                 System.out.println(student.getFirstName() + " " + student.getLastName());
             }
         } else {
-            System.out.println("The student array you provided is null!");
+            throw new MissingInitializationException("dynamic array");
         }
 
     }
 
     //prints names and surnames of all students in the stored linked list
     public static void printStudentLinkedList() {
+
+        if (linkedList.size() == 0) {
+            throw new MissingInitializationException("custom linked list");
+        }
 
         Iterator<Student> iterator = linkedList.iterator();
 
