@@ -67,10 +67,7 @@ public class CustomInitializer {
             throw new MissingInitializationException("custom linked list");
         }
 
-        Iterator<Student> iterator = linkedList.iterator();
-
-        while (iterator.hasNext()) {
-            Student student = iterator.next();
+        for (Student student : linkedList) {
             System.out.println(student.getFirstName() + "  " + student.getLastName());
         }
     }
