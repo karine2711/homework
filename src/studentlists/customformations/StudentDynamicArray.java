@@ -35,10 +35,7 @@ public class StudentDynamicArray {
         if (index == size) {
             return false;
         } else {
-            for (int i = index; i < size-1; i++) {
-                students[i] = students[i + 1];
-            }
-            students[--size] = null;
+            shiftPositions(index);
             return true;
         }
     }
@@ -59,13 +56,20 @@ public class StudentDynamicArray {
 
     //extends the dynamic array to match the given capacity
     private Student[] ensureCapacity() {
-        this.capacity*=2;
+        this.capacity *= 2;
         Student temp[] = new Student[capacity];
 
-        for (int i = 0; i < capacity/2; i++) {
+        for (int i = 0; i < capacity / 2; i++) {
             temp[i] = students[i];
         }
         return temp;
+    }
+
+    private void shiftPositions(int index) {
+        for (int i = index; i < size - 1; i++) {
+            students[i] = students[i + 1];
+        }
+        students[--size] = null;
     }
 
 }
