@@ -9,13 +9,13 @@ import studentlists.Student;
 public class StudentDynamicArray {
 
     private int size = 0;
-    private int capacity = 10;
+    private int capacity = 1;
     private Student[] students = new Student[capacity];
 
     //appends the student to the end of the array
     public void add(Student student) {
         if (size >= capacity) {
-            students = ensureCapacity(capacity * 2);
+            students = ensureCapacity();
         }
         students[size] = student;
         size++;
@@ -35,11 +35,10 @@ public class StudentDynamicArray {
         if (index >= size) {
             return false;
         } else {
-            for (int i = index; i < size; i++) {
+            for (int i = index; i < size-1; i++) {
                 students[i] = students[i + 1];
             }
-            students[size] = null;
-            size--;
+            students[--size] = null;
             return true;
         }
     }
@@ -59,8 +58,8 @@ public class StudentDynamicArray {
     }
 
     //extends the dynamic array to match the given capacity
-    private Student[] ensureCapacity(int capacity) {
-
+    private Student[] ensureCapacity() {
+        this.capacity*=2;
         Student temp[] = new Student[capacity];
 
         for (int i = 0; i < capacity/2; i++) {
