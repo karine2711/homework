@@ -103,8 +103,8 @@ public class Main {
         try {
             System.out.println("Student [0] = " + studentDynamicArray.get(0).getFirstName());
             System.out.println("size = " + studentDynamicArray.size());
-            Student Karine = StudentService.findStudent(studentDynamicArray, "Karine", "Gevorgyan");
-            studentDynamicArray.remove(Karine);
+            Student karine = StudentService.findStudent(studentDynamicArray, "Karine", "Gevorgyan");
+            studentDynamicArray.remove(karine);
             System.out.println(SEPERATOR + "After removing Karine" + SEPERATOR);
             System.out.println("Student [0] = " + studentDynamicArray.get(0).getFirstName());
             System.out.println("size = " + studentDynamicArray.size());
