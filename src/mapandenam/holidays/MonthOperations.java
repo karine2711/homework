@@ -2,6 +2,7 @@ package mapandenam.holidays;
 
 public class MonthOperations {
 
+    //print all days of the month that are holidays
     public static void printHolidays(Month month) {
         System.out.print("Holidays of " + month.name() + ": |");
 
@@ -21,12 +22,28 @@ public class MonthOperations {
         System.out.println();
     }
 
-    public static void printAllMonths(){
+    //prints all months of the year on separate lines
+    public static void printAllMonths() {
         System.out.println("-----The months of the year-----");
-        for(Month month:Month.values()){
+        for (Month month : Month.values()) {
             System.out.println(month.name());
         }
     }
 
-
+    //prints the short names of all months, formatted as a calendar
+    public static void printCalendar() {
+        int index = 0;
+        System.out.println("-------CALENDAR-------");
+        System.out.print(" | ");
+        for (Month month : Month.values()) {
+            if (index % 3 == 0 && index != 0) {
+                System.out.println();
+                System.out.print(" | ");
+                index = 0;
+            }
+            System.out.print(month.getShortName() + " | ");
+            index++;
+        }
+        System.out.println("\n----------------------");
+    }
 }
