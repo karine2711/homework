@@ -1,4 +1,4 @@
-package mapandenam.task1.enumerations;
+package mapandenum.task1.enumerations;
 
 public enum Faculty {
 

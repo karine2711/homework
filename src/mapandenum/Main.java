@@ -1,11 +1,11 @@
-package mapandenam;
+package mapandenum;
 
-import mapandenam.task2.exceptions.InvalidMonthDayException;
-import mapandenam.task2.enumerations.Month;
-import mapandenam.task2.service.MonthOperations;
-import mapandenam.task1.enumerations.Faculty;
-import mapandenam.task1.model.Student;
-import mapandenam.task1.service.StudentService;
+import mapandenum.task2.exceptions.InvalidMonthDayException;
+import mapandenum.task2.enumerations.Month;
+import mapandenum.task2.service.MonthOperations;
+import mapandenum.task1.enumerations.Faculty;
+import mapandenum.task1.model.Student;
+import mapandenum.task1.service.StudentService;
 
 import java.util.List;
 

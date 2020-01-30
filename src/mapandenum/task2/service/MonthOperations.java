@@ -1,7 +1,7 @@
-package mapandenam.task2.service;
+package mapandenum.task2.service;
 
-import mapandenam.task2.enumerations.Month;
-import mapandenam.task2.exceptions.InvalidMonthDayException;
+import mapandenum.task2.enumerations.Month;
+import mapandenum.task2.exceptions.InvalidMonthDayException;
 
 public class MonthOperations {
 

@@ -1,4 +1,4 @@
-package mapandenam.task2.enumerations;
+package mapandenum.task2.enumerations;
 
 import org.jetbrains.annotations.NotNull;
 

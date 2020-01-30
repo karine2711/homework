@@ -1,6 +1,6 @@
-package mapandenam.task1.model;
+package mapandenum.task1.model;
 
-import mapandenam.task1.enumerations.Faculty;
+import mapandenum.task1.enumerations.Faculty;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;

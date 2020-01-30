@@ -1,6 +1,6 @@
-package mapandenam.task2.exceptions;
+package mapandenum.task2.exceptions;
 
-import mapandenam.task2.enumerations.Month;
+import mapandenum.task2.enumerations.Month;
 
 public class InvalidMonthDayException extends RuntimeException {
 

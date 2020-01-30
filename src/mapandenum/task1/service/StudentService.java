@@ -1,7 +1,7 @@
-package mapandenam.task1.service;
+package mapandenum.task1.service;
 
-import mapandenam.task1.enumerations.Faculty;
-import mapandenam.task1.model.Student;
+import mapandenum.task1.enumerations.Faculty;
+import mapandenum.task1.model.Student;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
