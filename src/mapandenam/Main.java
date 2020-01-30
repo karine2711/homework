@@ -17,6 +17,8 @@ public class Main {
         task1B(studentList);
         MonthOperations.printHolidays(Month.DECEMBER);
         MonthOperations.printHolidays(Month.JANUARY);
+        Month.MARCH.printNumberOfDays();
+
     }
 
     public static void task1A(List<Student> studentList) {

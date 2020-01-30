@@ -26,6 +26,10 @@ public enum  Month {
         return numberOfDays;
     }
 
+    public void printNumberOfDays(){
+        System.out.println(this.name()+" has "+getNumberOfDays()+" days");
+    }
+
     public int[] getHolidays() {
         return holidays;
     }
