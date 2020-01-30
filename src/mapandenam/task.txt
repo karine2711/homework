@@ -1,0 +1,25 @@
+1. Given a list of students, where each student has firstName, lastName, age, and phoneNumber, and faculty
+a)write a method which will return a map of students with the number of occurrences of the same first and last names , with a single usage of loop
+API:
+Map getStudentsMap(List students);
+For example, when given data is:
+Diana Asatryan, 22, 0988111111 , Math
+Diana Asatryan, 32, 0922111111, Physics
+Diana Asatryan, 21, 0938111111, philosophy
+Karen Balayan, 12, 097777777, Math
+Karen Balayan, 23, 098888811, philosophy
+Elen Mirzoyan, 12, 093333333, English
+returned map should contain:
+Diana Aatryan 3
+Karen Balayan 2
+Elen Mirzoyan 1
+b) write an API which will give number of students in each faculty
+2. Create an enum which will store months of the year. Each month will provide the following information:
+-whether given day is public holiday
+-number of holidays in month.
+-number of days in month
+Write a program which will print
+-holidays of April
+-days count of March.
+-traverse and print all month's names.
+-check if March 21 and March 8 are public holidays
