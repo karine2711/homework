@@ -1,11 +1,11 @@
 package mapandenam;
 
-import mapandenam.holidays.InvalidMonthDayException;
-import mapandenam.holidays.Month;
-import mapandenam.holidays.MonthOperations;
-import mapandenam.task1.Faculty;
-import mapandenam.task1.Student;
-import mapandenam.task1.StudentService;
+import mapandenam.task2.exceptions.InvalidMonthDayException;
+import mapandenam.task2.enumerations.Month;
+import mapandenam.task2.service.MonthOperations;
+import mapandenam.task1.enumerations.Faculty;
+import mapandenam.task1.model.Student;
+import mapandenam.task1.service.StudentService;
 
 import java.util.List;
 
@@ -20,21 +20,22 @@ public class Main {
     }
 
     public static void task1A(List<Student> studentList) {
-        System.out.println(SEPARATOR + "TASK 1- A" + SEPARATOR);
-        System.out.println("Count the number of occurrences for each first name and last name");
+        System.out.println("\n" + SEPARATOR + "TASK 1- A" + SEPARATOR);
+        System.out.println("Count the number of occurrences for each first name and last name\n");
         System.out.println(StudentService.getStudentsMap(studentList));
     }
 
     public static void task1B(List<Student> studentList) {
-        System.out.println(SEPARATOR + "TASK 1 - B" + SEPARATOR);
-        System.out.println("Count the number of students in each faculty");
+        System.out.println("\n" + SEPARATOR + "TASK 1 - B" + SEPARATOR);
+        System.out.println("Count the number of students in each faculty\n");
         StudentService.countStudentsInEachFaculty(studentList);
         Faculty.print();
         System.out.println("The number of students in Math faculty is " + Faculty.MATH.getStudentQuantity());
     }
 
     public static void task2() {
-
+        System.out.println("\n" + SEPARATOR + "TASK 2" + SEPARATOR);
+        System.out.println("Create an enum which will store months of the year\n");
         MonthOperations.printHolidays(Month.APRIL); //Task 2-A
         Month.MARCH.printNumberOfDays(); //Task 2-B
         MonthOperations.printAllMonths(); //Task 2-C
@@ -51,6 +52,7 @@ public class Main {
         } catch (InvalidMonthDayException e) {
             System.out.println(e.getMessage());
         }
+
     }
 
 }

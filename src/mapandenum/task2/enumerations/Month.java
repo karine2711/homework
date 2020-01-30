@@ -1,8 +1,9 @@
-package mapandenam.holidays;
+package mapandenam.task2.enumerations;
 
 import org.jetbrains.annotations.NotNull;
 
 public enum Month {
+
     JANUARY(31, "JAN", 1, 6, 28),
     FEBRUARY(29, "FEB", 14, 23),
     MARCH(31, "MAR", 8),

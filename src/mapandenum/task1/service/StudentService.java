@@ -1,5 +1,7 @@
-package mapandenam.task1;
+package mapandenam.task1.service;
 
+import mapandenam.task1.enumerations.Faculty;
+import mapandenam.task1.model.Student;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ public class StudentService {
 
     //initialize a list of students
     public static List<Student> initStudentList() {
+
         List<Student> students = new ArrayList<>();
 
         //create some students and add them to the list if all arguments are legal
@@ -63,10 +66,12 @@ public class StudentService {
         }
 
         return students;
+
     }
 
     //Returns a map of students with the number of occurrences of the same first and last names
     public static Map<String, Integer> getStudentsMap(@NotNull List<Student> students) {
+
         Map<String, Integer> studentMap = new HashMap<>();
         for (Student student : students) {
             if (!studentMap.containsKey(student.getFullName())) {
@@ -78,14 +83,17 @@ public class StudentService {
             }
         }
         return studentMap;
+
     }
 
     //Counts the number of students in each faculty and stores this info in Faculty enumeration
     public static void countStudentsInEachFaculty(@NotNull List<Student> students) {
+
         Faculty.resetStudentQuantity();
         for (Student student : students) {
             student.getFaculty().incrementStudentQuantity();
         }
+
     }
 
 }

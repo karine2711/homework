@@ -1,17 +1,22 @@
-package mapandenam.task1;
+package mapandenam.task1.enumerations;
 
 public enum Faculty {
-    MATH, PHYSICS, PHILOSOPHY, ENGLISH;
-    private int studentQuantity=0;
 
-    public void incrementStudentQuantity(){
+    MATH,
+    PHYSICS,
+    PHILOSOPHY,
+    ENGLISH;
+
+    private int studentQuantity = 0;
+
+    public void incrementStudentQuantity() {
         this.studentQuantity++;
     }
 
     //Sets the quantity of students in each faculty to 0
-    public static void resetStudentQuantity(){
-        for (Faculty faculty:values()) {
-           faculty.studentQuantity=0;
+    public static void resetStudentQuantity() {
+        for (Faculty faculty : values()) {
+            faculty.studentQuantity = 0;
         }
     }
 
@@ -21,17 +26,16 @@ public enum Faculty {
     }
 
     //Print all faculties
-    public static void print(){
-        for (Faculty faculty:values()) {
+    public static void print() {
+        for (Faculty faculty : values()) {
             System.out.println(faculty);
         }
     }
 
     @Override
     public String toString() {
-        return "Faculty:" +this.name()+
+        return "Faculty:" + this.name() +
                 "  Student Quantity=" + studentQuantity;
     }
-
 
 }

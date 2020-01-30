@@ -1,4 +1,7 @@
-package mapandenam.holidays;
+package mapandenam.task2.service;
+
+import mapandenam.task2.enumerations.Month;
+import mapandenam.task2.exceptions.InvalidMonthDayException;
 
 public class MonthOperations {
 
@@ -48,15 +51,16 @@ public class MonthOperations {
     }
 
     //checks if a given day is a holiday
-    public static boolean isHoliday(Month month, int day){
-        if(day<0 || day>month.getNumberOfDays()){
-            throw new InvalidMonthDayException(month,day);
+    public static boolean isHoliday(Month month, int day) {
+        if (day < 0 || day > month.getNumberOfDays()) {
+            throw new InvalidMonthDayException(month, day);
         }
-        for (int holiday:month.getHolidays()) {
-            if(holiday==day){
+        for (int holiday : month.getHolidays()) {
+            if (holiday == day) {
                 return true;
             }
         }
         return false;
     }
+
 }

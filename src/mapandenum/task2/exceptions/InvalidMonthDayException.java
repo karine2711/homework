@@ -1,4 +1,6 @@
-package mapandenam.holidays;
+package mapandenam.task2.exceptions;
+
+import mapandenam.task2.enumerations.Month;
 
 public class InvalidMonthDayException extends RuntimeException {
 
@@ -7,8 +9,8 @@ public class InvalidMonthDayException extends RuntimeException {
     }
 
     public InvalidMonthDayException(Month month, int providedDay) {
-       super(String.format("%s only has %d days. Provided day: %d",month.name(),month.getNumberOfDays(),
-               providedDay));
+        super(String.format("%s only has %d days. Provided day: %d", month.name(), month.getNumberOfDays(),
+                providedDay));
     }
 
 }
