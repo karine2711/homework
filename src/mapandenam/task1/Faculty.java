@@ -8,6 +8,13 @@ public enum Faculty {
         this.studentQuantity++;
     }
 
+    //Sets the quantity of students in each faculty to 0
+    public static void resetStudentQuantity(){
+        for (Faculty faculty:values()) {
+           faculty.studentQuantity=0;
+        }
+    }
+
     //Return the number of students in a given faculty
     public int getStudentQuantity() {
         return studentQuantity;
