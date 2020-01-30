@@ -13,17 +13,17 @@ public class StudentService {
 
         //create some students
         Student student1 = new Student("Diana", "Asatryan", 22,
-                "098811111", "Math");
+                "098811111", Faculty.MATH);
         Student student2 = new Student("Diana", "Asatryan", 32,
-                "0922111111", "Physics");
+                "0922111111", Faculty.PHYSICS);
         Student student3 = new Student("Diana", "Asatryan", 21,
-                "0938111111", "philosophy");
+                "0938111111", Faculty.PHILOSOPHY);
         Student student4 = new Student("Karen", "Balayan", 12,
-                "097777777", "Math");
+                "097777777", Faculty.MATH);
         Student student5 = new Student("Karen", "Balayan", 23,
-                "098888811", "philosophy");
+                "098888811", Faculty.PHILOSOPHY);
         Student student6 = new Student("Elen", "Mirzoyan", 12,
-                "093333333", "English");
+                "093333333", Faculty.ENGLISH);
 
         //add students to array list
         students.add(student1);
@@ -49,6 +49,13 @@ public class StudentService {
             }
         }
         return studentMap;
+    }
+
+    //Counts the number of students in each faculty and stores this info in Faculty enumeration
+    public static void countStudentsInEachFaculty(List<Student> students) {
+        for (Student student : students) {
+            student.getFaculty().incrementStudentQuantity();
+        }
     }
 
 
