@@ -21,5 +21,12 @@ public class MonthOperations {
         System.out.println();
     }
 
+    public static void printAllMonths(){
+        System.out.println("-----The months of the year-----");
+        for(Month month:Month.values()){
+            System.out.println(month.name());
+        }
+    }
+
 
 }
