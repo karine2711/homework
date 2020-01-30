@@ -1,5 +1,7 @@
 package mapandenam;
 
+import mapandenam.holidays.Month;
+import mapandenam.holidays.MonthOperations;
 import mapandenam.task1.Faculty;
 import mapandenam.task1.Student;
 import mapandenam.task1.StudentService;
@@ -13,6 +15,8 @@ public class Main {
         List<Student> studentList = StudentService.initStudentList();
         task1A(studentList);
         task1B(studentList);
+        MonthOperations.printHolidays(Month.DECEMBER);
+        MonthOperations.printHolidays(Month.JANUARY);
     }
 
     public static void task1A(List<Student> studentList) {
