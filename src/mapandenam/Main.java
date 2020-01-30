@@ -20,6 +20,9 @@ public class Main {
         Month.MARCH.printNumberOfDays();
         MonthOperations.printAllMonths();
         MonthOperations.printCalendar();
+        System.out.println(MonthOperations.isHoliday(Month.MARCH,8));
+        System.out.println(MonthOperations.isHoliday(Month.MARCH,21));
+
     }
 
     public static void task1A(List<Student> studentList) {

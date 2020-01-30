@@ -46,4 +46,13 @@ public class MonthOperations {
         }
         System.out.println("\n----------------------");
     }
+
+    public static boolean isHoliday(Month month, int day){
+        for (int holiday:month.getHolidays()) {
+            if(holiday==day){
+                return true;
+            }
+        }
+        return false;
+    }
 }
