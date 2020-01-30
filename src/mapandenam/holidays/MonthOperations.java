@@ -47,7 +47,11 @@ public class MonthOperations {
         System.out.println("\n----------------------");
     }
 
+    //checks if a given day is a holiday
     public static boolean isHoliday(Month month, int day){
+        if(day<0 || day>month.getNumberOfDays()){
+            throw new InvalidMonthDayException(month,day);
+        }
         for (int holiday:month.getHolidays()) {
             if(holiday==day){
                 return true;

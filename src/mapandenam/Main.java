@@ -1,5 +1,6 @@
 package mapandenam;
 
+import mapandenam.holidays.InvalidMonthDayException;
 import mapandenam.holidays.Month;
 import mapandenam.holidays.MonthOperations;
 import mapandenam.task1.Faculty;
@@ -15,14 +16,7 @@ public class Main {
         List<Student> studentList = StudentService.initStudentList();
         task1A(studentList);
         task1B(studentList);
-        MonthOperations.printHolidays(Month.DECEMBER);
-        MonthOperations.printHolidays(Month.JANUARY);
-        Month.MARCH.printNumberOfDays();
-        MonthOperations.printAllMonths();
-        MonthOperations.printCalendar();
-        System.out.println(MonthOperations.isHoliday(Month.MARCH,8));
-        System.out.println(MonthOperations.isHoliday(Month.MARCH,21));
-
+        task2();
     }
 
     public static void task1A(List<Student> studentList) {
@@ -33,10 +27,30 @@ public class Main {
 
     public static void task1B(List<Student> studentList) {
         System.out.println(SEPARATOR + "TASK 1 - B" + SEPARATOR);
-        System.out.println("Count the number of occurrences for each first name and last name");
+        System.out.println("Count the number of students in each faculty");
         StudentService.countStudentsInEachFaculty(studentList);
         Faculty.print();
         System.out.println("The number of students in Math faculty is " + Faculty.MATH.getStudentQuantity());
+    }
+
+    public static void task2() {
+
+        MonthOperations.printHolidays(Month.APRIL); //Task 2-A
+        Month.MARCH.printNumberOfDays(); //Task 2-B
+        MonthOperations.printAllMonths(); //Task 2-C
+        MonthOperations.printCalendar(); //Task 2-C, way2
+
+        //Task 2-D
+        try {
+            System.out.println(MonthOperations.isHoliday(Month.MARCH, 8));
+        } catch (InvalidMonthDayException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            System.out.println(MonthOperations.isHoliday(Month.MARCH, 21));
+        } catch (InvalidMonthDayException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }
