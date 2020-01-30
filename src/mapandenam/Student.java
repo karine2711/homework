@@ -18,6 +18,11 @@ public class Student {
         this.faculty = faculty;
     }
 
+    public String getFullName() {
+        return firstName+" "+lastName;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -32,7 +37,7 @@ public class Student {
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName);
+        return Objects.hash(firstName, lastName, age, phoneNumber, faculty);
     }
 
     @Override
