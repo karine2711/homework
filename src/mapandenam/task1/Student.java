@@ -1,4 +1,6 @@
-package mapandenam;
+package mapandenam.task1;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -9,9 +11,15 @@ public class Student {
     private int age;
     private String phoneNumber;
     private Faculty faculty;
+    private static final int MIN_AGE=7;
+    private static final int MAX_AGE=70;
 
-    public Student(String firstName, String lastName, int age, String phoneNumber, Faculty faculty) {
-        this.firstName = firstName;
+    public Student(@NotNull String firstName, @NotNull String lastName,  int age,
+                   @NotNull String phoneNumber, @NotNull Faculty faculty) {
+        if(age<MIN_AGE || age>MAX_AGE){
+            throw new IllegalArgumentException("Age must be between 7 and 70");
+        }
+        this.firstName=firstName;
         this.lastName = lastName;
         this.age = age;
         this.phoneNumber = phoneNumber;
@@ -19,7 +27,7 @@ public class Student {
     }
 
     public String getFullName() {
-        return firstName+" "+lastName;
+        return firstName + " " + lastName;
     }
 
     public Faculty getFaculty() {
