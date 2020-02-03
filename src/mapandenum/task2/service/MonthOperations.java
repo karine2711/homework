@@ -33,21 +33,4 @@ public class MonthOperations {
         }
     }
 
-    //prints the short names of all months, formatted as a calendar
-    public static void printCalendar() {
-        int index = 0;
-        System.out.println("-------CALENDAR-------");
-        System.out.print(" | ");
-        for (Month month : Month.values()) {
-            if (index % 3 == 0 && index != 0) {
-                System.out.println();
-                System.out.print(" | ");
-                index = 0;
-            }
-            System.out.print(month.getShortName() + " | ");
-            index++;
-        }
-        System.out.println("\n----------------------");
-    }
-
 }

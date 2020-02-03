@@ -39,7 +39,6 @@ public class Main {
         MonthOperations.printHolidays(Month.APRIL); //Task 2-A
         Month.MARCH.printNumberOfDays(); //Task 2-B
         MonthOperations.printAllMonths(); //Task 2-C
-        MonthOperations.printCalendar(); //Task 2-C, way2
 
         //Task 2-D
         try {
