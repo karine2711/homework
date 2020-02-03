@@ -62,13 +62,19 @@ public class StudentService {
     }
 
     //Counts the number of students in each faculty and stores this info in Faculty enumeration
-    public static void countStudentsInEachFaculty(List<Student> students) {
-
-        Faculty.resetStudentQuantity();
+    public static Map<Faculty, Integer> countStudentsInEachFaculty(List<Student> students) {
+        Map<Faculty, Integer> numberOfStudentsInEachFaculty = new HashMap<>();
         for (Student student : students) {
-            student.getFaculty().incrementStudentQuantity();
+            Faculty faculty = student.getFaculty();
+            if (!numberOfStudentsInEachFaculty.containsKey(faculty)) {
+                numberOfStudentsInEachFaculty.put(faculty, 1);
+            } else {
+                Integer quantity = numberOfStudentsInEachFaculty.get(faculty);
+                quantity++;
+                numberOfStudentsInEachFaculty.put(faculty, quantity);
+            }
         }
-
+        return numberOfStudentsInEachFaculty;
     }
 
 

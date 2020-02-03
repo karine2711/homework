@@ -8,6 +8,7 @@ import mapandenum.task1.model.Student;
 import mapandenum.task1.service.StudentService;
 
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static final String SEPARATOR = "----------";
@@ -28,9 +29,10 @@ public class Main {
     public static void task1B(List<Student> studentList) {
         System.out.println("\n" + SEPARATOR + "TASK 1 - B" + SEPARATOR);
         System.out.println("Count the number of students in each faculty\n");
-        StudentService.countStudentsInEachFaculty(studentList);
-        Faculty.printAllFaculties();
-        System.out.println("The number of students in Math faculty is " + Faculty.MATH.getStudentQuantity());
+       Map<Faculty,Integer> numberOfStudentsInEachFaculty=StudentService.countStudentsInEachFaculty(studentList);
+        System.out.println(numberOfStudentsInEachFaculty);
+        System.out.println("The number of students in Math faculty is " +
+                numberOfStudentsInEachFaculty.get(Faculty.MATH));
     }
 
     public static void task2() {
