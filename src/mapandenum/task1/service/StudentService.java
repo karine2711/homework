@@ -44,17 +44,21 @@ public class StudentService {
         }
     }
 
-    //Returns a map of students with the number of occurrences of the same first and last names
-    public static Map<String, Integer> getStudentsMap(List<Student> students) {
-
-        Map<String, Integer> studentMap = new HashMap<>();
+    /*Returns a map of students with the number of occurrences of the same first and last names
+    The keys of the map are first occurred students for each duplicate name
+     */
+    public static Map<Student, Integer> getStudentsMap(List<Student> students) {
+        Map<Student, Integer> studentMap = new HashMap<>();
+        Map<String, Student> nameStudent = new HashMap<>();
         for (Student student : students) {
-            if (!studentMap.containsKey(student.getFullName())) {
-                studentMap.put(student.getFullName(), 1);
+            if (!nameStudent.containsKey(student.getFullName())) {
+                nameStudent.put(student.getFullName(), student);
+                studentMap.put(student, 1);
             } else {
-                int currentValue = studentMap.get(student.getFullName());
+                Student student1 = nameStudent.get(student.getFullName());
+                int currentValue = studentMap.get(student1);
                 currentValue++;
-                studentMap.put(student.getFullName(), currentValue);
+                studentMap.put(student1, currentValue);
             }
         }
         return studentMap;

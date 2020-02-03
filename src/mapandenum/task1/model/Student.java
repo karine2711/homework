@@ -53,11 +53,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return firstName +  " "+ lastName + '\'' +
-                ", age=" + age +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", faculty='" + faculty + '\'' +
-                '}';
+        return firstName +  " "+ lastName ;
     }
 
 }
