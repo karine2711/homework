@@ -43,12 +43,12 @@ public class Main {
 
         //Task 2-D
         try {
-            System.out.println(MonthOperations.isHoliday(Month.MARCH, 8));
+            System.out.println(Month.MARCH.isHoliday(8));
         } catch (InvalidMonthDayException e) {
             System.out.println(e.getMessage());
         }
         try {
-            System.out.println(MonthOperations.isHoliday(Month.MARCH, 21));
+            System.out.println(Month.MARCH.isHoliday(21));
         } catch (InvalidMonthDayException e) {
             System.out.println(e.getMessage());
         }

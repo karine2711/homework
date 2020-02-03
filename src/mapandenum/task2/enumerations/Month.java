@@ -1,5 +1,6 @@
 package mapandenum.task2.enumerations;
 
+import mapandenum.task2.exceptions.InvalidMonthDayException;
 import org.jetbrains.annotations.NotNull;
 
 public enum Month {
@@ -22,6 +23,15 @@ public enum Month {
     private int[] holidays = {};
     private String shortName;
 
+    Month(int numberOfDays, @NotNull String shortName, int... holidays) {
+        this.numberOfDays = numberOfDays;
+        this.shortName = shortName;
+        if (holidays != null) {
+            numberOfHolidays = holidays.length;
+            this.holidays = holidays;
+        }
+    }
+
     public int getNumberOfHolidays() {
         return numberOfHolidays;
     }
@@ -42,13 +52,17 @@ public enum Month {
         return shortName;
     }
 
-    Month(int numberOfDays, @NotNull String shortName, int... holidays) {
-        this.numberOfDays = numberOfDays;
-        this.shortName = shortName;
-        if (holidays != null) {
-            numberOfHolidays = holidays.length;
-            this.holidays = holidays;
-        }
-    }
 
+    //checks if a given day is a holiday
+    public  boolean isHoliday(int day) {
+        if (day < 0 || day > this.getNumberOfDays()) {
+            throw new InvalidMonthDayException(this, day);
+        }
+        for (int holiday : this.getHolidays()) {
+            if (holiday == day) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
