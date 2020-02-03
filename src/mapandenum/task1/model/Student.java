@@ -1,7 +1,6 @@
 package mapandenum.task1.model;
 
 import mapandenum.task1.enumerations.Faculty;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -15,8 +14,8 @@ public class Student {
     private static final int MIN_AGE = 7;
     private static final int MAX_AGE = 70;
 
-    public Student(@NotNull String firstName, @NotNull String lastName, int age,
-                   @NotNull String phoneNumber, @NotNull Faculty faculty) {
+    public Student( String firstName,  String lastName, int age,
+                    String phoneNumber, Faculty faculty) {
         if (age < MIN_AGE || age > MAX_AGE) {
             throw new IllegalArgumentException("Age must be between 7 and 70");
         }

@@ -1,7 +1,6 @@
 package mapandenum.task2.enumerations;
 
 import mapandenum.task2.exceptions.InvalidMonthDayException;
-import org.jetbrains.annotations.NotNull;
 
 public enum Month {
 
@@ -23,7 +22,7 @@ public enum Month {
     private int[] holidays = {};
     private String shortName;
 
-    Month(int numberOfDays, @NotNull String shortName, int... holidays) {
+    Month(int numberOfDays, String shortName, int... holidays) {
         this.numberOfDays = numberOfDays;
         this.shortName = shortName;
         if (holidays != null) {

@@ -2,7 +2,6 @@ package mapandenum.task1.service;
 
 import mapandenum.task1.enumerations.Faculty;
 import mapandenum.task1.model.Student;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,7 +69,7 @@ public class StudentService {
     }
 
     //Returns a map of students with the number of occurrences of the same first and last names
-    public static Map<String, Integer> getStudentsMap(@NotNull List<Student> students) {
+    public static Map<String, Integer> getStudentsMap(List<Student> students) {
 
         Map<String, Integer> studentMap = new HashMap<>();
         for (Student student : students) {
@@ -87,7 +86,7 @@ public class StudentService {
     }
 
     //Counts the number of students in each faculty and stores this info in Faculty enumeration
-    public static void countStudentsInEachFaculty(@NotNull List<Student> students) {
+    public static void countStudentsInEachFaculty(List<Student> students) {
 
         Faculty.resetStudentQuantity();
         for (Student student : students) {
