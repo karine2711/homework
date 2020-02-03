@@ -22,5 +22,7 @@ public class Main {
             System.out.println(s);
 
         }
+        System.out.println("size");
+        System.out.println(set.getSize());
     }
 }

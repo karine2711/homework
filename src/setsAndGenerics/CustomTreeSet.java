@@ -3,7 +3,12 @@ package setsAndGenerics;
 import java.util.Iterator;
 
 public class CustomTreeSet<Type extends Comparable<Type>> implements Iterable<Type> {
-    Node root = null;
+    private Node root = null;
+    private int size=0;
+
+    public int getSize() {
+        return size;
+    }
 
     public boolean add(Type object) {
         if(this.contains(object)){
@@ -14,6 +19,7 @@ public class CustomTreeSet<Type extends Comparable<Type>> implements Iterable<Ty
         } else {
             findPlace(object, root);
         }
+        size++;
         return true;
     }
 

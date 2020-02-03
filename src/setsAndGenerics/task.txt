@@ -4,4 +4,4 @@
  . contains
  . getSize
 
-2.Write a testing program which will store and print given type of objects(Cofee, Student, Glasses)
+2.Write a testing program which will store and print given type of objects(Coffee, Student, Glasses)
