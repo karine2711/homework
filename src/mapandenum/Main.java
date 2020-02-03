@@ -29,7 +29,7 @@ public class Main {
         System.out.println("\n" + SEPARATOR + "TASK 1 - B" + SEPARATOR);
         System.out.println("Count the number of students in each faculty\n");
         StudentService.countStudentsInEachFaculty(studentList);
-        Faculty.print();
+        Faculty.printAllFaculties();
         System.out.println("The number of students in Math faculty is " + Faculty.MATH.getStudentQuantity());
     }
 

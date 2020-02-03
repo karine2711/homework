@@ -26,7 +26,7 @@ public enum Faculty {
     }
 
     //Print all faculties
-    public static void print() {
+    public static void printAllFaculties() {
         for (Faculty faculty : values()) {
             System.out.println(faculty);
         }
