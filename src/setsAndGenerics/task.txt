@@ -1,0 +1,7 @@
+1.Create an implementation of set interface which will store elements of any type in sorted order. It will have following methods:
+ . add
+ . remove
+ . contains
+ . getSize
+
+2.Write a testing program which will store and print given type of objects(Cofee, Student, Glasses)
