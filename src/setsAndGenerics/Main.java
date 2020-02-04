@@ -5,24 +5,14 @@ import java.util.Iterator;
 public class Main {
     public static void main(String[] args) {
         CustomTreeSet<String> set=new CustomTreeSet<String>();
-        set.add("5");
-        set.add("2");
-        set.add("3");
-        set.add("1");
-        set.add("1");
-        set.add("1");
-        set.add("1");
-        set.add("1");
-        set.add("2");
-        set.add("2");
-     //   System.out.println("hi");
-        Iterator<String> iterator=set.iterator();
-        for (String s:set
-             ) {
-            System.out.println(s);
 
-        }
-        System.out.println("size");
+        System.out.println(set.add("1"));
+        System.out.println( set.add("5"));
+        System.out.println( set.add("3"));
+
+        System.out.println( set.add("3"));
+        System.out.println( set.add("5"));
+        System.out.println( set.add("3"));
         System.out.println(set.getSize());
     }
 }
