@@ -25,23 +25,22 @@ public class CustomTreeSet<Type extends Comparable<Type>>{
         return true;
     }
 
-//    public boolean remove(Type object) {
-//        if (!this.contains(object)) {
-//            return false;
-//        }
-//     Node node=findNode(object,root);
-//        if(node){
-//            Node parent=node.parent;
-//            Node left=node.left;
-//            Node right=node.right;
-//            if(parent.current.compareTo(node.current)>0){
-//                parent.right=node.right;
-//            }
-//            return true;
-//        }else {
-//            return false;
-//        }
-//    }
+    public boolean remove(Type object) {
+        if (!this.contains(object)) {
+            return false;
+        }
+       Node node= findNode(object);
+       Node parent=node.parent;
+       Node left=node.left;
+       Node right=node.right;
+       if(parent!=null){
+           parent.right=left;
+       }
+       Node leftsrightLeaf=traverseRight(left);
+       leftsrightLeaf.right=right;
+       size--;
+        return true;
+    }
 
     public boolean contains(Type object) {
         return  findNode(object)==null?false:true;
@@ -63,18 +62,16 @@ public class CustomTreeSet<Type extends Comparable<Type>>{
         }
     }
 
-//    private Node traverseLeft() {
-//        List<Node> result=new ArrayList<>();
-//        if (root == null) {
-//            return null;
-//        }
-//        Node position = root;
-//        while (position!= null) {
-//            result.add(position);
-//            position = position.left;
-//        }
-//        return result;
-//    }
+    private Node traverseRight(Node startNode) {
+        if (startNode == null) {
+            return null;
+        }
+        Node position=startNode;
+        while (position.right!= null) {
+            position = position.right;
+        }
+        return position;
+    }
 
     private Node findNode(Type object) {
         Node node =root;

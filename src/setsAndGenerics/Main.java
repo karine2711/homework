@@ -10,9 +10,9 @@ public class Main {
         System.out.println( set.add("5"));
         System.out.println( set.add("3"));
 
-        System.out.println( set.add("3"));
-        System.out.println( set.add("5"));
-        System.out.println( set.add("3"));
         System.out.println(set.getSize());
+        System.out.println(set.remove("5"));
+        System.out.println(set.getSize());
+        System.out.println(set.contains("5"));
     }
 }
