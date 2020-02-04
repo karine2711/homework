@@ -44,17 +44,7 @@ public class CustomTreeSet<Type extends Comparable<Type>>{
 //    }
 
     public boolean contains(Type object) {
-        Node node =root;
-      while(node!=null ){
-          if(node.current==object){
-              return true;
-          } else if(object.compareTo(node.current)<0){
-              node=node.left;
-          }else if(object.compareTo(node.current)>0){
-              node=node.right;
-          }
-      }
-        return false;
+        return  findNode(object)==null?false:true;
     }
 
     private void findPlace(Type object, Node node) {
@@ -86,16 +76,16 @@ public class CustomTreeSet<Type extends Comparable<Type>>{
 //        return result;
 //    }
 
-    private Node findNode(Type object, Node position) {
-        Node pointer = position;
-        if (position == null) {
-            return null;
-        } else if (position.current == object) {
-            return position;
-        } else if (object.compareTo(position.current) < 0) {
-            return findNode(object, position.left);
-        } else if (object.compareTo(position.current) > 0) {
-            return findNode(object, position.right);
+    private Node findNode(Type object) {
+        Node node =root;
+        while(node!=null ){
+            if(node.current==object){
+                return  node;
+            } else if(object.compareTo(node.current)<0){
+                node=node.left;
+            }else if(object.compareTo(node.current)>0){
+                node=node.right;
+            }
         }
         return null;
     }
