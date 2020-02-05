@@ -14,8 +14,8 @@ public class Student {
     private static final int MIN_AGE = 7;
     private static final int MAX_AGE = 70;
 
-    public Student( String firstName,  String lastName, int age,
-                    String phoneNumber, Faculty faculty) {
+    public Student(String firstName, String lastName, int age,
+                   String phoneNumber, Faculty faculty) {
         if (age < MIN_AGE || age > MAX_AGE) {
             throw new IllegalArgumentException("Age must be between 7 and 70");
         }
@@ -39,21 +39,18 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return age == student.age &&
-                firstName.equals(student.firstName) &&
-                lastName.equals(student.lastName) &&
-                phoneNumber.equals(student.phoneNumber) &&
-                faculty.equals(student.faculty);
+        return firstName.equals(student.firstName) &&
+                lastName.equals(student.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, age, phoneNumber, faculty);
+        return Objects.hash(firstName, lastName);
     }
 
     @Override
     public String toString() {
-        return firstName +  " "+ lastName ;
+        return firstName + " " + lastName;
     }
 
 }

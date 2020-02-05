@@ -49,16 +49,14 @@ public class StudentService {
      */
     public static Map<Student, Integer> getStudentsMap(List<Student> students) {
         Map<Student, Integer> studentMap = new HashMap<>();
-        Map<String, Student> nameStudent = new HashMap<>();
+
         for (Student student : students) {
-            if (!nameStudent.containsKey(student.getFullName())) {
-                nameStudent.put(student.getFullName(), student);
+            if (!studentMap.containsKey(student)) {
                 studentMap.put(student, 1);
             } else {
-                Student student1 = nameStudent.get(student.getFullName());
-                int currentValue = studentMap.get(student1);
+                int currentValue = studentMap.get(student);
                 currentValue++;
-                studentMap.put(student1, currentValue);
+                studentMap.put(student, currentValue);
             }
         }
         return studentMap;
