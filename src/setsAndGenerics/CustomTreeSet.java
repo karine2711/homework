@@ -37,7 +37,13 @@ public class CustomTreeSet<Type extends Comparable<Type>>{
            parent.right=left;
        }
        Node leftsrightLeaf=traverseRight(left);
+       if(leftsrightLeaf!=null){
        leftsrightLeaf.right=right;
+       }else if(parent!=null){
+           parent.right=right;
+       } else {
+           root=right;
+       }
        size--;
         return true;
     }
@@ -76,7 +82,7 @@ public class CustomTreeSet<Type extends Comparable<Type>>{
     private Node findNode(Type object) {
         Node node =root;
         while(node!=null ){
-            if(node.current==object){
+            if(node.current.equals(object)){
                 return  node;
             } else if(object.compareTo(node.current)<0){
                 node=node.left;
@@ -86,13 +92,6 @@ public class CustomTreeSet<Type extends Comparable<Type>>{
         }
         return null;
     }
-
-//    @Override
-//    public Iterator<Type> iterator() {
-//        Node LeftEndLeaf = traverseLeft();
-//        return new CustomTreeSetIterator(LeftEndLeaf);
-//    }
-
 
     private class Node {
         Node parent;
@@ -107,47 +106,5 @@ public class CustomTreeSet<Type extends Comparable<Type>>{
             this.parent = parent;
         }
     }
-
-
-//    private class CustomTreeSetIterator implements Iterator {
-//        Node position;
-//        boolean rightReturned = false;
-//        List <Node> leftSideOfCurrentNode=new ArrayList<>();
-//
-//
-//
-//        public CustomTreeSetIterator(List leftSideNotes) {
-//            Node node=leftSideNotes.get(--leftSideNotes.size());
-//            position = new Node(null, null, null, node);
-//            leftSideOfCurrentNode=leftSideNotes;
-//        }
-//
-//        @Override
-//        public boolean hasNext() {
-//            if (position.right != null || position.parent != null) {
-//                return true;
-//            }
-//            return false;
-//
-//        }
-//
-//        @Override
-//        public Type next() {
-//            Node node=poz
-//            if (this.hasNext()) {
-//                if (position.right != null && !rightReturned) {
-//                    rightReturned = true;
-//                    return position.right.current;
-//                } else {
-//                    position = position.parent;
-//                    rightReturned = false;
-//                    return position.current;
-//                }
-//            }
-//            return null;
-//        }
-//
-//
-//    }
 
 }
