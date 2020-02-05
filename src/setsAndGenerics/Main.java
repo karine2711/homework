@@ -5,8 +5,16 @@ import setsAndGenerics.model.Coffee;
 import setsAndGenerics.model.Glasses;
 import setsAndGenerics.model.Student;
 
+/**
+ * Contains the public static void main()
+ * as well as tester functions for different types of CustomTreeSet
+ *
+ * @author Karine Gevorgyan
+ */
 public class Main {
+
     public static void main(String[] args) {
+
         testStringCustomSet();
         testCoffeeCustomSet();
         testStudentCustomSet();
@@ -14,7 +22,10 @@ public class Main {
 
     }
 
-
+    /**
+     * Creates a <i>CustomTreeSet</i> of Strings and calls all <i>CustomTreeSet</i> functions
+     * for testing purposes
+     */
     private static void testStringCustomSet() {
         //create a  set
         CustomTreeSet<String> set = new CustomTreeSet<String>();
@@ -25,9 +36,9 @@ public class Main {
         System.out.println("Add '3': " + set.add("3"));
         System.out.println("Add '3': " + set.add("3"));
 
-        set.printAll();
+        set.printAll(); //print the whole set
 
-        //Test the methods
+        //Test all methods
         System.out.println("Size = " + set.getSize());
         System.out.println("Remove '5': " + set.remove("5"));
         System.out.println("Size = " + set.getSize());
@@ -35,9 +46,13 @@ public class Main {
 
     }
 
+    /**
+     * Creates a <i>CustomTreeSet</i> of Coffees and calls all <i>CustomTreeSet</i> functions
+     * for testing purposes
+     */
     private static void testCoffeeCustomSet() {
 
-        //Make cappuccion
+        //Make cappuccino
         Coffee cappuccino = new Coffee.CoffeeMachine("Cappuccino", 350)
                 .addSugar(2)
                 .addMilk(50)
@@ -69,32 +84,32 @@ public class Main {
         //Add coffeees to set
         System.out.println("Cappuccino added: " + coffeeSet.add(cappuccino));
         System.out.println("Latte added: " + coffeeSet.add(latte));
-
-        //expected false as a cappuccino with an exactly same recipe exists in the set
         System.out.println("Cappuccino duplicate added: " + coffeeSet.add(cappuccinoCopy));
-
         System.out.println("New cappuccino added: " + coffeeSet.add(cappuccino2));
 
-        coffeeSet.printAll();
+        coffeeSet.printAll(); //print all objects
 
+        //Test all methods
         System.out.println("2nd Cappuccino removed: " + coffeeSet.remove(cappuccino2));
         System.out.println("Cappuccino removed: " + coffeeSet.remove(cappuccino));
-
-        //expected false, as cappuccino was just removed
         System.out.println("Check if there is a cappchino with a given recipe in the set: "
                 + coffeeSet.contains(cappuccino));
-
         System.out.println("Size = " + coffeeSet.getSize());
-
 
     }
 
-
+    /**
+     * Creates a <i>CustomTreeSet</i> of Students and calls all <i>CustomTreeSet</i> functions
+     * for testing purposes
+     */
     private static void testStudentCustomSet() {
+
+        //Create some students
         Student karine = new Student("Karine", "Gevorgyan", 18);
         Student milena = new Student("Milena", "Xazaryan", 18);
         Student babken = new Student("Babken", "Pejpejyan", 19);
 
+        //Create CustomTreeSet and test methods
         CustomTreeSet<Student> studentSet = new CustomTreeSet<>();
         System.out.println("Add Karine: " + studentSet.add(karine));
         System.out.println("Add Milena: " + studentSet.add(milena));
@@ -107,8 +122,13 @@ public class Main {
         System.out.println("Remove Karine: " + studentSet.remove(karine));
         System.out.println("Contains Karine? " + studentSet.contains(karine));
         System.out.println("Contains Miilena? " + studentSet.contains(milena));
+
     }
 
+    /**
+     * Creates a <i>CustomTreeSet</i> of Glasses and calls all <i>CustomTreeSet</i> functions
+     * for testing purposes
+     */
     private static void testGlassesSet() {
 
         //Created some Glasses
@@ -132,5 +152,7 @@ public class Main {
         System.out.println("Contains Raybans?: " + glassesSet.contains(raybans));
         System.out.println("Remove Raybans: " + glassesSet.remove(raybans));
         System.out.println("Contains Raybans?: " + glassesSet.contains(raybans));
+
     }
+
 }

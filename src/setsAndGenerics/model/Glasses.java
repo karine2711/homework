@@ -8,7 +8,7 @@ public class Glasses implements Comparable<Glasses> {
     private String brand;
     private boolean isOptical;
     private String bordercolor;
-    private Glass[] glasses = new Glass[2];
+    private Glass[] glasses = new Glass[2]; //the glasses[0]=left glass and glasses[1]=right glass
 
 
     public Glasses(String brand, String bordercolor, String leftGlassColor, String rightGlassColor,
@@ -31,6 +31,7 @@ public class Glasses implements Comparable<Glasses> {
 
     }
 
+    //getters
     public String getBrand() {
         return this.brand;
     }
@@ -47,6 +48,12 @@ public class Glasses implements Comparable<Glasses> {
         return this.glasses;
     }
 
+    /**
+     * 2 Glasses are equa if all their fields are equal
+     *
+     * @param o the Glass object, to be tested for equality with 'this'
+     * @return true, if the parameters are equal
+     */
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
@@ -58,6 +65,9 @@ public class Glasses implements Comparable<Glasses> {
                 Arrays.equals(this.glasses, glasses1.glasses);
     }
 
+    /**
+     * @return hashcode, based on all fields of the Glasses class
+     */
     @Override
     public int hashCode() {
         int result = Objects.hash(this.brand, this.isOptical, this.bordercolor);
@@ -65,11 +75,32 @@ public class Glasses implements Comparable<Glasses> {
         return result;
     }
 
+    /**
+     * Glasses are compared by their brand, than border color, than total optical range
+     *
+     * @param glasses the Glasses object to be compared to 'this'
+     * @return negative int, if this<glasses, positive int, if this>glasses, and 0 otherwise
+     */
     @Override
-    public int compareTo( Glasses glasses) {
-        return this.hashCode()-glasses.hashCode();
+    public int compareTo(Glasses glasses) {
+        int compareByBrand = this.brand.compareTo(glasses.brand);
+        int compareByBorderColor = this.brand.compareTo(glasses.bordercolor);
+        int compareByOpticalRange = (int) ((this.glasses[0].opticalRange + this.glasses[1].opticalRange) -
+                (glasses.glasses[0].opticalRange + glasses.glasses[1].opticalRange));
+
+        if (compareByBrand != 0) {
+            return compareByBrand;
+        } else if (compareByBorderColor != 0) {
+            return compareByBorderColor;
+        } else {
+            return compareByOpticalRange;
+        }
+
     }
 
+    /**
+     * Represents a single glass present in glasses.
+     */
     private class Glass {
         String color = "transparent";
         double opticalRange;
@@ -87,6 +118,7 @@ public class Glasses implements Comparable<Glasses> {
         public int hashCode() {
             return Objects.hash(this.color, this.opticalRange);
         }
+
     }
 
 }
