@@ -1,4 +1,4 @@
-package setsAndGenerics;
+package setsAndGenerics.model;
 
 
 import java.util.Objects;

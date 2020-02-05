@@ -1,6 +1,4 @@
-package setsAndGenerics;
-
-import org.jetbrains.annotations.NotNull;
+package setsAndGenerics.model;
 
 import java.util.Arrays;
 import java.util.Objects;

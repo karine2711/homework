@@ -1,4 +1,4 @@
-package setsAndGenerics;
+package setsAndGenerics.model;
 
 
 import java.util.Objects;
@@ -77,7 +77,7 @@ public class Coffee implements Comparable<Coffee> {
                 '}';
     }
 
-    static class CoffeeMachine {
+   public static class CoffeeMachine {
         private String name;
         private int mililitres;
         private int spoonsOfSugar;

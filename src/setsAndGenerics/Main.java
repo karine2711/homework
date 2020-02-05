@@ -1,7 +1,9 @@
 package setsAndGenerics;
 
 
-import java.util.Iterator;
+import setsAndGenerics.model.Coffee;
+import setsAndGenerics.model.Glasses;
+import setsAndGenerics.model.Student;
 
 public class Main {
     public static void main(String[] args) {
