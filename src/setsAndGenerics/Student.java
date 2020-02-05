@@ -11,9 +11,9 @@ public class Student implements Comparable<Student> {
 
 
     public Student(String firstName, String lastName, int age) {
-      this.firstName=firstName;
-      this.lastName=lastName;
-      this.age=age;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
     }
 
 
@@ -33,7 +33,26 @@ public class Student implements Comparable<Student> {
     }
 
     @Override
-    public int compareTo( Student student) {
-        return this.age-student.age;
+    public int compareTo(Student student) {
+        int compareByName = this.firstName.compareTo(student.firstName);
+        int compareBySurName = this.lastName.compareTo(student.lastName);
+        int compareByAge = this.age - student.age;
+        if(compareByName!=0){
+        return compareByName;
+        }else if(compareBySurName!=0){
+            return compareBySurName;
+        } else {
+            return compareByAge;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+
+                '}';
     }
 }
