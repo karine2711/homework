@@ -1,11 +1,13 @@
 package setsAndGenerics;
 
+
 import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
-        // testStringCustomSet();
+      testStringCustomSet();
       testCoffeeCustomSet();
+      testStudentCustomSet();
     }
 
 
@@ -65,5 +67,22 @@ public class Main {
                 +coffeeSet.contains(cappuccino));
 
         System.out.println("Size = "+coffeeSet.getSize());
+    }
+
+    public static void testStudentCustomSet(){
+        Student karine=new Student("Karine", "Gevorgyan",18);
+        Student milena=new Student("Milena", "Xazaryan", 20);
+        Student babken=new Student("Babken", "Pejpejyan", 19);
+
+        CustomTreeSet<Student> studentSet=new CustomTreeSet<>();
+        System.out.println("Add Karine: "+studentSet.add(karine));
+        System.out.println("Add Milena: "+ studentSet.add(milena));
+        System.out.println("Add Babken: "+ studentSet.add(babken));
+        System.out.println("Add Milena again: "+ studentSet.add(milena));
+        System.out.println("Size = "+studentSet.getSize());
+
+        System.out.println("Remove Karine: "+studentSet.remove(karine));
+        System.out.println("Contains Karine? "+studentSet.contains(karine));
+        System.out.println("Contains Miilena? "+studentSet.contains(milena));
     }
 }
